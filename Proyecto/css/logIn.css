@@ -3,12 +3,10 @@
 }
 
 .fondo {
-  /*  width: 100%;*/
+
   height: 100vh;
   background-image: url(../img/co-learning.jpeg);
   background-size: cover;
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .info {
@@ -34,22 +32,17 @@
 }
 
 .subTitulo {
-  font-size: 2.5em;
-  padding-left: 3%;
-  padding-bottom: 1%;
   color: #D0103A;
 }
 
 .colearning {
   background-color: #fafafa;
-  width: 45.5%;
 }
 
 .primeraInfo {
-  font-size: 1em;
+
   color: #fafafa;
-  width: 65%;
-  padding: 1%;
+
   background-color: rgba(127, 127, 127, 0.4);
 }
 
@@ -62,7 +55,6 @@ footer {
 }
 
 .redes {
-  padding: 1em;
   border-top: 1px solid white;
   border-bottom: 1px solid white;
 }
@@ -92,34 +84,20 @@ footer {
   list-style-type: none;
 }
 
-.fAQ {
-  background-color: white;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: space-around;
-}
 
 .registro {
-  padding-left: 10%;
-  padding-right: 10%;
-  align-items: center;
-  justify-content: center;
+
 }
 
 .entrar {
   background-color: #281e49;
-  width: 70%;
-  padding: 3%;
+
   color: #fafafa;
   border: none;
 }
 
 .columnas {
-  box-sizing: border-box;
-  width: 30%;
-  margin-top: 2%;
-  text-align: justify;
+
 }
 
 .colorHr {
@@ -127,77 +105,6 @@ footer {
 }
 
 .colorParrafo {
-  padding: 5%;
+
   background-color: rgba(127, 127, 127, 0.1);
-}
-
-@media (max-width: 767.98px) {
-  * {
-    margin: 0 auto;
-  }
-.fondo{
-  height: 40vh;
-  padding: 0 auto;
-}
-  .imagen {
-    width: 100%;
-    height: 30vh;
-    padding: inherit;
-    padding-top: 8%;
-    background-color: #fafafa;
-  }
-  .dh{
-    width: 80%;
-    height: 60%;
-    margin: auto;
-  }
-  .colearning{
-    width: auto;
-    padding: inherit;
-    text-align: center;
-  }
-  .subTitulo{
-    padding: inherit;
-  }
-
-  article{
-    padding: 0 auto;
-    justify-content: center;
-  }
-  .subTitulo{
-    width: auto;
-    font-size: 1.5em;
-  }
-.primeraInfo{
-  display: none;
-}
-  .info {
-    width: 100%;
-    height: 70vh;
-    padding: 0;
-  }
-
-  .input {
-    width: 50%;
-    margin: auto;
-    display: block;
-  }
-
-  .entrar {
-    width: 50%;
-    display: block;
-    margin: auto;
-  }
-
-  .fAQ {
-    margin: auto;
-    flex-direction: column;
-  }
-
-  .columnas {
-    width: 90%;
-  }
-  .icons{
-    width: 1.5em;
-  }
 }

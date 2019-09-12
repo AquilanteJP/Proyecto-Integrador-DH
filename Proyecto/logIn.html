@@ -11,84 +11,89 @@
 </head>
 
 <body>
-  <div class="contenedor">
-    <div class="fondo">
-      <section class="imagen">
-        <img class="dh" src="img/logo-DH.png" alt="">
-        <article class="">
-          <div class="colearning">
-            <h3 class="subTitulo">Colearning at Home</h3>
-          </div>
-          <div class="primeraInfo">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          </div>
-        </article>
-      </section>
-      <header class="info">
-        <hr>
-        <br>
-        <h5>Log In</h5>
-        <form>
-          <input class="mb-2 input" type="text" name="user" value="" placeholder="Usuario" autofocus>
-          <input class="mb-3 input" type="text" name="password" value="" placeholder="Contraseña">
-          <button class="rounded-lg  entrar" type="submit" name="sigIn">Entrar</button>
-        </form>
-        <br>
-        <hr>
-        <br>
-        <br>
-        <br>
-
+  <div class="container-fluid m-0 p-0 d-flex flex-row flex-wrap">
+    <section class="col-9 d-none d-md-block d-lg-block vh-100 m-auto p-auto imagen fondo">
+      <img class="w-75 ml-4 mt-3 dh" src="img/logo-DH.png" alt="">
+      <article class="pl-5 mt-5 mr-5">
+        <div class="w-50 colearning">
+          <h1 class="subTitulo">Colearning at Home</h1>
+        </div>
+        <div class="w-75 primeraInfo">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </article>
+    </section>
+    <header class="col-lg-3 col-md-3 col-sm-12 p-3 vh-100 bg-light info">
+      <hr>
+      <h2 class="	d-md-none d-lg-none subTitulo">Colearning at Home</h2>
+      <br>
+      <h5>Log In</h5>
+      <form class="p-3">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input type="password" class="form-control" id="password" placeholder="Introduce tu contraseña">
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="check">
+          <label class="form-check-label" for="check">Recuerdame</label>
+        </div>
+        <button type="submit" class="w-75 m-auto btn btn-primary">Entrar</button>
+      </form>
+      <hr>
+      <br>
+      <div>
         <li class="noPunto"><a class="opcionesfooter" href="#preguntas">Preguntas Frecuentes</a></li>
         <li class="noPunto"><a class="opcionesfooter" href="#">Nosotros</a></li>
         <li class="noPunto"><a class="opcionesfooter" href="#">Contacto</a></li>
-
-        <br>
-        <br>
-        <br>
-        <hr>
-      </header>
-      <section class="border-top fAQ">
-        <div class="columnas">
-          <h5 id="preguntas">Preguntas Frecuentes</h5>
-          <hr class="colorHr">
-          <p class="colorParrafo">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            <a href="#">Volver</a>
-          </p>
-        </div>
-        <div class="columnas">
-          <h5>Nosotros</h5>
-          <hr class="colorHr">
-          <p class="colorParrafo">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            <a href="#">Volver</a>
-          </p>
-        </div>
-        <div class="columnas">
-          <h5>Contacto</h5>
-          <hr class="colorHr">
-          <p class="colorParrafo">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-            commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            <a href="#">Volver</a>
-          </p>
-        </div>
-      </section>
-      <footer>
-        <h5 class="nuestrasRedes">Nuestras Redes</h5>
-        <div class="redes">
-          <i><img class="icons" src="img/icons/logoFacebook.png" alt=""></i>
-          <i><img class="icons" src="img/icons/logoTwitter.png" alt=""></i>
-          <i><img class="icons" src="img/icons/logoInstagram.png" alt=""></i>
-          <i><img class="icons" src="img/icons/logoLinkedin.png" alt=""></i>
-          <i><img class="icons" src="img/icons/logoGoogle.png" alt=""></i>
-        </div>
-        <br>
-        <p>todos los derechos reservados</p>
-      </footer>
-    </div>
+      </div>
+      <br>
+      <hr>
+    </header>
+    <section class="clearflix row p-3 m-0 border-top fAQ">
+      <div class="col-lg-4 col-md-12 col-sm-12">
+        <h5 id="preguntas">Preguntas Frecuentes</h5>
+        <hr class="colorHr">
+        <p class="colorParrafo">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <a href="#">Volver</a>
+        </p>
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12">
+        <h5>Nosotros</h5>
+        <hr class="colorHr">
+        <p class="colorParrafo">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <a href="#">Volver</a>
+        </p>
+      </div>
+      <div class="col-lg-4 col-md-12 col-sm-12">
+        <h5>Contacto</h5>
+        <hr class="colorHr">
+        <p class="colorParrafo">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
+          commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          <a href="#">Volver</a>
+        </p>
+      </div>
+    </section>
+    <footer>
+      <h5 class="nuestrasRedes">Nuestras Redes</h5>
+      <div class="redes pt-2 pb-2">
+        <i><img class="icons" src="img/icons/logoFacebook.png" alt=""></i>
+        <i><img class="icons" src="img/icons/logoTwitter.png" alt=""></i>
+        <i><img class="icons" src="img/icons/logoInstagram.png" alt=""></i>
+        <i><img class="icons" src="img/icons/logoLinkedin.png" alt=""></i>
+        <i><img class="icons" src="img/icons/logoGoogle.png" alt=""></i>
+      </div>
+      <br>
+      <p>todos los derechos reservados</p>
+    </footer>
   </div>
+
 </body>
 
 </html>
