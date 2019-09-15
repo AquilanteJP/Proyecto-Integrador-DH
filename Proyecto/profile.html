@@ -3,32 +3,57 @@
   <head>
     <meta charset="utf-8">
     <title>Mi Perfil</title>
-    <link rel="stylesheet" href="css/profile.css">
-    <link rel="stylesheet" type="text/css" href="your_website_domain/css_root/flaticon.css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <script src="https://kit.fontawesome.com/64db3b546b.js"></script>
   </head>
   <body>
-    <div class="contenedor">
+    <div class="container-fluid m-0 p-0 d-flex flex-row flex-wrap -contenedor">
       <header class="header">
-          <div class="imagecontainer">
-            <img src="img/logo-DH.png" alt="logo" class="dh2">
-          </div>
-          <div class="links">
-            <ul>
-                <li><a href="#">Mi información</a></li>
-                <li><a href="#">Amigos</a></li>
-                <li><a href="#">Posts</a></li>
-            </ul>
-          </div>
+          <nav class="navbar navbar-expand-lg navbar-dark -navbar">
+            <div class="-logocontainer">
+              <img src="img/logo-DH.png" alt="logo" class="dh2">
+            </div>
+            <div class="-linkscontainer">
+              <ul class="-links">
+                <li class="-link">
+                  <button type="button" class="btn btn-lg btn-link" name="button"><i class="fas fa-home"></i> Inicio</button>
+                </li>
+                <li class="nav-item -link">
+                  <button type="button" class="btn btn-lg btn-link" name="button"><i class="fas fa-code"></i> Mis proyectos</button>
+                </li>
+                <li class="nav-item -link">
+                   <button type="button" class="btn btn-lg btn-link" name="button"><i class="fas fa-user-friends"></i> Mis amigos</button>
+                </li>
+                <li class="nav-item -link">
+                   <button type="button" class="btn btn-lg btn-link" name="button"><i class="fas fa-chalkboard"></i> Mis cursos</button>
+                </li>
+                <li class="nav-item -link">
+                   <button type="button" class="btn btn-lg btn-link" name="button"><i class="fas fa-cogs"></i> Opciones</button>
+                </li>
+              </ul>
+            </div>
+          </nav>
       </header>
-      <div class="banner">
-        <img class="bannerpicture" src="img/banner.jpg" alt="banner" width=1008 height=450>
-      </div>
-      <div class="profile">
-          <img src="img/profilepic.jpg" alt="fotoperfil" class="profilepic">
+      <div class="row container-fluid">
+        <div class="col-3 border border-primary -profile">
+          <img src="img/profilepic.jpg" alt="fotoperfil" class="-profilepic mx-auto">
+          <h2 class="text-center font-weight-bold -nombre ">Pancho Villa</h2>
+          <hr>
+          <ul>
+            <li><h6 class=" -fecha">Se unió en Septiembre 2019</h6></li>
+            <li><h6 class=" -rol">Estudiante</h6></li>
+            <li><h6 class=" -proyectos"><a href=#>3 proyectos</a></h6></li>
+            <li><h6 class=" -información"><a href=#>Mas información</a></h6></li>
+          </ul>
+          <hr>
+          <button type="button" class="btn btn-lg btn-primary m-auto -botonAmigo" disabled name="button">(¡Este sos vos!)</button>
+        </div>
+        <div class="col-6 border -borderCustom -posts">
+
+        </div>
       </div>
     </div>
-    <footer><div>Icons made by <a href="https://www.flaticon.com/authors/good-ware" title="Good Ware">Good Ware</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div></footer>
   </body>
 </html>
