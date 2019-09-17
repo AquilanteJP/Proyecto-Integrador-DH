@@ -9,7 +9,7 @@
     <script src="https://kit.fontawesome.com/64db3b546b.js"></script>
   </head>
   <body>
-    <div class="container-fluid m-0 p-0 d-flex flex-row flex-wrap -contenedor">
+    <div class="container-fluid m-0 p-0 d-flex flex-row flex-wrap -all">
       <header class="header">
           <nav class="navbar navbar-expand-lg navbar-dark -navbar">
             <div class="-logocontainer">
@@ -36,9 +36,9 @@
             </div>
           </nav>
       </header>
-      <div class="row container-fluid">
-        <div class="col-3 border border-primary -profile">
-          <br>
+      <div class="row container-fluid -contenido">
+        <br>
+        <div class="border border-primary rounded -profile">
           <img src="img/profilepic.jpg" alt="fotoperfil" class="-profilepic mx-auto">
           <h2 class="text-center font-weight-bold -nombre ">Pancho Villa</h2>
           <hr>
@@ -49,10 +49,25 @@
             <li><h6 class=" -información"><a href=#>Mas información</a></h6></li>
           </ul>
           <hr>
-          <button type="button" class="btn btn-lg btn-primary m-auto -botonAmigo" disabled name="button">(¡Este sos vos!)</button>
+          <h6 class="text-center font-weight-bold">Capacitaciones:</h6>
+          <ul class="-capacitaciones">
+            <li><span title="HTML"><i class="fab fa-html5 fa-3x -caphtml5"></i></span></li>
+            <li><span title="CSS"><i class="fab fa-css3-alt fa-3x -capcss3"></i></span></li>
+            <li><span title="PHP"><i class="fab fa-php fa-3x -capphp"></i></span></li>
+          </ul>
+          <hr>
+          <button type="button" class="btn btn-lg btn-primary -botonAmigo" disabled name="button">(¡Este sos vos!)</button>
         </div>
-        <div class="col-6 border -borderCustom -posts">
-
+        <div class="border border-danger rounded -posts">
+         <div class="-headerPosts border border-danger rounded-bottom">
+           <br>
+           <h5 class="text-center text-black">¿Algo nuevo que contar?</h5>
+           <form action="" method="post">
+            <textarea class="w-100 p-0 -textPost" placeholder="Escribí aca..." name="comments" ></textarea>
+            <input  class="btn btn-lg -postear text-white" type="submit" name="Postear" value="Postear">
+           </form>
+         </div>
+          <br>
         </div>
       </div>
     </div>
