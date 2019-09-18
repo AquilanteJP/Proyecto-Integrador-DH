@@ -1,33 +1,28 @@
-* {
-  font-family: 'Montserrat', sans-serif;
-}
-
-.fondo {
-  height: 100vh;
-  background-image: url(../img/co-learning.jpeg);
-  background-size: cover;
-}
-
+/*HEADER----------------------------------------------------------------------*/
 .info {
   background-color: #fafafa;
-  width: 25%;
   height: 100vh;
   padding: 3%;
   text-align: center;
   flex-wrap: wrap;
 }
 
+.noPunto {
+  list-style-type: none;
+}
+
+.opcionesfooter {
+  color: black;
+  text-decoration: none;
+}
+
+/*HEADER----------------------------------------------------------------------*/
+/*SECTION C/IMG---------------------------------------------------------------*/
 .imagen {
   width: 75%;
   height: 100vh;
   padding-top: 3%;
   padding-left: 5%;
-}
-
-.dh {
-  width: 65%;
-  height: 33%;
-  display: block;
 }
 
 .subTitulo {
@@ -39,71 +34,18 @@
 }
 
 .primeraInfo {
-
   color: #fafafa;
-
   background-color: rgba(127, 127, 127, 0.4);
 }
 
-footer {
-  background-color: black;
-  width: 100%;
-  clear: none;
-  text-align: center;
-  padding: 1em;
-}
-
-.redes {
-  border-top: 1px solid white;
-  border-bottom: 1px solid white;
-}
-
-.icons:hover {
-  border-color: #D0103A;
-}
-
-.icons {
-  width: 2em;
-  border: 2px solid white;
-  border-radius: 50%;
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-.nuestrasRedes {
-  color: #D0103A;
-}
-
-.opcionesfooter {
-  color: black;
-  text-decoration: none;
-}
-
-.noPunto {
-  list-style-type: none;
-}
-
-
-.registro {
-
-}
-
-.entrar {
-  background-color: #281e49;
-
-  color: #fafafa;
-  border: none;
-}
-
-.columnas {
-
-}
-
+/*SECTION C/IMG---------------------------------------------------------------*/
+/*SECTION C/TEXT--------------------------------------------------------------*/
 .colorHr {
   background-color: rgba(238, 162, 154);
 }
 
 .colorParrafo {
-
   background-color: rgba(127, 127, 127, 0.1);
 }
+
+/*SECTION C/TEXT--------------------------------------------------------------*/
