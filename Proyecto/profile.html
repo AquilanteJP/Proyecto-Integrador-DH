@@ -10,7 +10,7 @@
   </head>
   <body>
     <div class="container-fluid m-0 p-0 d-flex flex-row flex-wrap -all">
-      <header class="header">
+      <header>
           <nav class="navbar navbar-expand-lg navbar-dark -navbar">
             <div class="-logocontainer">
               <img src="img/logo-DH.png" alt="logo" class="dh2">
@@ -37,7 +37,6 @@
           </nav>
       </header>
       <div class="row container-fluid -contenido">
-        <br>
         <div class="border border-primary rounded -profile">
           <img src="img/profilepic.jpg" alt="fotoperfil" class="-profilepic mx-auto">
           <h2 class="text-center font-weight-bold -nombre ">Pancho Villa</h2>
@@ -56,18 +55,32 @@
             <li><span title="PHP"><i class="fab fa-php fa-3x -capphp"></i></span></li>
           </ul>
           <hr>
+          <h6 class="text-center font-weight-bold">Contacto:</h6>
+          <ul class="-contacto">
+            <li><span title="HTML"><i class="fab fa-html5 fa-3x -caphtml5"></i></span></li>
+            <li><span title="CSS"><i class="fab fa-css3-alt fa-3x -capcss3"></i></span></li>
+            <li><span title="PHP"><i class="fab fa-php fa-3x -capphp"></i></span></li>
+          </ul>
+          <hr>
           <button type="button" class="btn btn-lg btn-primary -botonAmigo" disabled name="button">(¡Este sos vos!)</button>
         </div>
-        <div class="border border-danger rounded -posts">
-         <div class="-headerPosts border border-danger rounded-bottom">
+
+        <div class="border rounded -posts">
+         <div class="-enterPost border border-danger rounded">
            <br>
-           <h5 class="text-center text-black">¿Algo nuevo que contar?</h5>
+           <h5 class="text-center font-weight-bold">¿Algo nuevo que contar?</h5>
            <form action="" method="post">
             <textarea class="w-100 p-0 -textPost" placeholder="Escribí aca..." name="comments" ></textarea>
             <input  class="btn btn-lg -postear text-white" type="submit" name="Postear" value="Postear">
            </form>
          </div>
-          <br>
+         <br>
+         <div class="-misPosts border border-warning rounded">
+           <h5 class="text-center font-weight-bold">Tus ultimos posts</h5>
+           <ul>
+             <li></li>
+           </ul>
+         </div>
         </div>
       </div>
     </div>

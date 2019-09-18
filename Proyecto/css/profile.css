@@ -1,12 +1,20 @@
 @import "./master.css";
 
-.-all{
+body{
   background-color:#e6e6e6;
 }
 
-.header{
+.-all{
+  background-color:#e6e6e6;
+  position:relative;
+}
+
+header{
   width:100%;
   height:17vh;
+  position: fixed;
+  top:0;
+  z-index:10;
 }
 
 .-navbar{
@@ -41,6 +49,9 @@
 
 .-contenido{
   margin:1% auto;
+  position:absolute;
+  top:110px;
+  background-color: #e6e6e6;
 }
 
 .-profile{
@@ -53,33 +64,51 @@
 .-profilepic{
   border-radius:50%;
   display:block;
-  width:200px;
+  width:150px;
+  padding-top:10px;
 }
 
 .-capacitaciones{
   list-style-type: none;
   display:flex;
-  justify-content:center;
-}
-
-.-capacitaciones li{
-  display:inline-block;
-
+  justify-content:space-evenly;
+  flex
 }
 
 .-caphtml5{
+  color:#bababa;
+}
+
+.-caphtml5:hover{
   color:#E44D26;
 }
 
 .-capcss3{
+  color:#bababa;
+}
+
+.-capcss3:hover{
   color:#0176BC;
 }
 
 .-capphp{
+  color:#bababa;
+}
+
+.-capphp:hover{
   color:#8892BF;
 }
 
 .-nombre{
+}
+
+.-contacto{
+  display:flex;
+  justify-content: space-evenly;
+}
+
+.-contacto li{
+  list-style-type:none;
 }
 
 .-botonAmigo{
@@ -97,7 +126,7 @@
   border:1px solid #D0103A;
 }
 
-.-headerPosts{
+.-enterPost{
   width:100%;
   background-color:#fafafa;
 }
@@ -106,4 +135,12 @@
   display:block;
   margin:0 auto;
   background-color:#D0103A;
+}
+
+.-misPosts{
+  background-color:white;
+}
+
+.-misPosts ul{
+  list-style-type: none;
 }
