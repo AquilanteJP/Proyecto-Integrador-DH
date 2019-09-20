@@ -55,7 +55,6 @@ header{
 }
 
 .-profile{
-  height:100vh;
   background-color: #fafafa;
   overflow:hidden;
   width:25%;
@@ -69,7 +68,6 @@ header{
 }
 
 .-capacitaciones{
-  list-style-type: none;
   display:flex;
   justify-content:space-evenly;
 }
@@ -98,6 +96,22 @@ header{
   color:#8892BF;
 }
 
+.-contfb,.-contgh,.-contstov{
+  color:#BABABA;
+}
+
+.-contfb:hover{
+  color:#3E70EF;
+}
+
+.-contgh:hover{
+  color:#000000;
+}
+
+.-contstov:hover{
+  color:#F48024;
+}
+
 .-nombre{
 }
 
@@ -106,13 +120,10 @@ header{
   justify-content: space-evenly;
 }
 
-.-contacto li{
-  list-style-type:none;
-}
-
 .-botonAmigo{
   display:block;
-  margin:0 auto;
+  margin:5% auto;
+
 }
 
 .-posts{
@@ -125,6 +136,12 @@ header{
   border:1px solid #D0103A;
 }
 
+.-textPost{
+  display:block;
+  width:90%;
+  margin:0 auto;
+}
+
 .-enterPost{
   width:100%;
   background-color:#fafafa;
@@ -132,7 +149,7 @@ header{
 
 .-postear{
   display:block;
-  margin:0 auto;
+  margin:3% auto;
   background-color:#D0103A;
 }
 
