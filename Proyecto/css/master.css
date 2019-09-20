@@ -1,6 +1,7 @@
 @import "./logIn.css";
 @import "./registro.css";
 @import "./footer.css";
+@import "./profile.css";
 
 * {
   font-family: 'Montserrat', sans-serif;

@@ -5,7 +5,7 @@
     <title>Mi Perfil</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/master.css">
     <script src="https://kit.fontawesome.com/64db3b546b.js"></script>
   </head>
   <body>
@@ -38,7 +38,7 @@
       </header>
       <div class="row container-fluid -contenido">
         <div class="border border-primary rounded -profile">
-          <img src="img/profilepic.jpg" alt="fotoperfil" class="-profilepic mx-auto">
+          <img src="img/profilepic.jpg" alt="fotoperfil" class="-profilePic">
           <h2 class="text-center font-weight-bold -nombre ">Pancho Villa</h2>
           <hr>
           <ul>
@@ -64,7 +64,6 @@
           <hr>
           <button type="button" class="btn btn-lg btn-primary -botonAmigo" disabled name="button">(¡Este sos vos!)</button>
         </div>
-
         <div class="border rounded -posts">
          <div class="-enterPost border border-danger rounded">
            <br>
@@ -75,12 +74,111 @@
            </form>
          </div>
          <br>
-         <div class="-misPosts border border-warning rounded">
+         <div class="-misPosts border border-danger rounded">
+           <br>
            <h5 class="text-center font-weight-bold">Tus ultimos posts</h5>
-           <ul>
-             <li></li>
-           </ul>
+           <hr>
+           <section class="-post">
+             <article class="">
+               <div class="-datosPost">
+                <div class="-datosPostPic">
+                  <img src="img/profilepic.jpg" alt="fotoperfil" class="-profilePicSmall">
+                </div>
+                <div class="-datosPostIdentidad">
+                  <p class=""><span class="-identidadPosteo">Pancho Villa</span><br><span class="-fechaPosteo">20/09/19, 05:11 pm</span></p>
+                </div>
+               </div>
+               <div class="-postContenido">
+                <p>Me encanta lorem ipsum porque sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+               </div>
+               <div>
+                <p class="-reacciones"> <a href="#">2 comentarios</a>  <a href="#">1 like</a></p>
+               </div>
+             </article>
+             <hr>
+             <article class="">
+               <div class="-datosPost">
+                <div class="-datosPostPic">
+                  <img src="img/profilepic.jpg" alt="fotoperfil" class="-profilePicSmall">
+                </div>
+                <div class="-datosPostIdentidad">
+                  <p class=""><span class="-identidadPosteo">Pancho Villa</span><br><span class="-fechaPosteo">10/09/19, 11:10 am</span></p>
+                </div>
+               </div>
+               <i></i>
+               <div class="-postContenido">
+                <h6 class="-newProject">Nuevo proyecto</h6>
+                <i class="fas fa-code fa-5x -projectIcon"></i>
+                <br>
+                <h6 class="-newProjectName">Proyecto Integrador (red social)</h6>
+               </div>
+               <br>
+               <div>
+                <p class="-reacciones"> <a href="#">2 comentarios</a>  <a href="#">1 like</a></p>
+               </div>
+             </article>
+           </section>
          </div>
+        </div>
+        <div class="-notificaciones border border-success rounded">
+          <br>
+          <h5 class="text-center font-weight-bold">Notificaciones</h5>
+          <hr>
+          <article class="">
+            <div class="-notificacion">
+             <div class="-datosNotifPic">
+               <span title="Vancho Pilla | 17/09/19, 4:03 pm"><img src="img/profilepic2.jpg" alt="fotoperfil" class="-profilePicSmall"></span>
+             </div>
+             <div class="-notifContenido">
+              <p>Me gusta mucho programar, si, si, me gusta mucho programar.</p>
+             </div>
+            </div>
+            <div>
+             <p class="-reacciones"> <a href="#">2 comentarios</a>  <a href="#">1 like</a></p>
+            </div>
+          </article>
+          <hr>
+          <article class="">
+            <div class="-notificacion">
+             <div class="-datosNotifPic">
+               <span title="Vancho Pilla | 17/09/19, 4:03 pm"><img src="img/profilepic2.jpg" alt="fotoperfil" class="-profilePicSmall"></span>
+             </div>
+             <div class="-notifContenido">
+              <p>Hay 10 tipos de personas en el mundo... los que saben binario, los que no, los que no se esperaban un chiste en base 4, y los que quieren alargar este parrafo para ver como queda comparado con el otro que tiene menos texto hola mama </p>
+             </div>
+            </div>
+            <div>
+             <p class="-reacciones"> <a href="#">2 comentarios</a>  <a href="#">1 like</a></p>
+            </div>
+          </article>
+          <hr>
+          <article class="-notifPrivada">
+            <div class="-notificacion">
+             <div class="-datosNotifPic">
+               <span title="Angel Daniel Fuentes | 24/06/19, 7:50 pm"><img src="img/profilepic3.jpg" alt="fotoperfil" class="-profilePicSmall"></span>
+             </div>
+             <div class="-notifContenido">
+              <h6 class="-newProject">Inscripción a curso aceptada</h6>
+              <i class="fas fa-chalkboard fa-3x -projectIcon"></i>
+              <br>
+              <h6 class="-newProjectName">Curso Fullstack</h6>
+             </div>
+            </div>
+          </article>
+          <hr>
+          <article class="">
+            <div class="-notificacion">
+             <div class="-datosNotifPic">
+               <span title="Vancho Pilla | 17/09/19, 4:03 pm"><img src="img/profilepic2.jpg" alt="fotoperfil" class="-profilePicSmall"></span>
+             </div>
+             <div class="-notifContenido">
+              <p>Me gusta mucho programar, si, si, me gusta mucho programar.</p>
+             </div>
+            </div>
+            <div>
+             <p class="-reacciones"> <a href="#">2 comentarios</a>  <a href="#">1 like</a></p>
+            </div>
+          </article>
         </div>
       </div>
     </div>
