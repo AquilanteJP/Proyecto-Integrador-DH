@@ -1,3 +1,1 @@
-# Proyecto-Integrador-DH
-
-Quien sos vos perro?
+# Proyecto-Integrador-DH (Aquilante-Levys-Stroman)
