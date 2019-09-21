@@ -7,37 +7,38 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/master.css">
     <script src="https://kit.fontawesome.com/64db3b546b.js"></script>
+    <meta content="width=device-width, initial-scale=1" name="viewport"/>
   </head>
   <body>
     <div class="container-fluid m-0 p-0 d-flex flex-row flex-wrap -all">
       <header>
-          <nav class="navbar navbar-expand-lg navbar-dark -navbar">
+          <nav class="navbar navbar-expand-sm navbar-dark row -navbar">
             <div class="-logocontainer">
               <img src="img/logo-DH.png" alt="logo" class="dh2">
             </div>
             <div class="-linkscontainer">
               <ul class="-links">
-                <li class="-link">
-                  <button type="button" class="btn btn-lg btn-link" name="button"><i class="fas fa-home"></i> Inicio</button>
+                <li class="nav-item -link">
+                  <button type="button" class="btn btn-link" name="button"><i class="fas fa-home"></i> Inicio</button>
                 </li>
                 <li class="nav-item -link">
-                  <button type="button" class="btn btn-lg btn-link" name="button"><i class="fas fa-code"></i> Mis proyectos</button>
+                  <button type="button" class="btn btn-link" name="button"><i class="fas fa-code"></i> Mis proyectos</button>
                 </li>
                 <li class="nav-item -link">
-                   <button type="button" class="btn btn-lg btn-link" name="button"><i class="fas fa-user-friends"></i> Mis amigos</button>
+                   <button type="button" class="btn btn-link" name="button"><i class="fas fa-user-friends"></i> Mis amigos</button>
                 </li>
                 <li class="nav-item -link">
-                   <button type="button" class="btn btn-lg btn-link" name="button"><i class="fas fa-chalkboard"></i> Mis cursos</button>
+                   <button type="button" class="btn btn-link" name="button"><i class="fas fa-chalkboard"></i> Mis cursos</button>
                 </li>
                 <li class="nav-item -link">
-                   <button type="button" class="btn btn-lg btn-link" name="button"><i class="fas fa-cogs"></i> Opciones</button>
+                   <button type="button" class="btn btn-link" name="button"><i class="fas fa-cogs"></i> Opciones</button>
                 </li>
               </ul>
             </div>
           </nav>
       </header>
-      <div class="row container-fluid -contenido">
-        <div class="border border-primary rounded -profile">
+      <div class="container-fluid row -contenido">
+        <div class="border border-primary rounded col-12 col-md-3 mt-5 shadow -profile">
           <img src="img/profilepic.jpg" alt="fotoperfil" class="-profilePic">
           <h2 class="text-center font-weight-bold -nombre ">Pancho Villa</h2>
           <hr>
@@ -64,8 +65,9 @@
           <hr>
           <button type="button" class="btn btn-lg btn-primary -botonAmigo" disabled name="button">(¡Este sos vos!)</button>
         </div>
-        <div class="border rounded -posts">
-         <div class="-enterPost border border-danger rounded">
+        <br>
+        <div class="col-12 col-md-5 mt-5 -posts">
+         <div class="-enterPost shadow border border-danger rounded">
            <br>
            <h5 class="text-center font-weight-bold">¿Algo nuevo que contar?</h5>
            <form action="" method="post">
@@ -74,7 +76,7 @@
            </form>
          </div>
          <br>
-         <div class="-misPosts border border-danger rounded">
+         <div class="-misPosts shadow border border-danger rounded">
            <br>
            <h5 class="text-center font-weight-bold">Tus ultimos posts</h5>
            <hr>
@@ -106,7 +108,7 @@
                 </div>
                </div>
                <i></i>
-               <div class="-postContenido">
+               <div>
                 <h6 class="-newProject">Nuevo proyecto</h6>
                 <i class="fas fa-code fa-5x -projectIcon"></i>
                 <br>
@@ -120,9 +122,9 @@
            </section>
          </div>
         </div>
-        <div class="-notificaciones border border-success rounded">
+        <div class="-notificaciones border border-success col-12 col-md-4 mt-5 shadow rounded">
           <br>
-          <h5 class="text-center font-weight-bold">Notificaciones</h5>
+          <h5 class="text-center font-weight-bold">¿Que cuentan los demás?</h5>
           <hr>
           <article class="">
             <div class="-notificacion">
@@ -180,6 +182,18 @@
             </div>
           </article>
         </div>
+        <br>
+        <footer class="col-12 -footer">
+          <h5 class="subTitulo">Nuestras Redes</h5>
+          <div class="redes pt-2 pb-2">
+            <i><img class="icons" src="img/icons/logoFacebook.png" alt=""></i>
+            <i><img class="icons" src="img/icons/logoTwitter.png" alt=""></i>
+            <i><img class="icons" src="img/icons/logoInstagram.png" alt=""></i>
+            <i><img class="icons" src="img/icons/logoLinkedin.png" alt=""></i>
+          </div>
+          <br>
+          <p>todos los derechos reservados</p>
+        </footer>
       </div>
     </div>
   </body>

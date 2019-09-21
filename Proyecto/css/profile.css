@@ -46,16 +46,16 @@ header{
 }
 
 .-contenido{
-  margin:1% auto;
   position:absolute;
   top:110px;
   background-color: #e6e6e6;
+  display:flex;
+  margin:0 auto;
 }
 
 .-profile{
   background-color: #fafafa;
   overflow:hidden;
-  width:25%;
   box-sizing: border-box;
 }
 
@@ -112,9 +112,6 @@ header{
   color:#F48024;
 }
 
-.-nombre{
-}
-
 .-contacto{
   display:flex;
   justify-content: space-evenly;
@@ -123,18 +120,6 @@ header{
 .-botonAmigo{
   display:block;
   margin:5% auto;
-
-}
-
-.-posts{
-  height:100vh;
-  width:40%;
-  margin:0 2%;
-  box-sizing:border-box;
-}
-
-.-border-primary{
-  border:1px solid #D0103A;
 }
 
 .-textPost{
@@ -152,6 +137,11 @@ header{
   display:block;
   margin:3% auto;
   background-color:#D0103A;
+}
+
+.-postContenido{
+  display:inline-block;
+  padding:0 2%;
 }
 
 .-misPosts{
@@ -208,7 +198,6 @@ header{
 }
 
 .-notificaciones{
-  width:31%;
   background-color:#ffffff;
   box-sizing:border-box;
 }
