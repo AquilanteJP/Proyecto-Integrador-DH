@@ -14,7 +14,7 @@
 
     <form class="col-lg-6 col-md-6 col-sm-12 m-auto py-3 px-5 d-flex flex-wrap  bg-light" action="profile.html" method="POST">
       <div class="w-100 border-bottom mb-3">
-        <a href="logIn.html" class="text-decoration-none">
+        <a href="logIn.php" class="text-decoration-none">
           <h5>Volver</h5>
         </a>
       </div>
