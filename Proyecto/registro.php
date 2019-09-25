@@ -6,6 +6,7 @@ if($_POST && $_FILES){
    $avatar = armarAvatar($_FILES);
    $registro = crearRegistro($_POST, $avatar);
    guardarUsuario($registro);
+   $_SESSION = guardarSesion($registro);
    header("location:profile.php");
  }
 }

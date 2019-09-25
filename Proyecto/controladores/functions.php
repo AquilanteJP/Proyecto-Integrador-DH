@@ -58,6 +58,13 @@ function crearRegistro($datos,$imagen){
     ];
     return $usuario;
 }
+function guardarSesion($variable){
+  session_start();
+  foreach ($variable as $key => $value) {
+    $_SESSION[$key]= $value;
+  }
+  return $_SESSION;
+}
 function guardarUsuario($usuario){
     $usuarioJson = json_encode($usuario);
     file_put_contents('usuario.json',$usuarioJson.PHP_EOL,FILE_APPEND);

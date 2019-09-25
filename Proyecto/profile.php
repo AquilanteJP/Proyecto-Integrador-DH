@@ -1,4 +1,6 @@
-<!DOCTYPE html>
+<?php
+session_start();
+ ?>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -40,7 +42,7 @@
       <div class="container-fluid row -contenido">
         <div class="border border-primary rounded col-12 col-md-3 mt-5 mb-lg-3 shadow -profile">
           <img src="img/profilepic.jpg" alt="fotoperfil" class="-profilePic">
-          <h2 class="text-center font-weight-bold -nombre ">Pancho Villa</h2>
+          <h2 class="text-center font-weight-bold -nombre "><?=$_SESSION['userName'];?></h2>
           <hr>
           <ul>
             <li><h6 class=" -fecha">Se unió en Septiembre 2019</h6></li>
