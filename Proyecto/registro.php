@@ -68,7 +68,7 @@ if($_POST && $_FILES){
 
       <div class="form-group w-100">
         <label for="password">Contraseña</label>
-        <input type="password" class="form-control" name="password" id="password" placeholder="Al menos 6 letras, un numero y un caracter especial">
+        <input required type="password" class="form-control" name="password" id="password" placeholder="Al menos 6 letras, un numero y un caracter especial">
       </div>
 
       <div class="form-group">
@@ -78,7 +78,7 @@ if($_POST && $_FILES){
 
       <div class="form-group">
         <label for="avatar">Avatar</label>
-        <input required name="avatar" type="file" value= ""class="form-control" id="avatar">
+        <input name="avatar" type="file" value= ""class="form-control" id="avatar">
       </div>
 
       <button type="submit" class="w-75 m-auto rounded botonJuan py-2">Registrarme</button>
