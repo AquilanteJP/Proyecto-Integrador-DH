@@ -37,10 +37,10 @@ if($_POST && $_FILES){
                     <li><?=$value;?></li>
                 <?php endforeach;?>
               </ul>
-            <?php endif;?>
+      <?php endif;?>
       <div class="form-group w-50 pr-3">
-        <label for="userName">Nombre</label>
-        <input type="text" value="<?=isset($errores['username'])? "":old('userName') ;?>" class="form-control" name="userName" id="userName" placeholder="Escribe tu nombre">
+        <label for="firstName">Nombre</label>
+        <input type="text" value="<?=isset($errores['firstName'])? "":old('firstName') ;?>" class="form-control" name="firstName" id="firstName" placeholder="Escribe tu nombre">
       </div>
 
       <div class="form-group w-50">
@@ -93,7 +93,7 @@ if($_POST && $_FILES){
       <i><img class="icons" src="img/icons/logoLinkedin.png" alt=""></i>
     </div>
     <br>
-    <p>todos los derechos reservados</p>
+    <p>Todos los derechos reservados.</p>
   </footer>
 </body>
 

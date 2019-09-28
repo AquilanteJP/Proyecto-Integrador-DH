@@ -1,38 +1,47 @@
 <?php
-function validar($datos, $imagen){
+function validar($datos,$imagen){ //Los datos estan en el array $_POST, la imagen en $_FILES//
     $errores = [];
-    $userName = trim($datos['userName']);
-    if(empty($userName )){
-        $errores['userName']="El campo nombre no lo puede dejar en blanco";
+
+    $firstName = trim($datos['firstName']);
+    if(empty($firstName )){
+        $errores['firstName']="Debe colocar su nombre.";
     }
+
     $lastName = trim($datos['lastName']);
     if(empty($lastName )){
-        $errores['lastName']="El campo apellido no lo puede dejar en blanco";
+        $errores['lastName']="Debe colocar su apellido.";
     }
+
     $email = trim($datos['email']);
     if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
-        $errores['email']="Email inválido";
+        $errores['email']="Email inválido.";
     }
+
     $password = trim($datos['password']);
     if(empty($password)){
-        $errores['password']="El password no puede ser blanco";
-    }elseif (!preg_match('/^(?=.*\d)(?=.*[A-Za-z])(?=.*[!?@#$%&])[0-9A-Za-z!?@#$%&]{6,15}$/', $password)) {
+      $errores['password']="El password no puede estar en blanco.";
+    } elseif (!preg_match('/^(?=.*\d)(?=.*[A-Za-z])(?=.*[!?@#$%&])[0-9A-Za-z!?@#$%&]{6,15}$/', $password)) {
       $errores['password'] = "El password debe tener al menos 6 letras, un numero y un caracter especial";
     }
+
     $passwordRepeat = trim($datos['passwordRepeat']);
     if($password != $passwordRepeat){
-        $errores['passwordRepeat']="Las contraseñas deben ser iguales";
+        $errores['passwordRepeat']="Las contraseñas deben ser iguales.";
     }
+
     $foto = $_FILES["avatar"]["name"];
     $ext = pathinfo($foto, PATHINFO_EXTENSION);
     if($_FILES ["avatar"]["error"]!=0){
-        $errores["avatar"] = "subi una foto";
+        $errores["avatar"] = "Debe subir una foto (formato .jpg, .jpeg, o .png).";
     }
     elseif ($ext != "png" && $ext != "jpg" && $ext != "jpeg") {
-      echo "subi una imagen como la gente";
+      echo "La foto debe ser de formato .jpg, .jpeg, o .png.";
     }
+
     return $errores;
 }
+
+
 function armarAvatar($imagen){
     $nombre = $imagen['avatar']['name'];
     $ext = pathinfo($nombre, PATHINFO_EXTENSION);
@@ -47,7 +56,7 @@ function armarAvatar($imagen){
 
 function crearRegistro($datos,$imagen){
     $usuario =[
-        'userName' => $datos['userName'],
+        'firstName' => $datos['firstName'],
         'lastName' => $datos['lastName'],
         'email' => $datos['email'],
         'bornIn' => $datos['bornIn'],
