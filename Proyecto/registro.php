@@ -3,12 +3,12 @@ require_once("controladores/functions.php");
 require_once("helpers.php");
 if($_POST && $_FILES){
   $errores = validar($_POST, $_FILES);
- if(count($errores)==0){
-   $avatar = armarAvatar($_FILES);
-   $registro = crearRegistro($_POST, $avatar);
-   guardarUsuario($registro);
-   $_SESSION = guardarSesion($registro);
-   header("location:profile.php");
+  if(count($errores)==0){
+    $avatar = armarAvatar($_FILES);
+    $registro = crearRegistro($_POST, $avatar);
+    guardarUsuario($registro);
+    $_SESSION = guardarSesion($registro);
+    header("location:profile.php");
  }
 }
  ?>
