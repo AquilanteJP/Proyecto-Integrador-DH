@@ -31,10 +31,17 @@ function validar($datos,$imagen){ //Los datos estan en el array $_POST, la image
 
     $foto = $_FILES["avatar"]["name"];
     $ext = pathinfo($foto, PATHINFO_EXTENSION);
-    if($_FILES ["avatar"]["error"]!=0){ //Validacion foto no subida
+
+    //Ahora se esta probando subida de avatar opcional, para subida de avatar obligatoria sacar tags de comentario
+
+    /* if($_FILES ["avatar"]["error"]!=0){ //Validacion foto no subida
         $errores["avatar"] = "Debe subir una foto (formato .jpg, .jpeg, o .png).";
     }
     elseif ($ext != "png" && $ext != "jpg" && $ext != "jpeg") { //Validacion formato de foto incorrecto
+        $errores["avatar"] = "La foto debe ser de formato .jpg, .jpeg, o .png.";
+    } */
+
+    if ($ext != "png" && $ext != "jpg" && $ext != "jpeg" && $ext != null ) { //Validacion formato de foto incorrecto
         $errores["avatar"] = "La foto debe ser de formato .jpg, .jpeg, o .png.";
     }
 
@@ -44,12 +51,16 @@ function validar($datos,$imagen){ //Los datos estan en el array $_POST, la image
 function armarAvatar($imagen){  //Guarda la imagen en profilePics, y devuelve el nuevo nombre de la imagen al final
     $nombre = $imagen['avatar']['name'];
     $ext = pathinfo($nombre, PATHINFO_EXTENSION);
-    $archivoOrigen = $imagen['avatar']['tmp_name'];
-    $archivoDestino = dirname(__DIR__)."/profilePics/";
-    $avatar = uniqid().".".$ext;  //Genera un nombre randomizado para todas las fotos
-    $archivoDestino = $archivoDestino.$avatar;
-    move_uploaded_file($archivoOrigen, $archivoDestino);
-    return $avatar;
+    if($ext==null) { //Verificacion rudimentaria por si se subio imagen o no (si no hay extension, no hay archivo);devuelve null en array de usuario
+      return;
+    } else {
+      $archivoOrigen = $imagen['avatar']['tmp_name'];
+      $archivoDestino = dirname(__DIR__)."/profilePics/";
+      $avatar = uniqid().".".$ext;  //Genera un nombre randomizado para todas las fotos
+      $archivoDestino = $archivoDestino.$avatar;
+      move_uploaded_file($archivoOrigen, $archivoDestino);
+      return $avatar;
+    }
 }
 
 function crearRegistro($datos,$imagen){  //Usando $_POST como primer parametro y $avatar (creado con crearAvatar()) como segundo, crea un array de usuario
@@ -79,5 +90,9 @@ function guardarSesion($variable){ // La variable en este caso es $registro, que
   return $_SESSION;
 }
 
+function logout(){ //Al usarse destruye la sesión y redirecciona a logIn.php
+  session_destroy();
+  header("location:logIn.php");
+}
 
- ?>
+?>

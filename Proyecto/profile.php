@@ -45,7 +45,7 @@ require_once("helpers.php");
                    <button type="button" class="btn btn-link" name="button"><i class="fas fa-cogs"></i> Opciones</button>
                 </li>
                 <li class="nav-item -link">
-                   <button type="button" class="btn btn-link" name="button">  <i class="fas fa-cogs"></i> Logout</button>
+                   <button type="button" class="btn btn-link" name="button"><a href="logOut.php"><i class="fas fa-cogs"></i> Logout</a></button>
                 </li>
               </ul>
             </div>
@@ -53,14 +53,14 @@ require_once("helpers.php");
       </header>
       <div class="container-fluid row -contenido">
         <div class="border border-primary rounded col-12 col-md-3 mt-5 mb-lg-3 shadow -profile">
-          <img src="profilePics/<?=$_SESSION['avatar']?>" alt="fotoperfil" class="-profilePic">
+          <img src="<?= isset($_SESSION['avatar'])?"profilePics/".$_SESSION['avatar']:"profilePics/generic.jpg" ;?>?>" alt="fotoperfil" class="-profilePic">
           <h2 class="text-center font-weight-bold -nombre "><?=$_SESSION['userName'];?></h2>
           <hr>
           <ul>
-            <li><h6 class=" -fecha">Se unió en Septiembre 2019</h6></li>
-            <li><h6 class=" -rol">Estudiante</h6></li>
-            <li><h6 class=" -proyectos"><a href=#>3 proyectos</a></h6></li>
-            <li><h6 class=" -información"><a href=#>Mas información</a></h6></li>
+            <li><h6 class="-fecha">Se unió en Septiembre 2019</h6></li>
+            <li><h6 class="-rol">Estudiante</h6></li>
+            <li><h6 class="-proyectos"><a href=#>3 proyectos</a></h6></li>
+            <li><h6 class="-información"><a href=#>Mas información</a></h6></li>
           </ul>
           <hr>
           <h6 class="text-center font-weight-bold">Capacitaciones:</h6>
