@@ -32,13 +32,15 @@ if($_POST && $_FILES){
           <h5>Volver</h5>
         </a>
       </div>
-      <?php if(isset($errores)):?>
-              <ul class="alert alert-danger">
-                <?php foreach ($errores as $value) :?>
-                    <li><?=$value;?></li>
-                <?php endforeach;?>
-              </ul>
-      <?php endif;?>
+      <div class="w-100 border">
+        <?php if(isset($errores)):?>
+                <ul class="alert alert-danger">
+                  <?php foreach ($errores as $value) :?>
+                      <li><?=$value;?></li>
+                  <?php endforeach;?>
+                </ul>
+        <?php endif;?>
+      </div>
       <div class="form-group w-50 pr-3">
         <label for="firstName">Nombre <span class="text-danger">*</span></label>
         <input type="text" value="<?=isset($errores['firstName'])? "":old('firstName') ;?>" class="form-control" name="firstName" id="firstName" placeholder="Escribe tu nombre">
