@@ -35,7 +35,7 @@ function validar($datos,$imagen){ //Los datos estan en el array $_POST, la image
         $errores["avatar"] = "Debe subir una foto (formato .jpg, .jpeg, o .png).";
     }
     elseif ($ext != "png" && $ext != "jpg" && $ext != "jpeg") {
-      echo "La foto debe ser de formato .jpg, .jpeg, o .png.";
+        $errores["avatar"] = "La foto debe ser de formato .jpg, .jpeg, o .png.";
     }
 
     return $errores;

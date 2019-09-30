@@ -41,7 +41,7 @@ session_start();
       </header>
       <div class="container-fluid row -contenido">
         <div class="border border-primary rounded col-12 col-md-3 mt-5 mb-lg-3 shadow -profile">
-          <img src="img/profilepic.jpg" alt="fotoperfil" class="-profilePic">
+          <img src="<?="profilePics/".$nombreArchivo?>" alt="fotoperfil" class="-profilePic">
           <h2 class="text-center font-weight-bold -nombre "><?=$_SESSION['userName'];?></h2>
           <hr>
           <ul>

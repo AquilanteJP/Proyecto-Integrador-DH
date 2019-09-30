@@ -39,27 +39,27 @@ if($_POST && $_FILES){
               </ul>
       <?php endif;?>
       <div class="form-group w-50 pr-3">
-        <label for="firstName">Nombre</label>
+        <label for="firstName">Nombre <span class="text-danger">*</span></label>
         <input type="text" value="<?=isset($errores['firstName'])? "":old('firstName') ;?>" class="form-control" name="firstName" id="firstName" placeholder="Escribe tu nombre">
       </div>
 
       <div class="form-group w-50">
-        <label for="lastName">Apellido</label>
+        <label for="lastName">Apellido <span class="text-danger">*</span></label>
         <input type="text" value="<?=isset($errores['lastName'])? "":old('lastName') ;?>"  class="form-control" name="lastName" id="lastName" placeholder="Escribe tu apellido">
       </div>
 
       <div class="form-group w-100">
-        <label for="email">Email</label>
+        <label for="email">Email <span class="text-danger">*</span></label>
         <input type="email" value="<?=isset($errores['email'])? "":old('email') ;?>"  class="form-control" name="email" id="email" placeholder="Escribe tu mail">
       </div>
 
       <div class="form-group w-50 pr-3">
-        <label for="bornIn">Nacimiento</label>
+        <label for="bornIn">Nacimiento <span class="text-danger">*</span></label>
         <input type="date" class="form-control pr-3" name="bornIn">
       </div>
 
       <div class="form-group w-50">
-        <label for="gender">Genero</label>
+        <label for="gender">Genero <span class="text-danger">*</span></label>
         <br>
         <input type="radio" name="gender" value="male"> Hombre
         <input type="radio" name="gender" value="female"> Mujer
@@ -67,17 +67,17 @@ if($_POST && $_FILES){
       </div>
 
       <div class="form-group w-100">
-        <label for="password">Contraseña</label>
+        <label for="password">Contraseña <span class="text-danger">*</span></label>
         <input required type="password" class="form-control" name="password" id="password" placeholder="Al menos 6 letras, un numero y un caracter especial">
       </div>
 
       <div class="form-group">
-        <label for="password">Repetir contraseña</label>
+        <label for="password">Repetir contraseña <span class="text-danger">*</span></label>
         <input required name="passwordRepeat" type="password" value= ""class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Repetir contraseña">
       </div>
 
       <div class="form-group">
-        <label for="avatar">Avatar</label>
+        <label for="avatar">Avatar <small class="text-muted">(.jpg,.jpeg,.png)</small></label>
         <input name="avatar" type="file" value= ""class="form-control" id="avatar">
       </div>
 
