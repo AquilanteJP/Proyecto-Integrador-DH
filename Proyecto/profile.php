@@ -1,6 +1,15 @@
 <?php
 session_start();
- ?>
+require_once("helpers.php");
+//EN PROCESO
+
+/*if(!$_SESSION){ //Si no se inicio una sesión mediante guardarSesion(), se es redirigido a registro.php
+  header("location:registro.php");
+} else {
+  dd($_SESSION);
+}*/
+?>
+
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -35,13 +44,16 @@ session_start();
                 <li class="nav-item -link">
                    <button type="button" class="btn btn-link" name="button"><i class="fas fa-cogs"></i> Opciones</button>
                 </li>
+                <li class="nav-item -link">
+                   <button type="button" class="btn btn-link" name="button">  <i class="fas fa-cogs"></i> Logout</button>
+                </li>
               </ul>
             </div>
           </nav>
       </header>
       <div class="container-fluid row -contenido">
         <div class="border border-primary rounded col-12 col-md-3 mt-5 mb-lg-3 shadow -profile">
-          <img src="<?="profilePics/".$nombreArchivo?>" alt="fotoperfil" class="-profilePic">
+          <img src="profilePics/<?=$_SESSION['avatar']?>" alt="fotoperfil" class="-profilePic">
           <h2 class="text-center font-weight-bold -nombre "><?=$_SESSION['userName'];?></h2>
           <hr>
           <ul>

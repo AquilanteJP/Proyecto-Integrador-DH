@@ -11,7 +11,8 @@ if($_POST && $_FILES){
     header("location:profile.php");
  }
 }
- ?>
+?>
+
 <html lang="en" dir="ltr">
 
 <head>
@@ -19,7 +20,7 @@ if($_POST && $_FILES){
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="css/master.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-  <title>registro</title>
+  <title>Registrate</title>
 </head>
 
 <body>
@@ -68,7 +69,7 @@ if($_POST && $_FILES){
 
       <div class="form-group w-100">
         <label for="password">Contraseña <span class="text-danger">*</span></label>
-        <input required type="password" class="form-control" name="password" id="password" placeholder="Al menos 6 letras, un numero y un caracter especial">
+        <input type="password" class="form-control" name="password" id="password" placeholder="Al menos 6 letras, un numero y un caracter especial">
       </div>
 
       <div class="form-group">

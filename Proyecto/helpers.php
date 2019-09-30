@@ -1,6 +1,5 @@
 <?php
-//Este archivo representa, la disposición de un conjunto de pequeñas funciones que vamos a estar usando a lo largo de nuestra aplicación
-function old($dato){
+function old($dato){ //Para permanencia de algunos datos de formulario; en conjunción con isset(...) y un if ternario en nuestro caso, puedo permitir que los datos correctos queden y los incorrectos desaparezcan
     if(isset($_POST[$dato])){
         return $_POST[$dato];
     }
