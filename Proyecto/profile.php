@@ -54,7 +54,7 @@ require_once("helpers.php");
       <div class="container-fluid row -contenido">
         <div class="border border-primary rounded col-12 col-md-3 mt-5 mb-lg-3 shadow -profile">
           <img src="<?= isset($_SESSION['avatar'])?"profilePics/".$_SESSION['avatar']:"profilePics/generic.jpg" ;?>?>" alt="fotoperfil" class="-profilePic">
-          <h2 class="text-center font-weight-bold -nombre "><?=$_SESSION['userName'];?></h2>
+          <h2 class="text-center font-weight-bold -nombre "><?=$_SESSION['firstName'];?></h2>
           <hr>
           <ul>
             <li><h6 class="-fecha">Se unió en Septiembre 2019</h6></li>

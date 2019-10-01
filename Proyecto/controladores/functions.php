@@ -48,6 +48,7 @@ function validar($datos,$imagen){ //Los datos estan en el array $_POST, la image
     return $errores;
 }
 
+
 function armarAvatar($imagen){  //Guarda la imagen en profilePics, y devuelve el nuevo nombre de la imagen al final
     $nombre = $imagen['avatar']['name'];
     $ext = pathinfo($nombre, PATHINFO_EXTENSION);
@@ -76,12 +77,47 @@ function crearRegistro($datos,$imagen){  //Usando $_POST como primer parametro y
     ];
     return $usuario;
 }
+/* PROBANDO FUNCIONES DE VALIDACION DE LOG IN
+function validarLogIn($datos){
+    $errores = [];
 
+    $email = trim($datos['email']);
+    if(!filter_var($email,FILTER_VALIDATE_EMAIL)){ //Validacion formato email incorrecto
+    $errores['email']="Email inválido.";
+    }
+
+    $password = trim($datos['password']);
+    if(empty($password)){ //Validacion contraseña vacía
+      $errores['password']="El password no puede estar en blanco.";
+    } elseif (!preg_match('/^(?=.*\d)(?=.*[A-Za-z])(?=.*[!?@#$%&])[0-9A-Za-z!?@#$%&]{6,15}$/', $password)) { //Validacion contraseña REGEX
+      $errores['password'] = "El password debe tener al menos 6 letras, un numero y un caracter especial";
+    }
+    return $errores;
+}
+function crearLogIn($datos){
+    $usuario =[
+        'email' => $datos['email'],
+        'password'=> password_hash($datos['password'],PASSWORD_DEFAULT),
+    ];
+    return $usuario;
+}
+function buscarUsuario($usuario){
+    $arrayJson = file_get_contents('Proyecto/usuario.json');
+    $jsonencode = utf8_encode($arrayJson);
+    $recorrerUsuarios= json_decode($jsonencode,true);
+    foreach($recorrerUsuariosn->usuarios as $item)
+{
+    if($item->email == $usuario['email']&& password_verify()){
+        header("location:profile.php");
+    }
+}*/
 function guardarUsuario($usuario){  //Pasa $usuario a formato .json y lo guarda en usuarios.json como archivo plano
     $usuarioJson = json_encode($usuario);
     file_put_contents('usuarios.json',$usuarioJson.PHP_EOL,FILE_APPEND);
 }
 
+
+}
 function guardarSesion($variable){ // La variable en este caso es $registro, que se crea en registro.php usando la funcion crearRegistro(), y contiene los datos del array $_POST mas la imagen subida. Básicamente, copia todos los datos de $_POST a $_SESSION, para accesibilidad en todas las páginas
   session_start();
   foreach ($variable as $key => $value) {

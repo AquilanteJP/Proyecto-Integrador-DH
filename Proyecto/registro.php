@@ -8,7 +8,7 @@ if($_POST && $_FILES){
     $registro = crearRegistro($_POST, $avatar);
     guardarUsuario($registro);
     $_SESSION = guardarSesion($registro);
-    header("location:profile.php");
+    header("location:logIn.php");
  }
 }
 ?>

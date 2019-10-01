@@ -1,4 +1,14 @@
-<!DOCTYPE html>
+<?php
+require_once("controladores/functions.php");
+if($_POST){
+  $errores = validarLogIn($_POST);
+  if(count($errores)==0){
+    $registro = crearLogIn($_POST);
+    buscarUsuario($usuario);
+    
+  }
+}
+ ?>
 <html lang="en" dir="ltr">
 
 <head>
@@ -29,18 +39,18 @@
       <h2 class="	d-md-none d-lg-none subTitulo">Colearning at Home</h2>
       <br>
       <h5>Log In</h5>
-      <form class="p-3">
+      <form class="p-3" method="POST">
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" class="form-control" id="email" placeholder="Email">
+          <input type="email" value="" class="form-control" id="email" placeholder="Email">
         </div>
         <div class="form-group">
           <label for="password">Contraseña</label>
           <input type="password" class="form-control" id="password" placeholder="Introduce tu contraseña">
         </div>
         <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="check">
-          <label class="form-check-label" for="check">Recuerdame</label>
+          <input type="checkbox" class="form-check-input" id="recuerdame">
+          <label class="form-check-label" for="recuerdame">Recuerdame</label>
         </div>
         <button type="submit" class="w-75 m-auto rounded py-2 botonJuan">Entrar</button>
       </form>
