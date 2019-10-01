@@ -1,14 +1,13 @@
 <?php
 session_start();
 require_once("helpers.php");
-//$usuario = $_SESSION;
-//EN PROCESO
+//EN PROCE
 
-/*if(!$_SESSION){ //Si no se inicio una sesión mediante guardarSesion(), se es redirigido a registro.php
-  header("location:registro.php");
+if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se es redirigido a registro.php
+  header("location:logIn.php");
 } else {
-  dd($_SESSION);
-}*/
+  dd($_SESSION); //Para checkear errores
+}
 ?>
 
 <html lang="en" dir="ltr">

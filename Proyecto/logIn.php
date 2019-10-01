@@ -40,6 +40,15 @@ if($_POST){
       <h2 class="	d-md-none d-lg-none subTitulo">Colearning at Home</h2>
       <br>
       <h5>Log In</h5>
+      <div class="w-100">
+        <?php if(isset($errores)):?>
+                <ul class="alert alert-danger">
+                  <?php foreach ($errores as $value) :?>
+                      <li><small><?=$value;?></small></li>
+                  <?php endforeach;?>
+                </ul>
+        <?php endif;?>
+      </div>
       <form class="p-3" method="POST">
         <div class="form-group">
           <label for="email">Email</label>

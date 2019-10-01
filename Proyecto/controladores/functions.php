@@ -151,7 +151,8 @@ function guardarSesion($variable){ // La variable en este caso es $registro, que
   return $_SESSION;
 }
 
-function logout(){ //Al usarse destruye la sesión y redirecciona a logIn.php
+function logout(){ //Al usarse destruye la sesión y redirecciona a logIn.php. PARA OPERAR CON SESSION, SE DEBE ESCRIBIR SESSION_START(), INCLUSO PARA DESTRUIRLA CON SESSION_DESTROY()!!!!
+  session_start();
   session_destroy();
   header("location:logIn.php");
 }
