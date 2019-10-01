@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once("helpers.php");
+//$usuario = $_SESSION;
 //EN PROCESO
 
 /*if(!$_SESSION){ //Si no se inicio una sesión mediante guardarSesion(), se es redirigido a registro.php

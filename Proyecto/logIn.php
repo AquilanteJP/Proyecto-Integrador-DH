@@ -3,9 +3,10 @@ require_once("controladores/functions.php");
 if($_POST){
   $errores = validarLogIn($_POST);
   if(count($errores)==0){
-    $registro = crearLogIn($_POST);
-    buscarUsuario($usuario);
-    
+    $usuario=buscarEmail($_POST['email']);
+    validarContraseña($usuario);
+    $_SESSION=guardarSesion($usuario);
+    $usuarioEncontrado= header("location:profile.php");
   }
 }
  ?>
@@ -42,11 +43,11 @@ if($_POST){
       <form class="p-3" method="POST">
         <div class="form-group">
           <label for="email">Email</label>
-          <input type="email" value="" class="form-control" id="email" placeholder="Email">
+          <input type="email" value="" class="form-control" name="email" id="email" placeholder="Email">
         </div>
         <div class="form-group">
           <label for="password">Contraseña</label>
-          <input type="password" class="form-control" id="password" placeholder="Introduce tu contraseña">
+          <input type="password" class="form-control" name="password" id="password" placeholder="Introduce tu contraseña">
         </div>
         <div class="form-group form-check">
           <input type="checkbox" class="form-check-input" id="recuerdame">
