@@ -95,32 +95,33 @@ function validarLogIn($datos){
     return $errores;
 }
 
-function validarContraseña($usuario){
-  if(password_verify($_POST['password'],$usuario['password'])){
-    return $usuarioEncontrado;
+
+function validarContraseña($passwordPost,$usuarioEnDatos){
+  $usuarios = abrirBaseDatos();
+  if(password_verify($passwordPost,$usuarioEnDatos['password'])){
+      echo "esa contraseña es de este mail";
+      $usuarioSession = $usuarioEnDatos;
+      return $usuarioSession;
   } else {
-    echo "no es valida";//no se muestra, solo para testear la funcion
+    echo "esa contra no es de este mail";
   }
 }
-
-function buscarEmail($email){
+function buscarUsuario($email){
     $usuarios = abrirBaseDatos();
     if($usuarios!==null){
-        foreach ($usuarios as $usuario) {
-            if($email === $usuario["email"]){
-                echo "te encontre";
-                return $usuario;
-
-            } else {
+        foreach ($usuarios as $usuario =>$value) {
+            if($email === $value["email"]){
+              $usuarioEnDatos=$usuarios[$usuario];
+                return $usuarioEnDatos;
+              } else {
               echo "usuario no encontrado";//no se muestra, solo para testear la funcion
             }
         }
     }
-
     return null;
 }
 
-function abrirBaseDatos(){
+function abrirBaseDatos(){ //gracias profe jajaj
     if(file_exists("usuarios.json")){
         $baseDatosJson= file_get_contents("usuarios.json");
         $baseDatosJson = explode(PHP_EOL,$baseDatosJson);
@@ -132,6 +133,7 @@ function abrirBaseDatos(){
         }
         //Aquí retorno el array de usuarios con todos sus datos
         return $arrayUsuarios;
+        //var_dump($arrayUsuarios);
     }else{
         return null;
     }

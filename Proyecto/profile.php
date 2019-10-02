@@ -5,9 +5,9 @@ require_once("helpers.php");
 
 if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se es redirigido a registro.php
   header("location:logIn.php");
-} else {
+} /*else {
   dd($_SESSION); //Para checkear errores
-}
+}*/
 ?>
 
 <html lang="en" dir="ltr">

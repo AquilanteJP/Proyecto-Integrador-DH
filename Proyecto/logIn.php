@@ -3,10 +3,11 @@ require_once("controladores/functions.php");
 if($_POST){
   $errores = validarLogIn($_POST);
   if(count($errores)==0){
-    $usuario=buscarEmail($_POST['email']);
-    validarContraseña($usuario);
-    $_SESSION=guardarSesion($usuario);
-    $usuarioEncontrado= header("location:profile.php");
+    $verificarContra=buscarUsuario($_POST['email']);
+    $usuarioFInal=validarContraseña($_POST['password'],$verificarContra);
+    guardarSesion($usuarioFInal);
+    $usuarioSession = header("location:profile.php");
+
   }
 }
  ?>
