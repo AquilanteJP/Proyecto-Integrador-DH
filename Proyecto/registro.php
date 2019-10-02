@@ -7,7 +7,7 @@ if($_POST && $_FILES){
     $avatar = armarAvatar($_FILES);
     $registro = crearRegistro($_POST, $avatar);
     guardarUsuario($registro);
-    $_SESSION = guardarSesion($registro);
+    //$_SESSION = guardarSesion($registro);//Esta linea se podria borrar porque de aca vas a login y alla tambien te inicia la session
     header("location:logIn.php");
  }
 }

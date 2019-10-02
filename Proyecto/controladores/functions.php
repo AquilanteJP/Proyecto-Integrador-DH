@@ -77,7 +77,7 @@ function crearRegistro($datos,$imagen){  //Usando $_POST como primer parametro y
     ];
     return $usuario;
 }
-/* PROBANDO FUNCIONES DE VALIDACION DE LOG IN
+/* PROBANDO FUNCIONES DE VALIDACION DE LOG IN*/
 function validarLogIn($datos){
     $errores = [];
 
@@ -94,30 +94,57 @@ function validarLogIn($datos){
     }
     return $errores;
 }
-function crearLogIn($datos){
-    $usuario =[
-        'email' => $datos['email'],
-        'password'=> password_hash($datos['password'],PASSWORD_DEFAULT),
-    ];
-    return $usuario;
+
+
+function validarContraseña($passwordPost,$usuarioEnDatos){
+  $usuarios = abrirBaseDatos();
+  if(password_verify($passwordPost,$usuarioEnDatos['password'])){
+      echo "esa contraseña es de este mail";
+      $usuarioSession = $usuarioEnDatos;
+      return $usuarioSession;
+  } else {
+    echo "esa contra no es de este mail";
+  }
 }
-function buscarUsuario($usuario){
-    $arrayJson = file_get_contents('Proyecto/usuario.json');
-    $jsonencode = utf8_encode($arrayJson);
-    $recorrerUsuarios= json_decode($jsonencode,true);
-    foreach($recorrerUsuariosn->usuarios as $item)
-{
-    if($item->email == $usuario['email']&& password_verify()){
-        header("location:profile.php");
+function buscarUsuario($email){
+    $usuarios = abrirBaseDatos();
+    if($usuarios!==null){
+        foreach ($usuarios as $usuario =>$value) {
+            if($email === $value["email"]){
+              $usuarioEnDatos=$usuarios[$usuario];
+                return $usuarioEnDatos;
+              } else {
+              echo "usuario no encontrado";//no se muestra, solo para testear la funcion
+            }
+        }
     }
-}*/
+    return null;
+}
+
+function abrirBaseDatos(){ //gracias profe jajaj
+    if(file_exists("usuarios.json")){
+        $baseDatosJson= file_get_contents("usuarios.json");
+        $baseDatosJson = explode(PHP_EOL,$baseDatosJson);
+        //Aquí saco el ultimo registro, el cual está en blanco
+        array_pop($baseDatosJson);
+        //Aquí recooro el array y creo mi array con todos los usuarios
+        foreach ($baseDatosJson as  $usuarios) {
+            $arrayUsuarios[]= json_decode($usuarios,true);
+        }
+        //Aquí retorno el array de usuarios con todos sus datos
+        return $arrayUsuarios;
+        //var_dump($arrayUsuarios);
+    }else{
+        return null;
+    }
+}
 function guardarUsuario($usuario){  //Pasa $usuario a formato .json y lo guarda en usuarios.json como archivo plano
     $usuarioJson = json_encode($usuario);
     file_put_contents('usuarios.json',$usuarioJson.PHP_EOL,FILE_APPEND);
 }
 
 
-}
+
 function guardarSesion($variable){ // La variable en este caso es $registro, que se crea en registro.php usando la funcion crearRegistro(), y contiene los datos del array $_POST mas la imagen subida. Básicamente, copia todos los datos de $_POST a $_SESSION, para accesibilidad en todas las páginas
   session_start();
   foreach ($variable as $key => $value) {
@@ -126,7 +153,8 @@ function guardarSesion($variable){ // La variable en este caso es $registro, que
   return $_SESSION;
 }
 
-function logout(){ //Al usarse destruye la sesión y redirecciona a logIn.php
+function logout(){ //Al usarse destruye la sesión y redirecciona a logIn.php. PARA OPERAR CON SESSION, SE DEBE ESCRIBIR SESSION_START(), INCLUSO PARA DESTRUIRLA CON SESSION_DESTROY()!!!!
+  session_start();
   session_destroy();
   header("location:logIn.php");
 }
