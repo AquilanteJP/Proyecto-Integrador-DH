@@ -1,3 +1,15 @@
+<?php
+session_start();
+require_once("helpers.php");
+//EN PROCESO
+
+/*if(!$_SESSION){ //Si no se inicio una sesión mediante guardarSesion(), se es redirigido a registro.php
+  header("location:registro.php");
+} else {
+  dd($_SESSION);
+}*/
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <!DOCTYPE html>
@@ -35,6 +47,9 @@
                           <li class="nav-item -link">
                              <button type="button" class="btn btn-lg btn-link" name="button"><i class="fas fa-cogs"></i> Opciones</button>
                           </li>
+                          <li class="nav-item -link">
+                            <button type="button" class="btn btn-link" name="button"><a href="logOut.php"><i class="fas fa-cogs"></i> Logout</a></button>
+                         </li>
                         </ul>
                       </div>
                     </nav>
@@ -59,59 +74,67 @@
                   </form>
                   <div class="fotoAmigos">
                 </div>
+                <div class= "contenedorAmigos">
                   <div class="articulo1">
                   <article class="art1">
                     <h3 class="nombreAmigo">Nombre Amigo</h3>
-                    <a href="#">Ver perfil</a>
+                    <a class= "verPerfil" href="#">Ver perfil</a>
                 </article>
                   </div>
                   <div class="articulo1">
                     <article class="art1">
                         <h3 class="nombreAmigo">Nombre Amigo</h3>
-                        <a href="#">Ver perfil</a>
+                        <a class= "verPerfil" href="#">Ver perfil</a>
                   </article>
                     </div>
                     <div class="articulo1">
                       <article class="art1">
                           <h3 class="nombreAmigo">Nombre Amigo</h3>
-                          <a href="#">Ver perfil</a>
+                          <a class= "verPerfil" href="#">Ver perfil</a>
                     </article>
                       </div>
                       <div class="articulo1">
                         <article class="art1">
                             <h3 class="nombreAmigo">Nombre Amigo</h3>
-                            <a href="#">Ver perfil</a>
+                            <a class= "verPerfil" href="#">Ver perfil</a>
                       </article>
                         </div>
                         <div class="articulo1">
                           <article class="art1">
                               <h3 class="nombreAmigo">Nombre Amigo</h3>
-                              <a href="#">Ver perfil</a>
+                              <a class= "verPerfil" href="#">Ver perfil</a>
                         </article>
                           </div>
                           <div class="articulo1">
                             <article class="art1">
                                 <h3 class="nombreAmigo">Nombre Amigo</h3>
-                                <a href="#">Ver perfil</a>
+                                <a class= "verPerfil" href="#">Ver perfil</a>
                           </article>
                             </div>
                             <div class="articulo1">
                               <article class="art1">
                                   <h3 class="nombreAmigo">Nombre Amigo</h3>
-                                  <a href="#">Ver perfil</a>
+                                  <a class= "verPerfil" href="#">Ver perfil</a>
                             </article>
                               </div>
                               <div class="articulo1">
                                 <article class="art1">
                                     <h3 class="nombreAmigo">Nombre Amigo</h3>
-                                    <a href="#">Ver perfil</a>
+                                    <a class= "verPerfil" href="#">Ver perfil</a>
                               </article>
                                 </div>
                                 <div class="articulo1">
                                   <article class="art1">
                                       <h3 class="nombreAmigo">Nombre Amigo</h3>
-                                      <a href="#">Ver perfil</a>
+                                      <a class= "verPerfil" href="#">Ver perfil</a>
                                 </article>
+                                  </div>
+                                  <div class="articulo1">
+                                  <article class="art1">
+                                      <h3 class="nombreAmigo">Nombre Amigo</h3>
+                                      <a class= "verPerfil" href="#">Ver perfil</a>
+                                </article>
+                                  </div>
                                   </div>
                   </div>
                 </section>
