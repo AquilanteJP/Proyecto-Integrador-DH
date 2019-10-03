@@ -1,19 +1,20 @@
 <?php
 require_once("controladores/functions.php");
 if($_POST){
- $errores = validarLogIn($_POST);
- if(count($errores)==0){
-   $usuarioEncontrado=buscarUsuario($_POST['email']);
+ $erroresLogIn = validarLogIn($_POST);
+ if(count($erroresLogIn)==0){
+    guardarSesion($usuarioValidado);
+    header("location:profile.php");
+   /*$usuarioEncontrado=buscarUsuario($_POST['email']);
    $usuarioValidado=validarContraseña($_POST['password'],$usuarioEncontrado);
-   if ($usuarioValidado!=null){
+   if ($usuarioValidado!=null){ //Verifica que el usuario haya pasado la verificacion
      guardarSesion($usuarioValidado);
      header("location:profile.php");
    } else {
      echo "<br> Validacion no pasada"; //Solo para señalar mas claramente que no se paso, después esto se borra
-   }
- }
+   } */
 }
- ?>
+?>
 <html lang="en" dir="ltr">
 
 <head>
@@ -45,9 +46,9 @@ if($_POST){
       <br>
       <h5>Log In</h5>
       <div class="w-100">
-        <?php if(isset($errores)):?>
+        <?php if(isset($erroresLogIn)):?>
                 <ul class="alert alert-danger">
-                  <?php foreach ($errores as $value) :?>
+                  <?php foreach ($erroresLogIn as $value) :?>
                       <li><small><?=$value;?></small></li>
                   <?php endforeach;?>
                 </ul>

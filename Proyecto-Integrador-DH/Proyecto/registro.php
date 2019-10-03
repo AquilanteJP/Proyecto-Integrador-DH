@@ -1,6 +1,7 @@
 <?php
 require_once("controladores/functions.php");
 require_once("helpers.php");
+var_dump($_POST);
 if($_POST && $_FILES){
   $errores = validar($_POST, $_FILES);
   if(count($errores)==0){
