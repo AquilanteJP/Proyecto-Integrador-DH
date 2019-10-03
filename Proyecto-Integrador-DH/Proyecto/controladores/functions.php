@@ -177,9 +177,22 @@ function guardarSesion($variable){ // La variable en este caso es $registro, que
   return $_SESSION;
 }
 
+function recuerdame($dato, $usuarioEnDatos){
+  if(isset($dato['recuerdame']) ){
+    foreach ($usuarioEnDatos as $key => $value) {
+        setcookie($key,$value,time()+3600);
+    }
+  } else {
+      return null;
+    }
+}
+
 function logout(){ //Al usarse destruye la sesión y redirecciona a logIn.php. IMPORTANTE:PARA OPERAR CON SESSION, SE DEBE ESCRIBIR SESSION_START(), INCLUSO PARA DESTRUIRLA CON SESSION_DESTROY()!!!!
   session_start();
   session_destroy();
+  foreach ($_COOKIE as $key => $value) {
+    setcookie($key,$value,time()-3600);
+  }
   header("location:logIn.php");
 }
 

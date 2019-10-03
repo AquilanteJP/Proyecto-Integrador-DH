@@ -1,19 +1,24 @@
 <?php
 require_once("controladores/functions.php");
+
 if($_POST){
+
  $erroresLogIn = validarLogIn($_POST);
  if(count($erroresLogIn)==0){
-    guardarSesion($usuarioValidado);
-    header("location:profile.php");
-   /*$usuarioEncontrado=buscarUsuario($_POST['email']);
+  /*  guardarSesion($usuarioValidado);*/
+  /*  header("location:profile.php");*/
+   $usuarioEncontrado=buscarUsuario($_POST['email']);
    $usuarioValidado=validarContraseña($_POST['password'],$usuarioEncontrado);
    if ($usuarioValidado!=null){ //Verifica que el usuario haya pasado la verificacion
      guardarSesion($usuarioValidado);
+     recuerdame($_POST,$usuarioValidado);
      header("location:profile.php");
-   } else {
+    } else {
      echo "<br> Validacion no pasada"; //Solo para señalar mas claramente que no se paso, después esto se borra
-   } */
+    }
+  }
 }
+
 ?>
 <html lang="en" dir="ltr">
 
@@ -64,7 +69,7 @@ if($_POST){
           <input type="password" class="form-control" name="password" id="password" placeholder="Introduce tu contraseña">
         </div>
         <div class="form-group form-check">
-          <input type="checkbox" class="form-check-input" id="recuerdame">
+          <input type="checkbox" class="form-check-input" name="recuerdame" id="recuerdame">
           <label class="form-check-label" for="recuerdame">Recuerdame</label>
         </div>
         <button type="submit" class="w-75 m-auto rounded py-2 botonJuan">Entrar</button>

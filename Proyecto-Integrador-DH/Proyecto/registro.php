@@ -1,7 +1,6 @@
 <?php
 require_once("controladores/functions.php");
 require_once("helpers.php");
-var_dump($_POST);
 if($_POST && $_FILES){
   $errores = validar($_POST, $_FILES);
   if(count($errores)==0){
@@ -33,7 +32,7 @@ if($_POST && $_FILES){
           <h5>Volver</h5>
         </a>
       </div>
-      <div class="w-100 border">
+      <div class="w-100">
         <?php if(isset($errores)):?>
                 <ul class="alert alert-danger">
                   <?php foreach ($errores as $value) :?>
@@ -70,12 +69,12 @@ if($_POST && $_FILES){
         <input type="radio" name="gender" value="other"> Otro
       </div>
 
-      <div class="form-group w-100">
+      <div class="form-group w-50 pr-3">
         <label for="password">Contraseña <span class="text-danger">*</span></label>
-        <input type="password" class="form-control" name="password" id="password" placeholder="Al menos 6 letras, un numero y un caracter especial">
+        <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
       </div>
 
-      <div class="form-group">
+      <div class="form-group w-50">
         <label for="password">Repetir contraseña <span class="text-danger">*</span></label>
         <input required name="passwordRepeat" type="password" value= ""class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Repetir contraseña">
       </div>
