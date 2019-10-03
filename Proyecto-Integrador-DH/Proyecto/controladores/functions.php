@@ -96,7 +96,25 @@ function validarLogIn($datos){
     return $errores;
 }
 
-function buscarUsuario($email){ //Toma el email guardado en $_POST, consigue el array de usuarios,
+function abrirBaseDatos(){ //gracias profe jajaj
+   if(file_exists("usuarios.json")){
+       $baseDatosJson= file_get_contents("usuarios.json");
+       $baseDatosJson = explode(PHP_EOL,$baseDatosJson);
+       //Aquí saco el ultimo registro, el cual está en blanco
+       array_pop($baseDatosJson);
+       //Aquí recooro el array y creo mi array con todos los usuarios
+       foreach ($baseDatosJson as  $usuarios) {
+           $arrayUsuarios[]= json_decode($usuarios,true);
+       }
+       //Aquí retorno el array de usuarios con todos sus datos
+       return $arrayUsuarios;
+       //var_dump($arrayUsuarios);
+   }else{
+       return null;
+   }
+}
+
+function buscarUsuario($email){ //Toma el email guardado en $_POST, consigue el array de usuarios, y busca el mail exacto en cada array de usuario para un match (si el usuario no esta registrado no aparece)
    $arrayUsuarios = abrirBaseDatos();
    if($arrayUsuarios!==null){
        foreach ($arrayUsuarios as $usuario =>$value) {
@@ -104,7 +122,7 @@ function buscarUsuario($email){ //Toma el email guardado en $_POST, consigue el 
              $usuarioEnDatos=$arrayUsuarios[$usuario];
              return $usuarioEnDatos;
            } else {
-             echo "usuario no encontrado";//no se muestra, solo para testear la funcion
+             echo "usuario no encontrado";//no se muestra, solo para testear la funcion. Aparece este mensaje por cada matcheo de usuario fallido (2 usuarios, 2 veces aparece el mensaje)
            }
        }
    } else {
@@ -112,10 +130,11 @@ function buscarUsuario($email){ //Toma el email guardado en $_POST, consigue el 
       return null;
    }
 }
-function validarContraseña($passwordPost,$usuarioEnDatos){
- $usuarios = abrirBaseDatos();
+
+function validarContraseña($passwordPost,$usuarioEnDatos){ //Consiguiendo
+ // $usuarios = abrirBaseDatos(); IMPORTANTE: ESTA LINEA NO HACE NADA!! (no usas la variable $usuarios en la función abajo; en el login te encargas de usar esta función con $usuarioEncontrado, un output de buscarUsuario(); AHÍ ya tenes el usuario que queres, y no necesitas abrir/encontrar el array de usuarios)
  if(password_verify($passwordPost,$usuarioEnDatos['password'])){
-     // echo "La contraseña es correcta";
+     echo "La contraseña es correcta";
      $usuarioSession = $usuarioEnDatos;
      return $usuarioSession;
  } else {
