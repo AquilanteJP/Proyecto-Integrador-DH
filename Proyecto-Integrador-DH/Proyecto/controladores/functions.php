@@ -35,15 +35,6 @@ function validar($datos,$imagen){ //Los datos estan en el array $_POST, la image
     $foto = $_FILES["avatar"]["name"];
     $ext = pathinfo($foto, PATHINFO_EXTENSION);
 
-    //Ahora se esta probando subida de avatar opcional, para subida de avatar obligatoria sacar tags de comentario
-
-    /* if($_FILES ["avatar"]["error"]!=0){ //Validacion foto no subida
-        $errores["avatar"] = "Debe subir una foto (formato .jpg, .jpeg, o .png).";
-    }
-    elseif ($ext != "png" && $ext != "jpg" && $ext != "jpeg") { //Validacion formato de foto incorrecto
-        $errores["avatar"] = "La foto debe ser de formato .jpg, .jpeg, o .png.";
-    } */
-
     if ($ext != "png" && $ext != "jpg" && $ext != "jpeg" && $ext != null ) { //Validacion formato de foto incorrecto
         $errores["avatar"] = "La foto debe ser de formato .jpg, .jpeg, o .png.";
     }
@@ -58,9 +49,8 @@ function armarAvatar($imagen){  //Guarda la imagen en profilePics, y devuelve el
       return;
     } else {
       $archivoOrigen = $imagen['avatar']['tmp_name'];
-      $archivoDestino = dirname(__DIR__)."/profilePics/";
       $avatar = uniqid().".".$ext;  //Genera un nombre randomizado para todas las fotos
-      $archivoDestino = $archivoDestino.$avatar;
+      $archivoDestino = dirname(__DIR__)."/profilePics/".$avatar;
       move_uploaded_file($archivoOrigen, $archivoDestino);
       return $avatar;
     }
@@ -89,23 +79,6 @@ function guardarUsuario($usuario){  //En registro, toma el output de crearRegist
 
 //VALIDACION LOGIN
 
-/*function validarLogIn($datos){ //Similar a validar(), con menos pasos
-    $errores = [];
-
-    $email = trim($datos['email']);
-    if(!filter_var($email,FILTER_VALIDATE_EMAIL)){ //Validacion formato email incorrecto
-    $errores['email']="Email inválido.";
-    }
-
-    $password = trim($datos['password']);
-    if(empty($password)){ //Validacion contraseña vacía
-      $errores['password']="El password no puede estar en blanco.";
-    } elseif (!preg_match('/^(?=.*\d)(?=.*[A-Za-z])(?=.*[!?@#$%&])[0-9A-Za-z!?@#$%&]{6,15}$/', $password)) { //Validacion contraseña REGEX
-      $errores['password'] = "El password debe tener al menos 6 letras, un numero y un caracter especial";
-    }
-    return $errores;
-}*/
-
 function abrirBaseDatos(){ //gracias profe jajaj  //Esta función sirve para recuperar el array de usuarios para uso posterior, se la usa mas abajo (es como un helper)
    if(file_exists("usuarios.json")){
        $baseDatosJson= file_get_contents("usuarios.json");
@@ -119,7 +92,7 @@ function abrirBaseDatos(){ //gracias profe jajaj  //Esta función sirve para rec
        //Aquí retorno el array de usuarios con todos sus datos
        return $arrayUsuarios;
        //var_dump($arrayUsuarios);
-   }else{
+   } else {
        return null;
    }
 }
@@ -159,9 +132,9 @@ function validarLogIn($datos){ //Usa las funciones previamente mencionadas para 
    $email = trim($datos['email']);
    $password = trim($datos['password']);
    if(buscarUsuario($_POST['email'])==null) {
-     $erroresLogIn['email'] = "Usuario no encontrado."; //A futuro ambos errores se reemplazaran por "El usuario o la contraseña son incorrectos", estos mensajes estan aca para visualizar
+     $erroresLogIn['email'] = "Usuario no encontrado.";
    } elseif (validarContraseña($_POST['password'],buscarUsuario($_POST['email']))==null) {
-        $erroresLogIn['password'] = "Contraseña incorrecta.";
+        $erroresLogIn['password'] = "El usuario o la contraseña son incorrectos."; //En realidad el usuario ya esta encontrado y la contraseña es incorrecta, este mensaje es para seguridad.
    }
 
    return $erroresLogIn;
@@ -177,7 +150,7 @@ function guardarSesion($variable){ // La variable en este caso es $registro, que
   return $_SESSION;
 }
 
-function recuerdame($dato, $usuarioEnDatos){
+function recuerdame($dato, $usuarioEnDatos){ //Si se checkea recuerdame (que se guarda en $_POST), setea un cookie para cada dato del usuario perviamente encontrado mediante buscar usuario
   if(isset($dato['recuerdame']) ){
     foreach ($usuarioEnDatos as $key => $value) {
         setcookie($key,$value,time()+3600);
