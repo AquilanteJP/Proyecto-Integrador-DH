@@ -17,15 +17,16 @@ if($_POST && $_FILES){
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/master.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <title>Registrate</title>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/master.css">
+  <script src="https://kit.fontawesome.com/64db3b546b.js"></script>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
 </head>
 
 <body>
   <div class="container-fluid py-auto d-flex fondoJuan">
-
     <form class="col-lg-6 col-md-6 col-sm-12 m-auto py-3 px-5 d-flex flex-wrap  bg-light" method="POST" enctype="multipart/form-data">
       <div class="w-100 border-bottom mb-3">
         <a href="logIn.php" class="text-decoration-none">

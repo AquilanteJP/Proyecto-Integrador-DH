@@ -22,35 +22,7 @@ if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se
   </head>
   <body>
     <div class="container-fluid m-0 p-0 d-flex flex-row flex-wrap -all">
-      <header>
-          <nav class="navbar navbar-expand-sm navbar-dark row -navbar">
-            <div class="-logocontainer">
-              <img src="img/logo-DH.png" alt="logo" class="dh2">
-            </div>
-            <div class="-linkscontainer">
-              <ul class="-links">
-                <li class="nav-item -link">
-                  <button type="button" class="btn btn-link" name="button"><i class="fas fa-home"></i> Inicio</button>
-                </li>
-                <li class="nav-item -link">
-                  <button type="button" class="btn btn-link" name="button"><i class="fas fa-code"></i> Mis proyectos</button>
-                </li>
-                <li class="nav-item -link">
-                   <button type="button" class="btn btn-link" name="button"><i class="fas fa-user-friends"></i><a href="misAmigos.php">Mis Amigos</a></button>
-                </li>
-                <li class="nav-item -link">
-                   <button type="button" class="btn btn-link" name="button"><i class="fas fa-chalkboard"></i> Mis cursos</button>
-                </li>
-                <li class="nav-item -link">
-                   <button type="button" class="btn btn-link" name="button"><i class="fas fa-cogs"></i> Opciones</button>
-                </li>
-                <li class="nav-item -link">
-                   <button type="button" class="btn btn-link" name="button"><a href="logOut.php"><i class="fas fa-cogs"></i> Logout</a></button>
-                </li>
-              </ul>
-            </div>
-          </nav>
-      </header>
+      <?php include_once("partials/header.php"); ?>
       <div class="container-fluid row -contenido">
         <div class="border border-primary rounded col-12 col-md-3 mt-5 mb-lg-3 shadow -profile">
           <img src="<?= isset($_SESSION['avatar'])?"profilePics/".$_SESSION['avatar']:(isset($_COOKIE['avatar'])?"profilePics/".$_COOKIE['avatar']:"profilePics/generic.jpg") ;?>?>" alt="fotoperfil" class="-profilePic">

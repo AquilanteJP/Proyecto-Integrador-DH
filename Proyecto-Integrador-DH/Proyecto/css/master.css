@@ -1,8 +1,10 @@
 @import "./logIn.css";
 @import "./registro.css";
 @import "./footer.css";
+@import "./header.css";
 @import "./profile.css";
 @import "./misAmigos.css";
+
 
 * {
   font-family: 'Montserrat', sans-serif;

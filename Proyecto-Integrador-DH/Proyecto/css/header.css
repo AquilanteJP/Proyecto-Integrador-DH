@@ -1,0 +1,32 @@
+.-navbar{
+  display:flex !important;
+  background-color:#2A1787;
+  width:110% !important;
+  position:fixed !important;
+  z-index:20;
+  top:0;
+}
+
+.-logocontainer{
+  padding:0 10px !important;
+  width:23% !important;
+}
+
+.-linkscontainer{
+  width:70%;
+  float:right;
+}
+
+.-links{
+  list-style-type: none;
+  overflow: hidden;
+}
+
+.-link{
+  text-align:center;
+  display:inline-block;
+}
+
+.dh2{
+  width:100%;
+}

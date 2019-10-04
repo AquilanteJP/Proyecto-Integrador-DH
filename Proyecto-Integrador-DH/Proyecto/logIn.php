@@ -34,42 +34,14 @@ if($_POST){
 
 <body>
   <div class="container-fluid m-0 p-0 d-flex flex-row flex-wrap -all">
-        <nav class="d-flex navbar navbar-expand-lg navbar-dark -navbar">
-          <div class="-logocontainer">
-            <img src="img/logo-DH.png" alt="logo" class="dh2">
-          </div>
-          <div class="-linkscontainer">
-            <ul class="-links">
-              <?php if(isset($_SESSION["email"])) :?>
-                <li class="nav-item -link">
-                  <button type="button" class="btn btn-link" name="button"><i class="fas fa-home"></i> Inicio</button>
-                </li>
-                <li class="nav-item -link">
-                  <button type="button" class="btn btn-link" name="button"><i class="fas fa-code"></i> Mis proyectos</button>
-                </li>
-                <li class="nav-item -link">
-                  <button type="button" class="btn btn-link" name="button"><i class="fas fa-user-friends"></i> Mis amigos</button>
-                </li>
-                <li class="nav-item -link">
-                  <button type="button" class="btn btn-link" name="button"><i class="fas fa-chalkboard"></i> Mis cursos</button>
-                </li>
-                <li class="nav-item -link">
-                 <button type="button" class="btn btn-link" name="button"><i class="fas fa-cogs"></i> Opciones</button>
-                </li>
-                <li class="nav-item -link">
-                 <button type="button" class="btn btn-link" name="button"><a href="logOut.php"><i class="fas fa-cogs"></i> Logout</a></button>
-                </li>
-              <?php else :?>
-                  <li class="nav-item -link">
-                    <button type="button" class="btn btn-link" name="button"><a href=#><i class="fas fa-code"></i> Login</a></button>
-                  </li>
-                  <li class="nav-item -link">
-                    <button type="button" class="btn btn-link" name="button"><a href="registro.php"><i class="fas fa-code"></i> Registrate</a></button>
-                  </li>
-              <?php endif;?>
-            </ul>
-          </div>
-        </nav>
+    <?php include_once("partials/header.php"); ?>
+    <div class="vh-50 w-100">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+    </div>
     <section class="col-9 d-none d-md-block d-lg-block vh-100 m-auto p-auto shadow imagen fondoJuan">
       <img class="w-75 ml-4 mt-3 dh" src="img/logo-DH.png" alt="">
       <article class="pl-5 mt-5 mr-5">
