@@ -36,7 +36,7 @@ if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se
                   <button type="button" class="btn btn-link" name="button"><i class="fas fa-code"></i> Mis proyectos</button>
                 </li>
                 <li class="nav-item -link">
-                   <button type="button" class="btn btn-link" name="button"><i class="fas fa-user-friends"></i> Mis amigos</button>
+                   <button type="button" class="btn btn-link" name="button"><i class="fas fa-user-friends"></i><a href="misAmigos.php">Mis Amigos</a></button>
                 </li>
                 <li class="nav-item -link">
                    <button type="button" class="btn btn-link" name="button"><i class="fas fa-chalkboard"></i> Mis cursos</button>
