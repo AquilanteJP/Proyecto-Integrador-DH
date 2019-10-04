@@ -80,7 +80,7 @@ if($_POST && $_FILES){
       </div>
 
       <div class="form-group">
-        <label for="avatar">Avatar <small class="text-muted">(.jpg,.jpeg,.png)</small></label>
+        <label for="avatar">Avatar (opcional) <small class="text-muted">(.jpg,.jpeg,.png)</small></label>
         <input name="avatar" type="file" value= ""class="form-control" id="avatar">
       </div>
 
