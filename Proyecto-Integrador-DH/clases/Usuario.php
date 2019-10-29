@@ -1,6 +1,7 @@
 <?php
 
 abstract class Usuario{
+
   private $id;
   private $nombres;
   private $apellidos;
@@ -18,8 +19,11 @@ abstract class Usuario{
   abstract public function agregarseAlumno();
   abstract public function eliminarseAlumno();
 
-  public function postear($contenido){
+  //probando funcion para crear Posts
+  public function postear($id, $titulo, $contenido){
     //Debo instanciar un objeto Posts
+    $post1 = new Post($id, $titulo, $contenido);
+    var_dump($post1);
   }
 
   public function eliminarse(){
@@ -76,12 +80,13 @@ abstract class Usuario{
 
   public function setGenero($genero){
     $this->genero = $genero;
-
+  }
   public function getEmail(){
       return $this->email;
   }
 
   public function setGenero($genero){
       $this->genero = $genero;
-  }    
+  }
+
 }
