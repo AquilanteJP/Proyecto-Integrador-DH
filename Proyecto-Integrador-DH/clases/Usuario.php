@@ -2,22 +2,17 @@
 
 abstract class Usuario{
 
-  private $id;
-  private $nombres;
-  private $apellidos;
-  private $genero;
-  private $birthdate;
-  private $email;
-  private $password;
-  private $contacto;
-  private $amigos;
+  protected $id;
+  protected $nombres;
+  protected $apellidos;
+  protected $genero;
+  protected $birthdate;
+  protected $email;
+  protected $password;
+  protected $contacto;
+  protected $amigos;
 
-  abstract public function agregarseCurso();
-  abstract public function eliminarseCurso();
-  abstract public function agregarseToDo();
-  abstract public function eliminarseToDo();
-  abstract public function agregarseAlumno();
-  abstract public function eliminarseAlumno();
+  //Se quitaron las funciones abstractas porque forzaban a que se especifiquen TODAS en CADA UNO DE los hijos
 
   //probando funcion para crear Posts
   public function postear($id, $titulo, $contenido){
@@ -27,7 +22,7 @@ abstract class Usuario{
   }
 
   public function eliminarse(){
-
+    return;
   }
 
   public function getEmail(){
@@ -64,29 +59,6 @@ abstract class Usuario{
 
   public function setGenero($genero){
     $this->genero = $genero;
-  }
-
-  public function getEmail(){
-    return $this->email;
-  }
-
-  public function setGenero($genero){
-    $this->genero = $genero;
-  }
-
-  public function getEmail(){
-    return $this->email;
-  }
-
-  public function setGenero($genero){
-    $this->genero = $genero;
-  }
-  public function getEmail(){
-      return $this->email;
-  }
-
-  public function setGenero($genero){
-      $this->genero = $genero;
   }
 
 }

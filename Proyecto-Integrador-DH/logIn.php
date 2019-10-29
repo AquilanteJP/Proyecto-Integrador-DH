@@ -1,5 +1,16 @@
 <?php
 require_once("controladores/functions.php");
+require_once("loader.php");
+require_once("helpers.php");
+
+/*$estudiante=new Estudiante;
+dd($estudiante);
+$post=$estudiante->postear(1,"ESTO ES UNA PRUEBA","does this work?");
+dd($post);
+$post->meGusta();
+dd($post);
+exit;*/
+
 
 if($_POST){
 
