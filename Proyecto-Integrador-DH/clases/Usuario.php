@@ -11,9 +11,10 @@ abstract class Usuario{
   protected $password;
   protected $contacto;
   protected $amigos;
+  //crear un atributo para determinar que numero de usuario es?
 
   //Se quitaron las funciones abstractas porque forzaban a que se especifiquen TODAS en CADA UNO DE los hijos
-  
+
   //Constructor general, para evitar que cualquier clase hijo se cree con pocos argumentos, se extiende a todos
   public function __construct($nombres, $apellidos, $genero, $email, $password){
     //$this->id = generar una id autoincremental;
