@@ -1,7 +1,7 @@
 <?php
 
 class Docente extends Usuario{
-
+  //El docente tendria que administrar las cursos me parece
   public function agregarseCurso($curso){
     return;
   }

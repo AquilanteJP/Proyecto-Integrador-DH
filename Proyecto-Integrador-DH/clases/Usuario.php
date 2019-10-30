@@ -13,7 +13,15 @@ abstract class Usuario{
   protected $amigos;
 
   //Se quitaron las funciones abstractas porque forzaban a que se especifiquen TODAS en CADA UNO DE los hijos
-
+  
+  //Constructor general, para evitar que cualquier clase hijo se cree con pocos argumentos, se extiende a todos
+  public function __construct($nombres, $apellidos, $genero, $email, $password){
+    //$this->id = generar una id autoincremental;
+    $this->nombres = $nombres;
+    $this->apellidos = $apellidos;
+    $this->genero = $genero;
+    $this->password = $password;
+  }
   //probando funcion para crear Posts
   public function postear($id, $titulo, $contenido){
     //Debo instanciar un objeto Posts
