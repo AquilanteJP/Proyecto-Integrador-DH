@@ -2,13 +2,14 @@
 //RECORDAR QUE TODOS LOS USUARIOS MENOS LOS ADMIN INSTANCIAN ESTE OBJETO//
 class Post {
 
-  protected $id; //Usuario que lo posteo
+  protected $id;
+  protected $userId; //usuario que lo posteo
   protected $titulo;
   protected $contenido;
   protected $like;
 
   public function __construct($usuarioId, $titulo, $contenido){
-    $this->id = $usuarioId;
+    $this->userId = $usuarioId;
     $this->titulo = $titulo;
     $this->contenido = $contenido;
     $this->like = 0;

@@ -25,10 +25,10 @@ abstract class Usuario{
     $this->password = $password;
   }
   //probando funcion para crear Posts
-  public function postear($id, $titulo, $contenido){
+  public function postear($titulo, $contenido){
     //Debo instanciar un objeto Posts
-    $post1 = new Post($id, $titulo, $contenido);
-    var_dump($post1);
+    $post = new Post($this->id, $titulo, $contenido);
+    return $post;
   }
 
   public function eliminarse(){

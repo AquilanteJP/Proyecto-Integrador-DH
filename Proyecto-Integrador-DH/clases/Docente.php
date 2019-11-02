@@ -1,9 +1,10 @@
 <?php
 
 class Docente extends Usuario{
-  //El docente tendria que administrar las cursos me parece
-  public function agregarseCurso($curso){
-    return;
+
+public function agregarseCurso(/*la id del curso seleccionado*/){
+    $profesorAdjunto = $this->id;
+    return /*devolver el curso con el profesor adjunto*/;
   }
 
   public function eliminarseCurso($curso){

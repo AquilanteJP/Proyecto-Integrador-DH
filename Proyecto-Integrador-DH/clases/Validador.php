@@ -84,14 +84,14 @@ class Validador{
     }
   }
 
-  public function armarAvatar($imagen){  //Guarda la imagen en profilePics, y devuelve el nuevo nombre de la imagen al final
+  public function armarAvatar($datos,$imagen){  //Guarda la imagen en profilePics, y devuelve el nuevo nombre de la imagen al final
       $nombre = $imagen['avatar']['name'];
       $ext = pathinfo($nombre, PATHINFO_EXTENSION);
       if($ext==null) { //Verificacion rudimentaria por si se subio imagen o no (si no hay extension, no hay archivo, o al menos archivo considerable como imagen); devuelve null en array de usuario
         return;
       } else {
         $archivoOrigen = $imagen['avatar']['tmp_name'];
-        $avatar = uniqid().".".$ext;  //Genera un nombre randomizado para todas las fotos
+        $avatar = $datos['email'].".".$ext;  //Genera un nombre randomizado para todas las fotos
         $archivoDestino = dirname(__DIR__)."/profilePics/".$avatar;
         move_uploaded_file($archivoOrigen, $archivoDestino);
         return $avatar;
