@@ -2,7 +2,7 @@
 
 //VALIDACION REGISTRO
 
-function validar($datos,$imagen){ //Los datos estan en el array $_POST, la imagen en $_FILES
+/*function validar($datos,$imagen){ //Los datos estan en el array $_POST, la imagen en $_FILES
     $errores = [];
 
     $firstName = trim($datos['firstName']);
@@ -69,7 +69,7 @@ function crearRegistro($datos,$imagen){  //Usando $_POST como primer parametro y
     ];
     return $usuario;
 }
-
+*/
 function guardarUsuario($usuario){  //En registro, toma el output de crearRegistro()(el usuario nuevo) y lo pasa a formato .json, guardandolo como archivo plano
     $usuarioJson = json_encode($usuario);
     file_put_contents('usuarios.json',$usuarioJson.PHP_EOL,FILE_APPEND);

@@ -14,10 +14,10 @@ if($_POST && $_FILES){
  //Probando orientado a objetos
   $errores= Validador::validarRegistro($_POST, $_FILES);
     if(count($errores)==0){
-        $avatar = Validador::armarAvatar($_POST, $_FILES); //guarda el profilePic con el email
-        $registro = Validador::crearRegistro($_POST,$avatar);
+        $avatar = Armador::armarAvatar($_POST, $_FILES); //guarda el profilePic con el email
+        $registro = Armador::crearRegistro($_POST,$avatar);
     }
-    
+
 }
 ?>
 
