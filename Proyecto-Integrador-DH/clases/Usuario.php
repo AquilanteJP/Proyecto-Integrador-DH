@@ -11,6 +11,7 @@ abstract class Usuario{
   protected $password;
   protected $contacto;
   protected $amigos;
+  protected $avatar;
   //crear un atributo para determinar que numero de usuario es?
 
   //Se quitaron las funciones abstractas porque forzaban a que se especifiquen TODAS en CADA UNO DE los hijos

@@ -1,15 +1,24 @@
 <?php
-require_once("controladores/functions.php");
 require_once("helpers.php");
+require_once("./loader.php");
 if($_POST && $_FILES){
-  $errores = validar($_POST, $_FILES);
+    /*$errores = validar($_POST, $_FILES);
   if(count($errores)==0){
     $avatar = armarAvatar($_FILES);
     $registro = crearRegistro($_POST, $avatar);
     guardarUsuario($registro);
     //$_SESSION = guardarSesion($registro);//Esta linea se podria borrar porque de aca vas a login y alla tambien te inicia la session
     header("location:logIn.php");
- }
+ }*/
+
+ //Probando orientado a objetos
+  $errores= Validador::validarRegistro($_POST, $_FILES);
+    if(count($errores)==0){
+        $avatar = Validador::armarAvatar($_FILES);
+        $registro = Validador::crearRegistro($_POST,$avatar);
+    }
+
+
 }
 ?>
 
@@ -78,6 +87,14 @@ if($_POST && $_FILES){
       <div class="form-group w-50">
         <label for="password">Repetir contraseña <span class="text-danger">*</span></label>
         <input required name="passwordRepeat" type="password" value= ""class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Repetir contraseña">
+      </div>
+
+      <div class="form-group w-100">
+        <label for="tipoRegistro">Tipo de Registro <span class="text-danger">*</span></label>
+        <br>
+        <input type="radio" name="tipoRegistro" value="docente"> Docente
+        <input type="radio" name="tipoRegistro" value="estudiante"> Estudiante
+        <input type="radio" name="tipoRegistro" value="noDocente"> No Docente
       </div>
 
       <div class="form-group">
