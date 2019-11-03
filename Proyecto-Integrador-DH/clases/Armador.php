@@ -2,7 +2,7 @@
 
 class Armador{
 
-  public function crearRegistro($datos,$imagen){
+  public function armarRegistro($datos,$imagen){
   //dependendiendo que tipo de usuario quiera se instancia un objeto distinto
     if($datos['tipoRegistro'] = "estudiante"){
       $usuario = new Estudiante(

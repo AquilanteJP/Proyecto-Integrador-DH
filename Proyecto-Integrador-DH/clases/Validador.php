@@ -1,48 +1,50 @@
 <?php
 require_once('././loader.php');
 class Validador{
+    public function validarRegistro($usuario){
+        $errores = [];
 
-//EN PROGRESO, SE NECESITAN CAMBIAR COSAS A OOP
+        $firstName = trim($usuario->getNombres());
+        if(empty($firstName)){
+            $errores['firstName']="El campo nombre no lo puede dejar en blanco..";
+        }
 
-  public function validarRegistro($datos,$imagen){ //Los datos estan en el array $_POST, la imagen en $_FILES
-      $errores = [];
+        $lastName = trim($usuario->getApellidos());
+        if(empty($lastName)){ //Validacion apellido en blanco
+            $errores['lastName']="Debe colocar su apellido.";
+        }
 
-      $firstName = trim($datos['firstName']);
-      if(empty($firstName )){ //Validacion nombre en blanco
-          $errores['firstName']="Debe colocar su nombre.";
-      }
+        $email = trim($usuario->getEmail());
+        if(!filter_var($email,FILTER_VALIDATE_EMAIL)){
+            $errores['email']="Email inválido.";
+        }
 
-      $lastName = trim($datos['lastName']);
-      if(empty($lastName )){ //Validacion apellido en blanco
-          $errores['lastName']="Debe colocar su apellido.";
-      }
+        $password = trim($usuario->getPassword());
+        if(empty($password)){ //Validacion contraseña vacía
+          $errores['password']="El password no puede estar en blanco.";
+        } elseif (!preg_match('/^(?=.*\d)(?=.*[A-Za-z])(?=.*[!?@#$%&])[0-9A-Za-z!?@#$%&]{6,15}$/', $password)) { //Validacion contraseña REGEX
+          $errores['password'] = "El password debe tener al menos 6 letras, un numero y un caracter especial";
+        }
 
-      $email = trim($datos['email']);
-      if(!filter_var($email,FILTER_VALIDATE_EMAIL)){ //Validacion formato email incorrecto
-          $errores['email']="Email inválido.";
-      }
+        $passwordRepeat = trim($usuario->getPasswordRepeat());
+        if($password != $passwordRepeat){  //Validacion repetir contraseña fallada
+            $errores['passwordRepeat']="Las contraseñas deben ser iguales";
+        }
 
-      $password = trim($datos['password']);
-      if(empty($password)){ //Validacion contraseña vacía
-        $errores['password']="El password no puede estar en blanco.";
-      } elseif (!preg_match('/^(?=.*\d)(?=.*[A-Za-z])(?=.*[!?@#$%&])[0-9A-Za-z!?@#$%&]{6,15}$/', $password)) { //Validacion contraseña REGEX
-        $errores['password'] = "El password debe tener al menos 6 letras, un numero y un caracter especial";
-      }
+        $foto = $usuario->getAvatar();
+        $ext = pathinfo($foto, PATHINFO_EXTENSION);
 
-      $passwordRepeat = trim($datos['passwordRepeat']);
-      if($password != $passwordRepeat){ //Validacion repetir contraseña fallada
-          $errores['passwordRepeat']="Las contraseñas deben ser iguales.";
-      }
+        if ($ext != "png" && $ext != "jpg" && $ext != "jpeg" && $ext != null ) { //Validacion formato de foto incorrecto
+            $errores["avatar"] = "La foto debe ser de formato .jpg, .jpeg, o .png.";
+        }
 
-      $foto = $_FILES["avatar"]["name"];
-      $ext = pathinfo($foto, PATHINFO_EXTENSION);
+        return $errores;
 
-      if ($ext != "png" && $ext != "jpg" && $ext != "jpeg" && $ext != null ) { //Validacion formato de foto incorrecto
-          $errores["avatar"] = "La foto debe ser de formato .jpg, .jpeg, o .png.";
-      }
+    }
 
-      return $errores;
-  }
+}
+
+
 
   public function crearRegistro($datos,$imagen){
 //dependendiendo que tipo de usuario quiera se instancia un objeto distinto

@@ -15,7 +15,7 @@ if($_POST && $_FILES){
   $errores= Validador::validarRegistro($_POST, $_FILES);
     if(count($errores)==0){
         $avatar = Armador::armarAvatar($_POST, $_FILES); //guarda el profilePic con el email
-        $registro = Armador::crearRegistro($_POST,$avatar);
+        $registro = Armador::armarRegistro($_POST,$avatar);
     }
 
 }
