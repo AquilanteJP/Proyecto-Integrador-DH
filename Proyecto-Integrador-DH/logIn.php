@@ -143,17 +143,7 @@ if($_POST){
         </form>
       </div>
     </section>
-    <footer class="col-12">
-      <h5 class="subTitulo">Nuestras Redes</h5>
-      <div class="redes pt-2 pb-2">
-        <i><img class="icons" src="img/icons/logoFacebook.png" alt=""></i>
-        <i><img class="icons" src="img/icons/logoTwitter.png" alt=""></i>
-        <i><img class="icons" src="img/icons/logoInstagram.png" alt=""></i>
-        <i><img class="icons" src="img/icons/logoLinkedin.png" alt=""></i>
-      </div>
-      <br>
-      <p>todos los derechos reservados</p>
-    </footer>
+    <?php include_once('partials/footer.php'); ?>
   </div>
 
 </body>

@@ -104,17 +104,7 @@ if($_POST && $_FILES){
       <button type="submit" class="w-75 m-auto rounded botonJuan py-2">Registrarme</button>
     </form>
   </div>
-  <footer>
-    <h5 class="subTitulo">Nuestras Redes</h5>
-    <div class="redes pt-2 pb-2">
-      <i><img class="icons" src="img/icons/logoFacebook.png" alt=""></i>
-      <i><img class="icons" src="img/icons/logoTwitter.png" alt=""></i>
-      <i><img class="icons" src="img/icons/logoInstagram.png" alt=""></i>
-      <i><img class="icons" src="img/icons/logoLinkedin.png" alt=""></i>
-    </div>
-    <br>
-    <p>Todos los derechos reservados.</p>
-  </footer>
+  <?php include_once('partials/footer.php'); ?>
 </body>
 
 </html>
