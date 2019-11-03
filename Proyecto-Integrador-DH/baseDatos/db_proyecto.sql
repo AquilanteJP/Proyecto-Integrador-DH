@@ -31,7 +31,7 @@ CREATE TABLE `cursos` (
   PRIMARY KEY (`id`),
   KEY `profesor adjunto_idx` (`profesorAdjunto`),
   CONSTRAINT `profesor  adjunto` FOREIGN KEY (`profesorAdjunto`) REFERENCES `usuarios` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci; /*ACA SE CAMBIO utf8mb4_0900_ai_ci POR utf8mb4_unicode_520_ci*/
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -59,7 +59,7 @@ CREATE TABLE `posts` (
   PRIMARY KEY (`id`),
   KEY `user Id_idx` (`user id`),
   CONSTRAINT `post user Id` FOREIGN KEY (`user id`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci; /*ACA SE CAMBIO utf8mb4_0900_ai_ci POR utf8mb4_unicode_520_ci*/
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -86,7 +86,7 @@ CREATE TABLE `tareas` (
   PRIMARY KEY (`id`),
   KEY `user id_idx` (`user id`),
   CONSTRAINT `tareas user id` FOREIGN KEY (`user id`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci; /*ACA SE CAMBIO utf8mb4_0900_ai_ci POR utf8mb4_unicode_520_ci*/
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -118,7 +118,7 @@ CREATE TABLE `usuarios` (
   `contacto` varchar(45) DEFAULT NULL,
   `amigos` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci; /*ACA SE CAMBIO utf8mb4_0900_ai_ci POR utf8mb4_unicode_520_ci*/
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
