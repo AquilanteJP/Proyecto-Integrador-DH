@@ -1,5 +1,5 @@
 <?php
-session_start();
+/*session_start();
 require_once("helpers.php");
 if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se es redirigido a registro.php
   if(!isset($_COOKIE['firstName'])){//si no hay $_SESSION verifica que no exista una cookie para cargar el perfil
@@ -22,7 +22,7 @@ if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se
   </head>
   <body>
     <div class="container-fluid m-0 p-0 d-flex flex-row flex-wrap -all">
-      <?php include_once("partials/header.php"); ?>
+      <?php include_once("partials/header2.php"); ?>
       <div class="container-fluid row -contenido">
         <div class="border border-primary rounded col-12 col-md-3 mt-5 mb-lg-3 shadow -profile">
           <img src="<?= isset($_SESSION['avatar'])?"profilePics/".$_SESSION['avatar']:(isset($_COOKIE['avatar'])?"profilePics/".$_COOKIE['avatar']:"profilePics/generic.jpg") ;?>?>" alt="fotoperfil" class="-profilePic">
@@ -169,18 +169,9 @@ if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se
           </article>
         </div>
         <br>
-        <footer class="col-12 -footer">
-          <h5 class="subTitulo">Nuestras Redes</h5>
-          <div class="redes pt-2 pb-2">
-            <i><img class="icons" src="img/icons/logoFacebook.png" alt=""></i>
-            <i><img class="icons" src="img/icons/logoTwitter.png" alt=""></i>
-            <i><img class="icons" src="img/icons/logoInstagram.png" alt=""></i>
-            <i><img class="icons" src="img/icons/logoLinkedin.png" alt=""></i>
-          </div>
-          <br>
-          <p>todos los derechos reservados</p>
-        </footer>
+        <?php include_once('partials/footer.php'); ?>
       </div>
+
     </div>
   </body>
 </html>

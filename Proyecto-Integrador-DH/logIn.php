@@ -45,15 +45,8 @@ if($_POST){
 
 <body>
   <div class="container-fluid m-0 p-0 d-flex flex-row flex-wrap -all">
-    <?php include_once("partials/header.php"); ?>
-    <div class="vh-50 w-100">
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-    </div>
-    <section class="col-9 d-none d-md-block d-lg-block vh-100 m-auto p-auto shadow imagen fondoJuan">
+    <?php include_once("partials/header2.php"); ?>
+    <section class="col-9 d-none d-md-block d-lg-block vh-100 mt-5 p-auto shadow imagen fondoJuan">
       <img class="w-75 ml-4 mt-3 dh" src="img/logo-DH.png" alt="">
       <article class="pl-5 mt-5 mr-5">
         <div class="w-50 colearning">
@@ -65,7 +58,7 @@ if($_POST){
         </div>
       </article>
     </section>
-    <header class="col-lg-3 col-md-3 col-sm-12 p-3 vh-100 bg-light shadow info">
+    <header class="col-lg-3 col-md-3 col-sm-12 p-3 mt-5 vh-100 bg-light shadow info">
       <hr>
       <h2 class="	d-md-none d-lg-none subTitulo">Colearning at Home</h2>
       <br>
