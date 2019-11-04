@@ -2,7 +2,7 @@
 
 class Armador{
 
-  public function armarRegistro($datos,$imagen){
+  public function armarUsuario($datos,$imagen){
   //dependendiendo que tipo de usuario quiera se instancia un objeto distinto
     if($datos['tipoRegistro'] = "estudiante"){
       $usuario = new Estudiante(
@@ -10,8 +10,10 @@ class Armador{
         $apellidos = $datos['lastName'],
         $email = $datos['email'],
         $birthdate = $datos['bornIn'],
-        $gender = $datos['gender'],
-        $password = password_hash($datos['password'],PASSWORD_DEFAULT),
+        $genero = $datos['gender'],
+        $password = $datos['password'],
+        $passwordRepeat = $datos['passwordRepeat'],
+        $tipoRegistro = $datos['tipoRegistro'],
         $avatar = $imagen
       );
       return $usuario;
@@ -22,8 +24,10 @@ class Armador{
         $apellidos = $datos['lastName'],
         $email = $datos['email'],
         $birthdate = $datos['bornIn'],
-        $gender = $datos['gender'],
-        $password = password_hash($datos['password'],PASSWORD_DEFAULT),
+        $genero = $datos['gender'],
+        $password = $datos['password'],
+        $passwordRepeat = $datos['passwordRepeat'],
+        $tipoRegistro = $datos['tipoRegistro'],
         $avatar = $imagen
       );
       return $usuario;
@@ -34,8 +38,10 @@ class Armador{
         $apellidos = $datos['lastName'],
         $email = $datos['email'],
         $birthdate = $datos['bornIn'],
-        $gender = $datos['gender'],
-        $password = password_hash($datos['password'],PASSWORD_DEFAULT),
+        $genero = $datos['gender'],
+        $password = $datos['password'],
+        $passwordRepeat = $datos['passwordRepeat'],
+        $tipoRegistro = $datos['tipoRegistro'],
         $avatar = $imagen
       );
       return $usuario;

@@ -12,11 +12,21 @@ if($_POST && $_FILES){
  }*/
 
  //Probando orientado a objetos
-  $errores= Validador::validarRegistro($_POST, $_FILES);
-    if(count($errores)==0){
-        $avatar = Armador::armarAvatar($_POST, $_FILES); //guarda el profilePic con el email
-        $registro = Armador::armarRegistro($_POST,$avatar);
-    }
+  $usuario=$armador->armarUsuario($_POST,$_FILES); //Se instancia el usuario con datos de $_POST y $_FILES
+
+  $errores=$validador->validarRegistro($usuario);
+  echo "Todo bien <br>";
+  if(count($errores)==0){
+     echo "FUNCIONA <br>";
+     var_dump($_FILES);
+     exit;
+        /*$bd = baseDatos::conexion("mysql:host=localhost;dbname=movies_db;port:3306;charset=utf8mb4","root","root"); //Creacion del PDO
+        Consulta::create($bd,$registro->getTipoRegistro(),)*/
+  } else {
+    var_dump($usuario);
+    echo "<br> <br>";
+    var_dump($_POST);
+  }
 
 }
 ?>
@@ -93,7 +103,7 @@ if($_POST && $_FILES){
         <br>
         <input type="radio" name="tipoRegistro" value="docente"> Docente
         <input type="radio" name="tipoRegistro" value="estudiante"> Estudiante
-        <input type="radio" name="tipoRegistro" value="noDocente"> No Docente
+        <input type="radio" name="tipoRegistro" value="no_docente"> No Docente
       </div>
 
       <div class="form-group">

@@ -2,6 +2,8 @@
 
 //VALIDACION REGISTRO
 
+//YA PASADA A OOP
+
 /*function validar($datos,$imagen){ //Los datos estan en el array $_POST, la imagen en $_FILES
     $errores = [];
 
@@ -42,6 +44,8 @@
     return $errores;
 }
 
+//YA PASADA A OOP
+
 function armarAvatar($imagen){  //Guarda la imagen en profilePics, y devuelve el nuevo nombre de la imagen al final
     $nombre = $imagen['avatar']['name'];
     $ext = pathinfo($nombre, PATHINFO_EXTENSION);
@@ -55,6 +59,8 @@ function armarAvatar($imagen){  //Guarda la imagen en profilePics, y devuelve el
       return $avatar;
     }
 }
+
+//YA PASADA A OOP
 
 function crearRegistro($datos,$imagen){  //Usando $_POST como primer parametro y $avatar (creado con armarAvatar()) como segundo, crea un array de usuario
     $usuario =[
