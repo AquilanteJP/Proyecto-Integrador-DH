@@ -8,6 +8,7 @@ if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se
 } /*else {
   dd($_SESSION); //Para checkear errores
 }*/
+$_SESSION['email'] = "juangrum@gmail.com";
 ?>
 
 <html lang="en" dir="ltr">

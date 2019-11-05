@@ -1,5 +1,5 @@
 <?php
-require_once('../loader.php');
+
  class Consulta{
 
      static public function create($bd,$tabla,$valores,$campos=null){ //Crea nuevas hileras de datos; toma la base de datos y la tabla en las cuales se quiere crear una nueva hilera, opcionalmente los campos (si no se especifica son todos los campos) y los valores por los cuales se quiere cambiar; así como esta, se tendría que colocar los campos y valores como strings de "fubar,sadasd,...",una coma y sin espacio
