@@ -21,10 +21,10 @@ if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
   </head>
   <body>
-    <div class="container-fluid m-0 p-0 d-flex flex-row flex-wrap -all">
+    <div class="container-fluid m-0 p-0 pt-5 d-flex flex-row flex-wrap -all">
       <?php include_once("partials/header2.php"); ?>
-      <div class="container-fluid row -contenido">
-        <div class="border border-primary rounded col-12 col-md-3 mt-5 mb-lg-3 shadow -profile">
+      <div class="container-fluid d-flex flex-row">
+        <div class="border border-primary rounded col-12 col-md-3 mt-5  mb-lg-3 shadow -profile">
           <img src="<?= isset($_SESSION['avatar'])?"profilePics/".$_SESSION['avatar']:(isset($_COOKIE['avatar'])?"profilePics/".$_COOKIE['avatar']:"profilePics/generic.jpg") ;?>?>" alt="fotoperfil" class="-profilePic">
           <h2 class="text-center font-weight-bold -nombre "><?=isset($_SESSION['firstName'])?$_SESSION['firstName']:$_COOKIE['firstName']?></h2>
           <hr>
@@ -169,8 +169,9 @@ if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se
           </article>
         </div>
         <br>
+        </div>
         <?php include_once('partials/footer.php'); ?>
-      </div>
+
 
     </div>
   </body>

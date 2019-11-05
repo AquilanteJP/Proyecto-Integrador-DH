@@ -44,77 +44,71 @@ if($_POST && $_FILES){
 </head>
 
 <body>
-  <div class="container-fluid py-auto d-flex fondoJuan">
-    <form class="col-lg-6 col-md-6 col-sm-12 m-auto py-3 px-5 d-flex flex-wrap  bg-light" method="POST" enctype="multipart/form-data">
-      <div class="w-100 border-bottom mb-3">
-        <a href="logIn.php" class="text-decoration-none">
-          <h5>Volver</h5>
-        </a>
-      </div>
-      <div class="w-100">
-        <?php if(isset($errores)):?>
-                <ul class="alert alert-danger">
-                  <?php foreach ($errores as $value) :?>
-                      <li><?=$value;?></li>
-                  <?php endforeach;?>
-                </ul>
-        <?php endif;?>
-      </div>
-      <div class="form-group w-50 pr-3">
-        <label for="firstName">Nombre <span class="text-danger">*</span></label>
-        <input type="text" value="<?=isset($errores['firstName'])? "":old('firstName') ;?>" class="form-control" name="firstName" id="firstName" placeholder="Escribe tu nombre">
-      </div>
-
-      <div class="form-group w-50">
-        <label for="lastName">Apellido <span class="text-danger">*</span></label>
-        <input type="text" value="<?=isset($errores['lastName'])? "":old('lastName') ;?>"  class="form-control" name="lastName" id="lastName" placeholder="Escribe tu apellido">
-      </div>
-
-      <div class="form-group w-100">
-        <label for="email">Email <span class="text-danger">*</span></label>
-        <input type="email" value="<?=isset($errores['email'])? "":old('email') ;?>"  class="form-control" name="email" id="email" placeholder="Escribe tu mail">
-      </div>
-
-      <div class="form-group w-50 pr-3">
-        <label for="bornIn">Nacimiento <span class="text-danger">*</span></label>
-        <input type="date" class="form-control pr-3" name="bornIn">
-      </div>
-
-      <div class="form-group w-50">
-        <label for="gender">Genero <span class="text-danger">*</span></label>
-        <br>
-        <input type="radio" name="gender" value="male"> Hombre
-        <input type="radio" name="gender" value="female"> Mujer
-        <input type="radio" name="gender" value="other"> Otro
-      </div>
-
-      <div class="form-group w-50 pr-3">
-        <label for="password">Contraseña <span class="text-danger">*</span></label>
-        <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
-      </div>
-
-      <div class="form-group w-50">
-        <label for="password">Repetir contraseña <span class="text-danger">*</span></label>
-        <input required name="passwordRepeat" type="password" value= ""class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Repetir contraseña">
-      </div>
-
-      <div class="form-group w-100">
-        <label for="tipoRegistro">Tipo de Registro <span class="text-danger">*</span></label>
-        <br>
-        <input type="radio" name="tipoRegistro" value="docente"> Docente
-        <input type="radio" name="tipoRegistro" value="estudiante"> Estudiante
-        <input type="radio" name="tipoRegistro" value="no_docente"> No Docente
-      </div>
-
-      <div class="form-group">
-        <label for="avatar">Avatar (opcional) <small class="text-muted">(.jpg,.jpeg,.png)</small></label>
-        <input name="avatar" type="file" value= ""class="form-control" id="avatar">
-      </div>
-
-      <button type="submit" class="w-75 m-auto rounded botonJuan py-2">Registrarme</button>
-    </form>
+  <div class=" pt-5">
+    <?php include_once("partials/header2.php"); ?>
+    <div class="px-3 pt-5 flex-wrap">
+     <form class="col-lg-12 col-md-10 col-sm-12 bg-light py-3 d-flex flex-wrap" method="POST" enctype="multipart/form-data">
+       <div class="w-100 border-bottom mb-3">
+         <a href="logIn.php" class="text-decoration-none"><h6>Volver</h6></a>
+        </div>
+        <div class="w-100">
+          <?php if(isset($errores)):?>
+            <ul class="alert alert-danger">
+              <?php foreach ($errores as $value) :?>
+                <li><?=$value;?></li>
+              <?php endforeach;?>
+            </ul>
+          <?php endif;?>
+        </div>
+        <div class="col-form-label-sm w-25 px-2">
+          <label for="firstName">Nombre<span class="text-danger">*</span></label>
+          <input type="text" value="<?=isset($errores['firstName'])? "":old('firstName') ;?>" class="form-control" name="firstName" id="firstName" placeholder="Escribe tu nombre">
+        </div>
+        <div class="col-form-label-sm w-25 px-2">
+          <label for="lastName">Apellido <span class="text-danger">*</span></label>
+          <input type="text" value="<?=isset($errores['lastName'])? "":old('lastName') ;?>"  class="form-control" name="lastName" id="lastName" placeholder="Escribe tu apellido">
+        </div>
+        <div class="col-form-label-sm w-50">
+          <label for="email">Email <span class="text-danger">*</span></label>
+          <input type="email" value="<?=isset($errores['email'])? "":old('email') ;?>"  class="form-control" name="email" id="email" placeholder="Escribe tu mail">
+        </div>
+        <div class="col-form-label-sm w-25 px-2">
+          <label for="bornIn">Nacimiento <span class="text-danger">*</span></label>
+          <input type="date" class="form-control " name="bornIn">
+        </div>
+        <div class="col-form-label-sm w-25 px-2">
+          <label for="gender">Genero <span class="text-danger">*</span></label>
+          <br>
+          <input type="radio" name="gender" value="male"> Hombre
+          <input type="radio" name="gender" value="female"> Mujer
+          <input type="radio" name="gender" value="other"> Otro
+        </div>
+        <div class="col-form-label-sm w-50">
+          <label for="tipoRegistro">Tipo de Registro <span class="text-danger">*</span></label>
+          <br>
+          <input type="radio" name="tipoRegistro" value="docente"> Docente
+          <input type="radio" name="tipoRegistro" value="estudiante"> Estudiante
+          <input type="radio" name="tipoRegistro" value="no_docente"> No Docente
+        </div>
+        <div class="col-form-label-sm w-25 px-2">
+          <label for="password">Contraseña <span class="text-danger">*</span></label>
+          <input type="password" class="form-control" name="password" id="password" placeholder="Contraseña">
+        </div>
+        <div class="col-form-label-sm w-25 px-2">
+          <label for="password">Repetir contraseña <span class="text-danger">*</span></label>
+          <input required name="passwordRepeat" type="password" value= ""class="form-control" name="passwordRepeat" id="passwordRepeat" placeholder="Repetir contraseña">
+        </div>
+        <div class="col-form-label-sm">
+          <label for="avatar">Avatar (opcional) <small class="text-muted">(.jpg,.jpeg,.png)</small></label>
+          <input name="avatar" type="file" value= ""class="form-control" id="avatar">
+        </div>
+        <div class="pt-3 pl-2 w-100">
+          <button type="submit" class="w-25 m-auto rounded botonJuan py-2">Registrarme</button>
+        </div>
+      </form>
+    </div>
+    <?php include_once('partials/footer.php'); ?>
   </div>
-  <?php include_once('partials/footer.php'); ?>
 </body>
 
 </html>

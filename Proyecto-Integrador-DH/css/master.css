@@ -9,16 +9,20 @@
 
 * {
   font-family: 'Montserrat', sans-serif;
+
 }
 
 /*CLASES GENERALES DE JUAN----------------------------------------------------*/
+.fondo{
+background-color: rgb(255, 0, 0);
+}
 .botonJuan {
   background-color: #281e49;
   color: #fafafa;
   border: none;
 }
 .fondoJuan {
-  height: 100vh;
+  /*height: 100vh;*/
   background-image: url(../img/co-learning.jpeg);
   background-size: cover;
 }

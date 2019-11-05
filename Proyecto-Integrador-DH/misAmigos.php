@@ -24,7 +24,7 @@ if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se
     <meta content="width=device-width, initial-scale=1" name="viewport"/>
   </head>
   <body>
-      <?php include_once("partials/header.php"); ?>
+      <?php include_once("partials/header2.php"); ?>
       <div class="vh-50 w-100">
         <br>
         <br>
