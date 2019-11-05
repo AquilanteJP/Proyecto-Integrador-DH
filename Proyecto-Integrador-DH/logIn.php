@@ -47,9 +47,9 @@ if($_POST){
   <div class="container-fluid m-0 p-0 d-flex flex-row flex-wrap -all">
     <?php include_once("partials/header2.php"); ?>
     <section class="col-9 d-none d-md-block d-lg-block vh-100 mt-5 p-auto shadow imagen fondoJuan">
-      <img class="w-75 ml-4 mt-3 dh" src="img/logo-DH.png" alt="">
-      <article class="pl-5 mt-5 mr-5">
-        <div class="w-50 colearning">
+      <!-- <img class="w-75 ml-4 mt-3 dh" src="img/logo-DH.png" alt=""> -->
+      <article class="pl-5 pt-5 mt-5 mr-5">
+        <div class="w-50 mt-5 colearning">
           <h1 class="subTitulo">Colearning at Home</h1>
         </div>
         <div class="w-75 primeraInfo">

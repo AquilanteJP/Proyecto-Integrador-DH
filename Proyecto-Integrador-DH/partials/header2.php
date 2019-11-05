@@ -5,30 +5,34 @@
   <div class="d-flex flex-row justify-content-end">
     <?php if(isset($_SESSION["email"])) :?>
     <div class="px-3">
-      <a class="opcionesNav" href="#">Inicio</a>
+      <a class="text-decoration-none text-secondary" href="#">Inicio</a>
     </div>
     <div class="px-3">
-      <a class="opcionesNav" href="#">Mi Perfil</a>
+      <a class="text-decoration-none text-secondary" href="#">Mi Perfil</a>
     </div>
     <div class="px-3">
-      <a class="opcionesNav" href="#">Mis Cursos</a>
+      <a class="text-decoration-none text-secondary" href="#">Mis Cursos</a>
     </div>
     <div class="px-3">
-      <a class="opcionesNav" href="#">Mis Amigos</a>
+      <a class="text-decoration-none text-secondary" href="#">Mis Amigos</a>
     </div>
     <div class="px-3">
-      <a class="opcionesNav" href="#">Logout</a>
+      <a class="text-decoration-none text-secondary" href="#">Logout</a>
     </div>
     <?php else :?>
       <div class="px-3">
-        <a class="opcionesNav" href="#">Preguntas</a>
+        <a class="text-decoration-none text-secondary" href="#">Preguntas</a>
       </div>
       <div class="px-3">
-        <a class="opcionesNav" href="#">Nosotros</a>
+        <a class="text-decoration-none text-secondary" href="#">Nosotros</a>
       </div>
       <div class="px-3">
-        <a class="opcionesNav" href="#">Contacto</a>
+        <a class="text-decoration-none text-secondary" href="#">Contacto</a>
       </div>
-      <?php endif;?>
-  </div>
+    </div>
+    <div class="w-50 text-right">
+      <a class="text-decoration-none text-secondary"href="./registro.php">Registrate</a>
+    </div>
+    <?php endif;?>
+
 </nav>
