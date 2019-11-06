@@ -14,25 +14,23 @@ if($_POST && $_FILES){
  //Probando orientado a objetos
 
 
-/*  $usuario=$armador->armarUsuario($_POST,$_FILES); //Se instancia el usuario con datos de $_POST y $_FILES
-
+  $usuario=$armador->armarUsuario($_POST,$_FILES); //Se instancia el usuario con datos de $_POST y $_FILES
   $errores=$validador->validarRegistro($usuario);
   echo "Todo bien <br>";
   if(count($errores)==0){
-     echo "FUNCIONA <br>";
-     var_dump($usuario);
-
-      $consulta->create($db,"usuarios","nombres","nombres");
-     exit;
-        /*$bd = baseDatos::conexion("mysql:host=localhost;dbname=movies_db;port:3306;charset=utf8mb4","root","root"); //Creacion del PDO
-        Consulta::create($bd,$registro->getTipoRegistro(),)
+   echo "FUNCIONA <br>";
+    $datosUser= "'".$usuario->getNombres()."','".$usuario->getApellidos()."','".$usuario->getGenero()."','".$usuario->getBirthdate()."','". $usuario->getEmail()."','".$usuario->getPassword()."'";
+    $listaUsuario= "nombres, apellidos, genero, birthdate, email, password"; //para dejar la funcion para generalidades uso esta variable xq desde aca solo se instancian planillas de registro de usuarios
+    $consulta->create($db,"usuarios", $datosUser ,$listaUsuario);
+    header("location:logIn.php");
   } else {
     var_dump($usuario);
     echo "<br> <br>";
     var_dump($_POST);
   }
-*/
+
 }
+
 ?>
 
 <html lang="en" dir="ltr">

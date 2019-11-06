@@ -90,6 +90,13 @@ abstract class Usuario{
   public function setGenero($genero){
     $this->genero = $genero;
   }
+  public function getBirthdate(){
+    return $this->birthdate;
+  }
+
+  public function setBirthdate($birthdate){
+    $this->birth = $birthdate;
+  }
 
   public function getTipoRegistro(){
     return $this->tipoRegistro;
