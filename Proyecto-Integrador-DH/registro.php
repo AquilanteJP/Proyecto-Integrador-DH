@@ -2,26 +2,16 @@
 require_once("helpers.php");
 require_once("./loader.php");
 if($_POST && $_FILES){
-    /*$errores = validar($_POST, $_FILES);
-  if(count($errores)==0){
-    $avatar = armarAvatar($_FILES);
-    $registro = crearRegistro($_POST, $avatar);
-    guardarUsuario($registro);
-    //$_SESSION = guardarSesion($registro);//Esta linea se podria borrar porque de aca vas a login y alla tambien te inicia la session
-    header("location:logIn.php");
- }*/
-
- //Probando orientado a objetos
-
-
-  $usuario=$armador->armarUsuario($_POST,$_FILES); //Se instancia el usuario con datos de $_POST y $_FILES
+  $usuario=$armador->armarUsuario($_POST,$_FILES);
+  $avatar =$armador->armarAvatar($_POST, $_FILES);
+  //Se instancia el usuario con datos de $_POST y $_FILES
   $errores=$validador->validarRegistro($usuario);
-  echo "Todo bien <br>";
+  // echo "Todo bien <br>";
   if(count($errores)==0){
-   echo "FUNCIONA <br>";
-    $datosUser= "'".$usuario->getNombres()."','".$usuario->getApellidos()."','".$usuario->getGenero()."','".$usuario->getBirthdate()."','". $usuario->getEmail()."','".$usuario->getPassword()."'";
-    $listaUsuario= "nombres, apellidos, genero, birthdate, email, password"; //para dejar la funcion para generalidades uso esta variable xq desde aca solo se instancian planillas de registro de usuarios
-    $consulta->create($db,"usuarios", $datosUser ,$listaUsuario);
+   // echo "FUNCIONA <br>";
+    $datosUser= "'".$usuario->getNombres()."','".$usuario->getApellidos()."','". $usuario->getEmail()."','".$usuario->getPassword()."','".$usuario->getGenero()."','".$usuario->getBirthdate()."','".$usuario->getTipoRegistro().($avatar != NULL ?"','".$avatar."'": "'");
+    $listaUsuario= "nombres, apellidos, email, password, genero, birthdate, tipo_registro, foto_usuario"; //para dejar la funcion para generalidades uso esta variable xq desde aca solo se instancian planillas de registro de usuarios
+    $consulta->create($db,"usuarios", $datosUser,$listaUsuario);
     header("location:logIn.php");
   } else {
     var_dump($usuario);
