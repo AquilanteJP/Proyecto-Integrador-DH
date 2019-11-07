@@ -14,20 +14,23 @@ exit;*/
 
 if($_POST){
 
- $erroresLogIn = validarLogIn($_POST);
+ $erroresLogIn = $validador->validarLogIn($_POST,$db);
  if(count($erroresLogIn)==0){
-  /*  guardarSesion($usuarioValidado);*/
-  /*  header("location:profile.php");*/
-   $usuarioEncontrado=buscarUsuario($_POST['email']);
-   $usuarioValidado=validarContraseña($_POST['password'],$usuarioEncontrado);
-   if ($usuarioValidado!=null){ //Verifica que el usuario haya pasado la verificacion
-     guardarSesion($usuarioValidado);
-     recuerdame($_POST,$usuarioValidado);
-     header("location:profile.php");
-    } else {
-     echo "<br> Validacion no pasada"; //Solo para señalar mas claramente que no se paso, después esto se borra
-    }
-  }
+   header("location:profile.php");
+ }
+  //  guardarSesion($usuarioValidado);*/
+
+
+  //  $usuarioEncontrado=buscarUsuario($_POST['email']);
+  //  $usuarioValidado=validarContraseña($_POST['password'],$usuarioEncontrado);
+  //  if ($usuarioValidado!=null){ //Verifica que el usuario haya pasado la verificacion
+  //    guardarSesion($usuarioValidado);
+  //    recuerdame($_POST,$usuarioValidado);
+  //    header("location:profile.php");
+  //   } else {
+  //    echo "<br> Validacion no pasada"; //Solo para señalar mas claramente que no se paso, después esto se borra
+  //   }
+
 }
 
 ?>

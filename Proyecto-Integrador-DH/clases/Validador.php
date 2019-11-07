@@ -42,4 +42,31 @@ class Validador{
 
     }
 
+    function validarLogIn($datos,$bd){ //Usa las funciones previamente mencionadas para hacer la verificacion final de errores en logIn, con la misma idea que la verificacion de registro. Toma los datos de $_POST.
+       $erroresLogIn=[];
+
+       $email = trim($datos['email']);
+       $password = trim($datos['password']);
+       $userEncontrado=Consulta::read('email','usuarios',$bd,'WHERE email = '."'".$email."'");
+         if($userEncontrado != null){
+           //se encontro el user
+           $contraseña=Consulta::read("aes_decrypt(unhex(password), 'hunter2')",'usuarios',$bd,'WHERE email = '."'".$email."'");
+           //se busca la contraseña de ese usuario
+           if($password==$contraseña[0]["aes_decrypt(unhex(password), 'hunter2')"]){
+             return;
+            } else {
+              $erroresLogIn['password'] = "contraseña incorrecta";
+              return $erroresLogIn;
+            }
+          } else {
+            $erroresLogIn['email'] = "Usuario no encontrado.";
+            return $erroresLogIn;
+          }
+        } //elseif (validarContraseña($_POST['password'],buscarUsuario($_POST['email']))==null) {
+     //        $erroresLogIn['password'] = "El usuario o la contraseña son incorrectos."; //En realidad el usuario ya esta encontrado y la contraseña es incorrecta, este mensaje es para seguridad.
+     //   }
+     //
+     //   return $erroresLogIn;
+     // }
+
 }

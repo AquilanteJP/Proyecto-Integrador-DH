@@ -20,4 +20,5 @@ $validador = new Validador;
 $armador = new Armador;
 $db = baseDatos::conexion("mysql:host=localhost;dbname=co_at_home_db;port=3306;charset=utf8mb4","root","quepanicono ?");
 $consulta = new Consulta;
+
 ?>

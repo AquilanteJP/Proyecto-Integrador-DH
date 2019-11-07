@@ -9,7 +9,8 @@ if($_POST && $_FILES){
   // echo "Todo bien <br>";
   if(count($errores)==0){
    // echo "FUNCIONA <br>";
-    $datosUser= "'".$usuario->getNombres()."','".$usuario->getApellidos()."','". $usuario->getEmail()."','".$usuario->getPassword()."','".$usuario->getGenero()."','".$usuario->getBirthdate()."','".$usuario->getTipoRegistro().($avatar != NULL ?"','".$avatar."'": "'");
+    $datosUser= "'".$usuario->getNombres()."','".$usuario->getApellidos()."','". $usuario->getEmail()."',hex(aes_encrypt('".$usuario->getPassword()."', 'hunter2')),'".$usuario->getGenero()."','".$usuario->getBirthdate()."','".$usuario->getTipoRegistro().($avatar != NULL ?"','".$avatar."'": "'");
+    /////////////////////////////////////////////////////////////////////////////////////////////////AES encripta la contraseña y HEX lo pasa a hexadecimal porque sino es un quilombo
     $listaUsuario= "nombres, apellidos, email, password, genero, birthdate, tipo_registro, foto_usuario"; //para dejar la funcion para generalidades uso esta variable xq desde aca solo se instancian planillas de registro de usuarios
     $consulta->create($db,"usuarios", $datosUser,$listaUsuario);
     header("location:logIn.php");
