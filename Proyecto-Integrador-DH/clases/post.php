@@ -18,6 +18,29 @@ class Post {
     $this->like++;
   }
 
+  public function getTitulo(){
+    return $this->titulo;
+  }
+
+  public function setTitulo($titulo){
+    $this->titulo = $titulo;
+  }
+
+  public function getContenido(){
+    return $this->contenido;
+  }
+
+  public function setContenido($contenido){
+    $this->contenido = $contenido;
+  }
+
+  public function getUserId(){
+    return $this->userId;
+  }
+
+  public function setUserId($userId){
+    $this->userId = $userId;
+  }
 }
 /* ------TEST------ se crea un post y se prueba la funcion de sumar megustas
 $post = new Post ("prueba","contenido");

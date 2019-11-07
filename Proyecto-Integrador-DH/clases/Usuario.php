@@ -1,5 +1,4 @@
 <?php
-
 abstract class Usuario{
 
   public $id;
@@ -33,9 +32,10 @@ abstract class Usuario{
     $this->avatar = $avatar;
   }
   //probando funcion para crear Posts
-  public function postear($titulo, $contenido){
+  public function postear($id,$titulo, $contenido){
     //Debo instanciar un objeto Posts
-    $post = new Post($this->id, $titulo, $contenido);
+
+    $post = new Post($id, $titulo, $contenido);
     return $post;
   }
 
