@@ -3,13 +3,13 @@ session_start();
 require_once("helpers.php");
 //EN PROCESO
 
-if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se es redirigido a registro.php
-  if(!isset($_COOKIE['firstName'])){//si no hay $_SESSION verifica que no exista una cookie para cargar el perfil
-    header("location:logIn.php");
-  }
-}/* else {
-  dd($_SESSION);
-}*/
+//   if(!isset($_COOKIE['firstName'])){//si no hay $_SESSION verifica que no exista una cookie para cargar el perfil
+//     if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se es redirigido a registro.php
+//       dd($_SESSION);
+//       header("location:logIn.php");
+// }/* else {
+// }
+// }*/
 ?>
 
 <html lang="en" dir="ltr">

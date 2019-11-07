@@ -62,11 +62,6 @@ class Validador{
             $erroresLogIn['email'] = "Usuario no encontrado.";
             return $erroresLogIn;
           }
-        } //elseif (validarContraseña($_POST['password'],buscarUsuario($_POST['email']))==null) {
-     //        $erroresLogIn['password'] = "El usuario o la contraseña son incorrectos."; //En realidad el usuario ya esta encontrado y la contraseña es incorrecta, este mensaje es para seguridad.
-     //   }
-     //
-     //   return $erroresLogIn;
-     // }
-
+          
+    }
 }

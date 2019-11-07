@@ -102,7 +102,7 @@ function abrirBaseDatos(){ //gracias profe jajaj  //Esta función sirve para rec
        return null;
    }
 }
-
+/*
 function buscarUsuario($email){ //Toma el email guardado en $_POST (se le mete $_POST en logIn), consigue el array de usuarios, y busca el mail exacto en cada array de usuario para un match (si el usuario no esta registrado no aparece)
    $arrayUsuarios = abrirBaseDatos();
    if($arrayUsuarios!==null){
@@ -112,7 +112,7 @@ function buscarUsuario($email){ //Toma el email guardado en $_POST (se le mete $
              return $usuarioEnDatos;
            } /* else {
               echo "usuario no encontrado";//no se muestra, solo para testear la funcion. Aparece este mensaje por cada matcheo de usuario fallido (2 usuarios, 2 veces aparece el mensaje)
-           } */
+           }
        }
        return null; //Mejor condicion de usuario no encontrado
    } else {
@@ -145,7 +145,7 @@ function validarLogIn($datos){ //Usa las funciones previamente mencionadas para 
 
    return $erroresLogIn;
 }
-
+*/
 //FUNCIONES DE SESSION Y COOKIES
 
 function guardarSesion($variable){ // La variable en este caso es $registro, que se crea en registro.php usando la funcion crearRegistro(), y contiene los datos del array $_POST mas la imagen subida. Básicamente, copia todos los datos de $_POST a $_SESSION, para accesibilidad en todas las páginas

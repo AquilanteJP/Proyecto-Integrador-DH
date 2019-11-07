@@ -26,4 +26,8 @@ background-color: rgb(255, 0, 0);
   background-image: url(../img/co-learning.jpeg);
   background-size: cover;
 }
+
+.perfilInicio{
+  height: 25%;
+}
 /*CLASES GENERALES DE JUAN----------------------------------------------------*/

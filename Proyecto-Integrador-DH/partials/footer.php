@@ -1,4 +1,4 @@
-<footer class="col-12 pt-4 ">
+<footer class="position-static col-12 pt-4 ">
   <div class="d-flex justify-content-around flex-wrap">
     <div class="col-lg-3 col-md-12 col-sm-12 text-white text-justify">
       <h6 id="nosotros">Nosotros</h6>
