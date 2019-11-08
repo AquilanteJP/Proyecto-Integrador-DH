@@ -62,6 +62,16 @@ class Validador{
             $erroresLogIn['email'] = "Usuario no encontrado.";
             return $erroresLogIn;
           }
-          
+
+    }
+
+    function recuerdame($dato, $usuarioEnDatos){ //Si se checkea recuerdame (que se guarda en $_POST), setea un cookie para cada dato del usuario perviamente encontrado mediante buscar usuario
+      if(isset($dato['recuerdame']) ){
+        foreach ($usuarioEnDatos as $key => $value) {
+            setcookie($key,$value,time()+3600);
+        }
+      } else {
+          return null;
+        }
     }
 }

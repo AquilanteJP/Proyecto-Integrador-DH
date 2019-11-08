@@ -1,6 +1,7 @@
 <?php require_once('loader.php');
+require_once('./helpers.php');
   if ($_POST["titulo"]&&$_POST["post"]) {
-    $id = $consulta->read("id","usuarios",$db,'WHERE email = '."'".$userTest->getEmail()."'");
+    $id = $consulta->read("id","usuarios",$db,"email = '$userTest->getEmail()'");
     $newPost=$userTest->postear($id[0]['id'],$_POST["titulo"],$_POST["post"]);
     $datosPost = "'".$newPost->getTitulo()."','".$newPost->getContenido()."','". $newPost->getUserId()."'";
     $datosTabla = "titulo,contenido,user_id";
@@ -44,7 +45,7 @@
               <textarea name="post" rows="5" cols=""></textarea>
               <button type="submit" class="w-25 mt-2 rounded py-2 botonJuan">Publicar</button>
           </form>
-          <?php $losPosts=$consulta->read("posts.titulo, posts.like, posts.contenido, usuarios.nombres","posts, usuarios",$db,"where user_id = usuarios.id order by posts.id desc"); ?>
+          <?php $losPosts=$consulta->read("posts.titulo, posts.like, posts.contenido, usuarios.nombres","posts, usuarios",$db,"user_id = usuarios.id order by posts.id desc"); ?>
           <?php if ($losPosts==null): ?>
           <section class="w-100 bg-light p-3 border-bottom border-secondary">
             <p class="text-center">Todavia nadie publico nada! Se el primero.</p>

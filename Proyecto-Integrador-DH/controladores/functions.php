@@ -166,6 +166,8 @@ function recuerdame($dato, $usuarioEnDatos){ //Si se checkea recuerdame (que se 
     }
 }
 
+//PASADA A OOP
+
 function logout(){ //Al usarse destruye la sesión y redirecciona a logIn.php. IMPORTANTE:PARA OPERAR CON SESSION, SE DEBE ESCRIBIR SESSION_START(), INCLUSO PARA DESTRUIRLA CON SESSION_DESTROY()!!!!
   session_start();
   session_destroy();
