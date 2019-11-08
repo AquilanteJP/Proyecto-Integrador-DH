@@ -25,5 +25,6 @@ $userTest = new Estudiante("Juan","Stroman","Felipe@gmail.com","19-05-1998","mal
 // var_dump($post);
 // $newPost=$userTest->postear($id,$_POST["titulo"],$_POST["post"]);
 // var_dump($newPost);
+// <?php $losPosts=$consulta->read("*","posts",$db,"order by id desc");
 
 ?>
