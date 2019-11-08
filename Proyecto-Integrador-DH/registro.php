@@ -3,7 +3,7 @@ require_once("helpers.php");
 require_once("./loader.php");
 if($_POST && $_FILES){
   $usuario=$armador->armarUsuario($_POST,$_FILES);
-  $avatar =$armador->armarAvatar($_POST, $_FILES);
+  $avatar=$armador->armarAvatar($_POST, $_FILES);
   //Se instancia el usuario con datos de $_POST y $_FILES
   $errores=$validador->validarRegistro($usuario);
   // echo "Todo bien <br>";
