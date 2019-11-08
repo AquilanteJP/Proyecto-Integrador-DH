@@ -1,8 +1,9 @@
 <?php require_once('loader.php');
 require_once('./helpers.php');
-  if ($_POST["titulo"]&&$_POST["post"]) {
-    $id = $consulta->read("id","usuarios",$db,"email = '$userTest->getEmail()'");
-    $newPost=$userTest->postear($id[0]['id'],$_POST["titulo"],$_POST["post"]);
+session_start();
+  if ($_POST) {
+    $id = $consulta->read("id","usuarios",$db,"email = '".$_SESSION["email"]."'");
+    $newPost=Usuario::postear($id[0]['id'],$_POST["titulo"],$_POST["post"]);
     $datosPost = "'".$newPost->getTitulo()."','".$newPost->getContenido()."','". $newPost->getUserId()."'";
     $datosTabla = "titulo,contenido,user_id";
     $consulta->create($db,"posts",$datosPost, $datosTabla);
@@ -31,10 +32,10 @@ require_once('./helpers.php');
         <div class="col-lg-3 m-3 mt-1 p-0">
           <div class="position-fixed align-self-start col-lg-3 p-2 mt-2  d-flex flex-row border bg-light">
             <div class="w-25 p-1">
-              <img class="w-100 rounded-circle border border-secondary" src="img/profilepic.jpg" alt="">
+              <img class="w-100 rounded-circle border border-secondary" src="<?= isset($_SESSION['foto_usuario'])?"profilePics/".$_SESSION['foto_usuario']:(isset($_COOKIE['foto_usuario'])?"profilePics/".$_COOKIE['foto_usuario']:"profilePics/generic.jpg") ;?>" alt="">
             </div>
             <div class="w-75 p-4">
-              <h5>juan stroman</h5>
+              <h5><?=isset($_SESSION['nombres'])?$_SESSION['nombres']:$_COOKIE['nombres']?></h5>
             </div>
           </div>
         </div>
@@ -55,7 +56,7 @@ require_once('./helpers.php');
           <section class="w-100 bg-light p-3 border-bottom border-secondary">
             <h6><strong><?=$post['nombres']?></strong></h6>
             <em><?=$post['titulo'];?></em>
-            <article class=""><p class="break-all"><?= $post['contenido'];?></p></article>
+            <article class=""><p class="text-break"><?= $post['contenido'];?></p></article>
             <hr>
             <form class="" action="" method="post">
               <button type="button" class="bg-light" name="meGusta">Me Gusta!</button>

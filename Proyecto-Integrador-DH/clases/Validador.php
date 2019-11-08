@@ -47,10 +47,10 @@ class Validador{
 
        $email = trim($datos['email']);
        $password = trim($datos['password']);
-       $userEncontrado=Consulta::read('email','usuarios',$bd,'WHERE email = '."'".$email."'");
+       $userEncontrado=Consulta::read('email','usuarios',$bd,' email = '."'".$email."'");
          if($userEncontrado != null){
            //se encontro el user
-           $contraseña=Consulta::read("aes_decrypt(unhex(password), 'hunter2')",'usuarios',$bd,'WHERE email = '."'".$email."'");
+           $contraseña=Consulta::read("aes_decrypt(unhex(password), 'hunter2')",'usuarios',$bd,' email = '."'".$email."'");
            //se busca la contraseña de ese usuario
            if($password==$contraseña[0]["aes_decrypt(unhex(password), 'hunter2')"]){
              return;

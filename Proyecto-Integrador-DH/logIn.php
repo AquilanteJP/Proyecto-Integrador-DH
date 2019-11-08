@@ -16,6 +16,8 @@ if($_POST){
 
  $erroresLogIn = $validador->validarLogIn($_POST,$db);
  if(count($erroresLogIn)==0){
+  guardarSesion($_POST["email"]);
+  $sesion->guardarSesion($_POST["email"],$db);
    header("location:profile.php");
  }
   //  guardarSesion($usuarioValidado);*/

@@ -14,11 +14,8 @@ if($_POST && $_FILES){
     $listaUsuario= "nombres, apellidos, email, password, genero, birthdate, tipo_registro, foto_usuario"; //para dejar la funcion para generalidades uso esta variable xq desde aca solo se instancian planillas de registro de usuarios
     $consulta->create($db,"usuarios", $datosUser,$listaUsuario);
     header("location:logIn.php");
-  } else {
-    var_dump($usuario);
-    echo "<br> <br>";
-    var_dump($_POST);
   }
+  
 
 }
 

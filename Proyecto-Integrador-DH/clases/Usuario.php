@@ -32,7 +32,7 @@ abstract class Usuario{
     $this->avatar = $avatar;
   }
   //probando funcion para crear Posts
-  public function postear($id,$titulo, $contenido){
+  static public function postear($id,$titulo, $contenido){
     //Debo instanciar un objeto Posts
 
     $post = new Post($id, $titulo, $contenido);

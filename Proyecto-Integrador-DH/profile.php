@@ -1,14 +1,19 @@
 <?php
-/*session_start();
+session_start();
+require_once('loader.php');
+if(empty($_SESSION)){
+  header("location:logIn.php");
+}
+/*
 require_once("helpers.php");
 if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se es redirigido a registro.php
   if(!isset($_COOKIE['firstName'])){//si no hay $_SESSION verifica que no exista una cookie para cargar el perfil
-    header("location:logIn.php");
+
   }
 } /*else {
   dd($_SESSION); //Para checkear errores
 }*/
-$_SESSION['email'] = "juangrum@gmail.com";
+//$_SESSION['email'] = "juangrum@gmail.com";
 ?>
 
 <html lang="en" dir="ltr">
@@ -26,12 +31,12 @@ $_SESSION['email'] = "juangrum@gmail.com";
       <?php include_once("partials/header2.php"); ?>
       <div class="container-fluid d-flex flex-row">
         <div class="border border-primary rounded col-12 col-md-3 mt-5  mb-lg-3 shadow -profile">
-          <img src="<?= isset($_SESSION['avatar'])?"profilePics/".$_SESSION['avatar']:(isset($_COOKIE['avatar'])?"profilePics/".$_COOKIE['avatar']:"profilePics/generic.jpg") ;?>?>" alt="fotoperfil" class="-profilePic">
-          <h2 class="text-center font-weight-bold -nombre "><?=isset($_SESSION['firstName'])?$_SESSION['firstName']:$_COOKIE['firstName']?></h2>
+          <img src="<?= isset($_SESSION['foto_usuario'])?"profilePics/".$_SESSION['foto_usuario']:(isset($_COOKIE['foto_usuario'])?"profilePics/".$_COOKIE['foto_usuario']:"profilePics/generic.jpg") ;?>" alt="fotoperfil" class="-profilePic">
+          <h2 class="text-center font-weight-bold -nombre "><?=isset($_SESSION['nombres'])?$_SESSION['nombres']:$_COOKIE['nombres']?></h2>
           <hr>
           <ul>
             <li><h6 class="-fecha">Se unió en Septiembre 2019</h6></li>
-            <li><h6 class="-rol">Estudiante</h6></li>
+            <li><h6 class="-rol"><?=isset($_SESSION['tipo_registro'])?$_SESSION['tipo_registro']:$_COOKIE['tipo_registro']?></h6></li>
             <li><h6 class="-proyectos"><a href=#>3 proyectos</a></h6></li>
             <li><h6 class="-información"><a href=#>Mas información</a></h6></li>
           </ul>
@@ -54,59 +59,29 @@ $_SESSION['email'] = "juangrum@gmail.com";
         </div>
         <br>
         <div class="col-12 col-md-5 mt-5 mb-lg-3 -posts">
-         <div class="-enterPost shadow border border-danger rounded">
-           <br>
-           <h5 class="text-center font-weight-bold">¿Algo nuevo que contar?</h5>
-           <form action="" method="post">
-            <textarea class="-textPost" placeholder="Escribí aca..." name="comments" ></textarea>
-            <input  class="btn btn-lg -postear text-white" type="submit" name="Postear" value="Postear">
-           </form>
-         </div>
-         <br>
+
          <div class="-misPosts shadow border border-danger rounded">
            <br>
            <h5 class="text-center font-weight-bold">Tus ultimos posts</h5>
            <hr>
-           <section class="-post">
-             <article class="">
-               <div class="-datosPost">
-                <div class="-datosPostPic">
-                  <img src="img/profilepic.jpg" alt="fotoperfil" class="-profilePicSmall">
-                </div>
-                <div class="-datosPostIdentidad">
-                  <p class=""><span class="-identidadPosteo">Pancho Villa</span><br><span class="-fechaPosteo">20/09/19, 05:11 pm</span></p>
-                </div>
-               </div>
-               <div class="-postContenido">
-                <p>Me encanta lorem ipsum porque sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-               </div>
-               <div>
-                <p class="-reacciones"> <a href="#">2 comentarios</a>  <a href="#">1 like</a></p>
-               </div>
-             </article>
-             <hr>
-             <article class="">
-               <div class="-datosPost">
-                <div class="-datosPostPic">
-                  <img src="img/profilepic.jpg" alt="fotoperfil" class="-profilePicSmall">
-                </div>
-                <div class="-datosPostIdentidad">
-                  <p class=""><span class="-identidadPosteo">Pancho Villa</span><br><span class="-fechaPosteo">10/09/19, 11:10 am</span></p>
-                </div>
-               </div>
-               <i></i>
-               <div>
-                <h6 class="-newProject">Nuevo proyecto</h6>
-                <i class="fas fa-code fa-5x -projectIcon"></i>
-                <br>
-                <h6 class="-newProjectName">Proyecto Integrador (red social)</h6>
-               </div>
-               <br>
-               <div>
-                <p class="-reacciones"> <a href="#">2 comentarios</a>  <a href="#">1 like</a></p>
-               </div>
-             </article>
+           <?php $losPosts=$consulta->read("posts.titulo, posts.like, posts.contenido, usuarios.nombres","posts, usuarios",$db,"user_id = ".$_SESSION['id']." order by posts.id desc"); ?>
+           <?php if ($losPosts==null): ?>
+           <section class="w-100 bg-light p-3 border-bottom border-secondary">
+             <p class="text-center">Todavia nadie publico nada! Se el primero.</p>
            </section>
+           <?php else: ?>
+           <?php foreach ($losPosts as $post):?>
+           <section class="w-100 bg-light p-3 border-bottom border-secondary">
+             <h6><strong><?=$post['nombres']?></strong></h6>
+             <em><?=$post['titulo'];?></em>
+             <article class=""><p class="text-break"><?= $post['contenido'];?></p></article>
+             <hr>
+             <form class="" action="" method="post">
+               <button type="button" class="bg-light" name="meGusta">Me Gusta!</button>
+             </form>
+           </section>
+           <?php endforeach; ?>
+           <?php endif; ?>
          </div>
         </div>
         <div class="-notificaciones border border-success col-12 col-md-4 mt-5 mb-lg-3 shadow rounded">

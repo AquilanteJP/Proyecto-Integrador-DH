@@ -5,16 +5,16 @@
   <div class="d-flex flex-row justify-content-end">
     <?php if(isset($_SESSION["email"])) :?>
     <div class="px-3">
-      <a class="text-decoration-none text-secondary" href="#">Inicio</a>
+      <a class="text-decoration-none text-secondary" href="inicio.php">Inicio</a>
     </div>
     <div class="px-3">
-      <a class="text-decoration-none text-secondary" href="#">Mi Perfil</a>
+      <a class="text-decoration-none text-secondary" href="profile.php">Mi Perfil</a>
     </div>
     <div class="px-3">
       <a class="text-decoration-none text-secondary" href="#">Mis Cursos</a>
     </div>
     <div class="px-3">
-      <a class="text-decoration-none text-secondary" href="#">Mis Amigos</a>
+      <a class="text-decoration-none text-secondary" href="misAmigos.php">Mis Amigos</a>
     </div>
   </div>
   <div class="px-3  d-flex flex-row justify-content-end flex-grow-1">
@@ -31,13 +31,13 @@
   <?php else :?>
   <div class="d-flex flex-row justify-content-end">
     <div class="px-3">
-      <a class="text-decoration-none text-secondary" href="#">Preguntas</a>
+      <a class="text-decoration-none text-secondary" href="#preguntas">Preguntas</a>
     </div>
     <div class="px-3">
-      <a class="text-decoration-none text-secondary" href="#">Nosotros</a>
+      <a class="text-decoration-none text-secondary" href="#nosotros">Nosotros</a>
     </div>
     <div class="px-3">
-      <a class="text-decoration-none text-secondary" href="#">Contacto</a>
+      <a class="text-decoration-none text-secondary" href="#contacto">Contacto</a>
     </div>
   </div>
   <div class="w-75">

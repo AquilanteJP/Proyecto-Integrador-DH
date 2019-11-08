@@ -20,11 +20,12 @@ $juan->postear(1,"posteo","contenido");
 
 $validador = new Validador;
 $armador = new Armador;
-$db = baseDatos::conexion("mysql:host=localhost;dbname=proyectodh;port=3306;charset=utf8mb4","root","");
+$db = baseDatos::conexion("mysql:host=localhost;dbname=co_at_home_db;port=3306;charset=utf8mb4","root","quepanicono ?");
 $consulta = new Consulta;
 $sesion = new Session;
-$userTest = new Estudiante("Juan","Stroman","Felipe@gmail.com","19-05-1998","male","skere","skere","estudiante");
 
+session_start();
+//$userTest = new Estudiante("Juan","Stroman","Felipe@gmail.com","19-05-1998","male","skere","skere","estudiante");
 // $post=$userTest->postear("titulo","contenido");
 // var_dump($post);
 // $newPost=$userTest->postear($id,$_POST["titulo"],$_POST["post"]);

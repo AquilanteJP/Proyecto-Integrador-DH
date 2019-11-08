@@ -1,12 +1,14 @@
 <?php
 class Session{
 
-  function guardarSesion($usuario){
+  function guardarSesion($email,$db){
     session_start();
-    foreach ($usuario as $dato => $valor) {
+    $datosSession=Consulta::read('*','usuarios',$db,' email = '."'".$email."'");
+     foreach ($datosSession[0] as $dato => $valor) {
       $_SESSION[$dato]= $valor;
-    }
-    return $_SESSION;
+     }
+
+     return $_SESSION;
   }
 
   function logout(){

@@ -1,6 +1,9 @@
 <?php
 session_start();
 require_once("helpers.php");
+if(empty($_SESSION)){
+  header("location:logIn.php");
+}
 //EN PROCESO
 
 //   if(!isset($_COOKIE['firstName'])){//si no hay $_SESSION verifica que no exista una cookie para cargar el perfil
