@@ -1,5 +1,5 @@
 <?php
-
+//funciones anteriores, lo que esta gris se paso a objetos
 //VALIDACION REGISTRO
 
 //YA PASADA A OOP
@@ -145,7 +145,7 @@ function validarLogIn($datos){ //Usa las funciones previamente mencionadas para 
 
    return $erroresLogIn;
 }
-*/
+
 //FUNCIONES DE SESSION Y COOKIES
 
 function guardarSesion($variable){ // La variable en este caso es $registro, que se crea en registro.php usando la funcion crearRegistro(), y contiene los datos del array $_POST mas la imagen subida. Básicamente, copia todos los datos de $_POST a $_SESSION, para accesibilidad en todas las páginas
@@ -176,5 +176,5 @@ function logout(){ //Al usarse destruye la sesión y redirecciona a logIn.php. I
   }
   header("location:logIn.php");
 }
-
+*/
 ?>

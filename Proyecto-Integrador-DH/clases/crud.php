@@ -31,6 +31,14 @@
          }
       }
 
+      static public function leftJoinRead($campos,$tabla1,$tabla2,$on,$where,$bd){ //Muestra los $campos de las columnas de la $tabla1 que intersectan con la $tabla2, junto con todos los campos de la $tabla1, al cumplir la condicion ($on y $where) en la base de datos $bd; para simplicidad, innerJoinRead() solo hace un join con 2 tablas
+           $sql="SELECT ".$campos." FROM ".$tabla1." LEFT JOIN ".$tabla2." ON ".$on." WHERE ".$where.";";
+           $query = $bd->prepare($sql);
+           $query->execute();
+           $arrayDatos = $query->fetchAll(PDO::FETCH_ASSOC);
+           return $arrayDatos;
+       }
+
      static public function update($tabla,$campo,$valor,$idSeleccionado){ //Modifica el $valor de un $campo de una $tabla, identificando lo que se debe modificar mediante la comparación de su id (PK) y el $idSeleccionado; para simplicidad, update() solo actualiza un dato por vez
         $sql="UPDATE ".$tabla." SET ".$campo."=".$valor." WHERE id =".$idSeleccionado.";";
         $query = $bd->prepare($sql);

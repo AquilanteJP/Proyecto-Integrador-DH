@@ -31,11 +31,12 @@ class Validador{
             $errores['passwordRepeat']="Las contraseñas deben ser iguales";
         }
 
-        $foto = $usuario->getAvatar()['name'];
-        $ext = pathinfo($foto, PATHINFO_EXTENSION);
-
-        if ($ext != "png" && $ext != "jpg" && $ext != "jpeg" && $ext != null ) { //Validacion formato de foto incorrecto
-            $errores["avatar"] = "La foto debe ser de formato .jpg, .jpeg, o .png.";
+        if (isset($usuario->getAvatar()['name'])) {
+          $foto = $usuario->getAvatar()['name'];
+          $ext = pathinfo($foto, PATHINFO_EXTENSION);
+          if ($ext != "png" && $ext != "jpg" && $ext != "jpeg" && $ext != null ) { //Validacion formato de foto incorrecto
+              $errores["avatar"] = "La foto debe ser de formato .jpg, .jpeg, o .png.";
+          }
         }
 
         return $errores;

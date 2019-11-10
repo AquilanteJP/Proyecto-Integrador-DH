@@ -1,6 +1,6 @@
 <?php require_once('loader.php');
 require_once('./helpers.php');
-session_start();
+$sesion->verifSesion();
   if ($_POST) {
     $id = $consulta->read("id","usuarios",$db,"email = '".$_SESSION["email"]."'");
     $newPost=Usuario::postear($id[0]['id'],$_POST["titulo"],$_POST["post"]);
@@ -28,7 +28,7 @@ session_start();
   <body>
     <div class="container-fluid m-0 p-0 pt-3 d-flex flex-row flex-wrap -all">
       <?php include_once("partials/header2.php"); ?>
-      <div class="w-100 pt-0 d-flex flex-row flex-wrap">
+      <div class="w-100 pt-5 d-flex flex-row flex-wrap">
         <div class="col-lg-3 m-3 mt-1 p-0">
           <div class="position-fixed align-self-start col-lg-3 p-2 mt-2  d-flex flex-row border bg-light">
             <div class="w-25 p-1">
