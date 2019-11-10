@@ -31,7 +31,7 @@ CREATE TABLE `amigos` (
   KEY `amigo2_usuario_id_foreign_idx` (`usuario2_id`) /*!80000 INVISIBLE */,
   CONSTRAINT `amigo1_usuario_id_foreign` FOREIGN KEY (`usuario1_id`) REFERENCES `usuarios` (`id`),
   CONSTRAINT `amigo2_usuario_id_foreign` FOREIGN KEY (`usuario2_id`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,6 +40,7 @@ CREATE TABLE `amigos` (
 
 LOCK TABLES `amigos` WRITE;
 /*!40000 ALTER TABLE `amigos` DISABLE KEYS */;
+INSERT INTO `amigos` VALUES (1,39,40),(2,40,41),(3,39,41),(4,40,39),(5,41,40),(6,41,39),(7,39,42),(8,42,39);
 /*!40000 ALTER TABLE `amigos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -148,7 +149,7 @@ CREATE TABLE `usuarios` (
   `tipo_registro` varchar(45) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `foto_usuario` varchar(80) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -157,7 +158,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (40,NULL,NULL,'Raul','Menendez',NULL,NULL,'sokka@outlook.com','sarasa',NULL,'administrador',NULL),(41,NULL,NULL,'Juan Pablo','Aquilante','male','1212-12-12','aquilantejp@outlook.es','25BAB7F9779AFF3083E7CC41C26CA1D8',NULL,'estudiante','aquilantejp@outlook.es.jpg');
+INSERT INTO `usuarios` VALUES (39,NULL,NULL,'Manuel','Vargas',NULL,NULL,'naru@outlook.com','sarasa',NULL,'administrador',NULL),(40,NULL,NULL,'Raul','Menendez',NULL,NULL,'sokka@outlook.com','sarasa',NULL,'administrador','sokka@outlook.com.jpg'),(41,NULL,NULL,'Juan Pablo','Aquilante','male','1212-12-12','aquilantejp@outlook.es','25BAB7F9779AFF3083E7CC41C26CA1D8',NULL,'estudiante','aquilantejp@outlook.es.jpg'),(42,NULL,NULL,'Michael','Scott',NULL,NULL,'michael@dm.com','sarasa',NULL,'administrador',NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -170,4 +171,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-09 20:41:31
+-- Dump completed on 2019-11-10  2:41:00

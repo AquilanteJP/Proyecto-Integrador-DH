@@ -39,8 +39,8 @@ $sesion->verifSesion();
         </form>
       </nav>
       <div class="d-flex flex-row flex-wrap w-100 justify-content-around">
-      <?php //$id=$consulta->read("id","usuarios",$db,"email = '".$_SESSION["email"]."'")[0]["id"];
-      $id=39;?>
+      <?php $id=$consulta->read("id","usuarios",$db,"email = '".$_SESSION["email"]."'")[0]["id"];
+      //$id=39;?>
       <?php $listaAmigos=$consulta->leftJoinRead("usuarios.nombres, usuarios.apellidos, usuarios.foto_usuario","usuarios","amigos","usuarios.id = amigos.usuario2_id","amigos.usuario1_id = ".$id,$db); ?>
       <?php if ($listaAmigos==null): ?>
       <section class="w-100 bg-light p-3 border-bottom border-secondary">
