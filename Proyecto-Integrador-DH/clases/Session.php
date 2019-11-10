@@ -7,6 +7,10 @@ class Session{
     }
   }
 
+  function guardarSesionManual($dato,$valor){
+    $_SESSION[$dato] = $valor;
+  }
+
   function guardarSesion($email,$db){
     $datosSession=Consulta::read('*','usuarios',$db,' email = '."'".$email."'");
      foreach ($datosSession[0] as $dato => $valor) {

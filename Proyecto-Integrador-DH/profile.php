@@ -77,6 +77,9 @@ if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se
              <form class="" action="" method="post">
                <button type="button" class="bg-light" name="meGusta">Me Gusta!</button>
              </form>
+             <form class="" action="" method="post">
+               <button type="button" class="bg-light" name="Editar"></button>
+             </form>
            </section>
            <?php endforeach; ?>
            <?php endif; ?>
