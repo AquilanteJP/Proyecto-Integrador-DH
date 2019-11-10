@@ -31,8 +31,8 @@
          }
       }
 
-      static public function innerJoinRead($campos,$tabla1,$tabla2,$on,$bd){ //Muestra los $campos de la $tabla1 que intersectan con la $tabla2 al cumplir la condicion $on en la base de datos $bd; para simplicidad, innerJoinRead() solo hace un join con 2 tablas
-           $sql="SELECT ".$campos." FROM ".$tabla1." INNER JOIN ".$tabla2." ON ".$on.";";
+      static public function leftJoinRead($campos,$tabla1,$tabla2,$on,$where,$bd){ //Muestra los $campos de las columnas de la $tabla1 que intersectan con la $tabla2, junto con todos los campos de la $tabla1, al cumplir la condicion ($on y $where) en la base de datos $bd; para simplicidad, innerJoinRead() solo hace un join con 2 tablas
+           $sql="SELECT ".$campos." FROM ".$tabla1." LEFT JOIN ".$tabla2." ON ".$on." WHERE ".$where.";";
            $query = $bd->prepare($sql);
            $query->execute();
            $arrayDatos = $query->fetchAll(PDO::FETCH_ASSOC);

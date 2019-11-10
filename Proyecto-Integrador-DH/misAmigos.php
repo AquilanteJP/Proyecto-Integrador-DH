@@ -39,9 +39,9 @@ $sesion->verifSesion();
         </form>
       </nav>
       <div class="d-flex flex-row flex-wrap w-100 justify-content-around">
-      <?php $id=$consulta->read("id","usuarios",$db,"email = '".$_SESSION["email"]."'")[0]["id"];
-      dd($id);?>
-      <?php $listaAmigos=$consulta->innerJoinRead("usuarios.nombres, usuarios.apellidos, usuarios.foto_usuario","usuarios","amigos","usuarios.id = amigos.usuario2_id AND usuario1_id = ".$id,$db); ?>
+      <?php //$id=$consulta->read("id","usuarios",$db,"email = '".$_SESSION["email"]."'")[0]["id"];
+      $id=39;?>
+      <?php $listaAmigos=$consulta->leftJoinRead("usuarios.nombres, usuarios.apellidos, usuarios.foto_usuario","usuarios","amigos","usuarios.id = amigos.usuario2_id","amigos.usuario1_id = ".$id,$db); ?>
       <?php if ($listaAmigos==null): ?>
       <section class="w-100 bg-light p-3 border-bottom border-secondary">
         <p class="text-center">Al parecer no tenés amigos :(  ¡Probá agregar uno desde el buscador de arriba!</p>
@@ -51,11 +51,11 @@ $sesion->verifSesion();
         <div class="card mb-3" style="max-width: 540px;">
           <div class="row no-gutters">
             <div class="col-md-4">
-              <img src="img/<?=$amigo['foto_usuario']?$amigo['foto_usuario']:"generic.jpg"?>" class="card-img" alt="...">
+              <img src="profilePics/<?=$amigo['foto_usuario']?$amigo['foto_usuario']:"generic.jpg"?>" class="card-img" alt="...">
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title"><?=$amigo['nombres']?></h5>
+                <h5 class="card-title"><?=$amigo['nombres']." ".$amigo['apellidos']?></h5>
                 <p class="card-text">Curso:</p>
                 <button type="button" class="btn btn-dark">Ver Amigo</button>
               </div>
