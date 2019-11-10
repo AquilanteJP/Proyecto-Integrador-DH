@@ -1,9 +1,6 @@
 <?php
-session_start();
 require_once('loader.php');
-if(empty($_SESSION)){
-  header("location:logIn.php");
-}
+$sesion->verifSesion();
 /*
 require_once("helpers.php");
 if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se es redirigido a registro.php

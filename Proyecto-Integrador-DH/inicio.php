@@ -1,6 +1,6 @@
 <?php require_once('loader.php');
 require_once('./helpers.php');
-session_start();
+$sesion->verifSesion();
   if ($_POST) {
     $id = $consulta->read("id","usuarios",$db,"email = '".$_SESSION["email"]."'");
     $newPost=Usuario::postear($id[0]['id'],$_POST["titulo"],$_POST["post"]);

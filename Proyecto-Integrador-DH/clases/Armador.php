@@ -55,7 +55,7 @@ class Armador{
         return;
       } else {
         $archivoOrigen = $imagen['avatar']['tmp_name'];
-        $avatar = $datos['email'].".".$ext;  //Genera un nombre randomizado para todas las fotos
+        $avatar = $datos['email'].".".$ext;  //Devuelve como nombre el mail del usuario usado, si ya esta en profilePics se sobrescribe
         $archivoDestino = dirname(__DIR__)."/profilePics/".$avatar;
         move_uploaded_file($archivoOrigen, $archivoDestino);
         return $avatar;

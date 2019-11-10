@@ -1,8 +1,13 @@
 <?php
 class Session{
 
+  function verifSesion(){
+    if(empty($_SESSION)){
+      header("location:logIn.php");
+    }
+  }
+
   function guardarSesion($email,$db){
-    session_start();
     $datosSession=Consulta::read('*','usuarios',$db,' email = '."'".$email."'");
      foreach ($datosSession[0] as $dato => $valor) {
       $_SESSION[$dato]= $valor;

@@ -1,9 +1,7 @@
 <?php
-session_start();
 require_once("helpers.php");
-if(empty($_SESSION)){
-  header("location:logIn.php");
-}
+require_once('loader.php');
+$sesion->verifSesion();
 //EN PROCESO
 
 //   if(!isset($_COOKIE['firstName'])){//si no hay $_SESSION verifica que no exista una cookie para cargar el perfil
@@ -41,99 +39,32 @@ if(empty($_SESSION)){
         </form>
       </nav>
       <div class="d-flex flex-row flex-wrap w-100 justify-content-around">
+      <?php $id=$consulta->read("id","usuarios",$db,"email = '".$_SESSION["email"]."'")[0]["id"];
+      dd($id);?>
+      <?php $listaAmigos=$consulta->innerJoinRead("usuarios.nombres, usuarios.apellidos, usuarios.foto_usuario","usuarios","amigos","usuarios.id = amigos.usuario2_id AND usuario1_id = ".$id,$db); ?>
+      <?php if ($listaAmigos==null): ?>
+      <section class="w-100 bg-light p-3 border-bottom border-secondary">
+        <p class="text-center">Al parecer no tenés amigos :(  ¡Probá agregar uno desde el buscador de arriba!</p>
+      </section>
+      <?php else: ?>
+      <?php foreach ($listaAmigos as $amigo):?>
         <div class="card mb-3" style="max-width: 540px;">
           <div class="row no-gutters">
             <div class="col-md-4">
-              <img src="img/profilepic3.jpg" class="card-img" alt="...">
+              <img src="img/<?=$amigo['foto_usuario']?$amigo['foto_usuario']:"generic.jpg"?>" class="card-img" alt="...">
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <h5 class="card-title">Amigo</h5>
+                <h5 class="card-title"><?=$amigo['nombres']?></h5>
                 <p class="card-text">Curso:</p>
                 <button type="button" class="btn btn-dark">Ver Amigo</button>
               </div>
             </div>
           </div>
         </div>
-        <div class="card mb-3" style="max-width: 540px;">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/profilepic2.jpg" class="card-img" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Amigo</h5>
-                <p class="card-text">Curso:</p>
-                <button type="button" class="btn btn-dark">Ver Amigo</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card mb-3" style="max-width: 540px;">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/profilepic3.jpg" class="card-img" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Amigo</h5>
-                <p class="card-text">Curso:</p>
-                <button type="button" class="btn btn-dark">Ver Amigo</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card mb-3" style="max-width: 540px;">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/profilepic2.jpg" class="card-img" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Amigo</h5>
-                <p class="card-text">Curso:</p>
-                <button type="button" class="btn btn-dark">Ver Amigo</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card mb-3" style="max-width: 540px;">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/profilepic3.jpg" class="card-img" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Amigo</h5>
-                <p class="card-text">Curso:</p>
-                <button type="button" class="btn btn-dark">Ver Amigo</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="card mb-3" style="max-width: 540px;">
-          <div class="row no-gutters">
-            <div class="col-md-4">
-              <img src="img/profilepic2.jpg" class="card-img" alt="...">
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <h5 class="card-title">Amigo</h5>
-                <p class="card-text">Curso:</p>
-                <button type="button" class="btn btn-dark">Ver Amigo</button>
-              </div>
-            </div>
-          </div>
-        </div>
+      <?php endforeach; ?>
+      <?php endif; ?>
       </div>
-      <footer class="col-12 -footer">
-        <h5 class="subTitulo">Nuestras Redes</h5>
-        <div class="redes pt-2 pb-2">
-          <i><img class="icons" src="img/icons/logoFacebook.png" alt=""></i>
-          <i><img class="icons" src="img/icons/logoTwitter.png" alt=""></i>
-          <i><img class="icons" src="img/icons/logoInstagram.png" alt=""></i>
-          <i><img class="icons" src="img/icons/logoLinkedin.png" alt=""></i>
-        </div>
         <br>
         <p>todos los derechos reservados</p>
       </footer>
