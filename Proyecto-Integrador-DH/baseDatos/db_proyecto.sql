@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.18, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: db_integrador
+-- Host: 127.0.0.1    Database: co_at_home_db
 -- ------------------------------------------------------
 -- Server version	8.0.18
 
@@ -53,9 +53,9 @@ DROP TABLE IF EXISTS `cursos`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cursos` (
   `id` int(10) NOT NULL,
-  `titulo` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `contenido` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `estudiante` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `titulo` varchar(25) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `contenido` varchar(45) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `estudiante` varchar(45) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `profesorAdjunto` int(10) unsigned DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `profesor adjunto_idx` (`profesorAdjunto`),
@@ -81,14 +81,14 @@ DROP TABLE IF EXISTS `posts`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `posts` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `titulo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `contenido` varchar(400) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `like` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `titulo` varchar(30) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `contenido` varchar(800) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `like` varchar(45) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   `user_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user Id_idx` (`user_id`),
   CONSTRAINT `post user Id` FOREIGN KEY (`user_id`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +97,7 @@ CREATE TABLE `posts` (
 
 LOCK TABLES `posts` WRITE;
 /*!40000 ALTER TABLE `posts` DISABLE KEYS */;
-INSERT INTO `posts` VALUES (1,'Probando 123','With strange aeons even death may die',NULL,41),(2,'El primer post integramente tipeado','domingo 1:41 se repite el primer post integramente tipeado, tomando mate mal tomando mate mal tomando mate mal tomando mate mal tomando mate mal tomando mate mal tomando mate mal tomando mate mal tomando mate mal tomando mate mal tomando mate mal tomando mate mal tomando mate mal tomando mate mal tomando mate mal',NULL,43);
+INSERT INTO `posts` VALUES (1,'Probando 123','With strange aeons even death may die',NULL,41),(4,'Test mensaje post','sarasa',NULL,41),(5,'Increible (esto fue editado)','ahora funciona',NULL,41);
 /*!40000 ALTER TABLE `posts` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -110,8 +110,8 @@ DROP TABLE IF EXISTS `tareas`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tareas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `titulo` varchar(25) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `contenido` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `titulo` varchar(25) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `contenido` varchar(45) COLLATE utf8mb4_unicode_520_ci NOT NULL,
   `user id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`id`),
   KEY `user id_idx` (`user id`),
@@ -139,17 +139,17 @@ CREATE TABLE `usuarios` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `nombres` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `apellidos` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `genero` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `birthdate` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `email` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `password` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `contacto` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
-  `tipo_registro` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci NOT NULL,
-  `foto_usuario` varchar(80) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `nombres` varchar(45) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `apellidos` varchar(45) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `genero` varchar(45) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `birthdate` varchar(45) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `email` varchar(45) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `password` varchar(80) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `contacto` varchar(45) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
+  `tipo_registro` varchar(45) COLLATE utf8mb4_unicode_520_ci NOT NULL,
+  `foto_usuario` varchar(80) COLLATE utf8mb4_unicode_520_ci DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=44 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=43 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -158,7 +158,7 @@ CREATE TABLE `usuarios` (
 
 LOCK TABLES `usuarios` WRITE;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` VALUES (39,NULL,NULL,'Manuel','Vargas',NULL,NULL,'naru@outlook.com','sarasa',NULL,'administrador',NULL),(40,NULL,NULL,'Raul','Menendez',NULL,NULL,'sokka@outlook.com','sarasa',NULL,'administrador','sokka@outlook.com.jpg'),(41,NULL,NULL,'Juan Pablo','Aquilante','male','1212-12-12','aquilantejp@outlook.es','25BAB7F9779AFF3083E7CC41C26CA1D8',NULL,'estudiante','aquilantejp@outlook.es.jpg'),(42,NULL,NULL,'Michael','Scott',NULL,NULL,'michael@dm.com','sarasa',NULL,'administrador',NULL),(43,NULL,NULL,'Juan','Stroman','male','1998-12-04','juanstroman@gmail.com','25BAB7F9779AFF3083E7CC41C26CA1D8',NULL,'estudiante','juanstroman@gmail.com.jpg');
+INSERT INTO `usuarios` VALUES (39,NULL,NULL,'Manuel','Vargas',NULL,NULL,'naru@outlook.com','sarasa',NULL,'administrador',NULL),(40,NULL,NULL,'Raul','Menendez',NULL,NULL,'sokka@outlook.com','sarasa',NULL,'administrador','sokka@outlook.com.jpg'),(41,NULL,NULL,'Juan Pablo','Aquilante','male','1212-12-12','aquilantejp@outlook.es','25BAB7F9779AFF3083E7CC41C26CA1D8',NULL,'estudiante','aquilantejp@outlook.es.jpg'),(42,NULL,NULL,'Michael','Scott',NULL,NULL,'michael@dm.com','sarasa',NULL,'administrador',NULL);
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -171,4 +171,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-11-10 14:06:18
+-- Dump completed on 2019-11-10 21:54:00
