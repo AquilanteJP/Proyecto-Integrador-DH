@@ -61,7 +61,6 @@ if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se
            <br>
            <h5 class="text-center font-weight-bold">Tus ultimos posts</h5>
            <hr>
-           <?php //$losPosts=$consulta->read("posts.titulo, posts.like, posts.contenido, usuarios.nombres","posts, usuarios",$db,"user_id = ".$_SESSION['id']." order by posts.id desc"); ?>
            <?php $losPosts=$consulta->read("posts.titulo, posts.like, posts.contenido, usuarios.nombres","posts, usuarios",$db,"user_id = usuarios.id order by posts.id desc"); ?>
            <?php if ($losPosts==null): ?>
            <section class="w-100 bg-light p-3 border-bottom border-secondary">
