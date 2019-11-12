@@ -1,6 +1,8 @@
 <?php
 require_once('loader.php');
 $sesion->verifSesion();
+
+
 /*
 require_once("helpers.php");
 if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se es redirigido a registro.php
@@ -27,7 +29,7 @@ if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se
     <div class="container-fluid m-0 p-0 pt-5 d-flex flex-row flex-wrap -all">
       <?php include_once("partials/header2.php"); ?>
       <div class="container-fluid d-flex flex-row">
-        <div class="border border-primary rounded col-12 col-md-3 mt-5  mb-lg-3 shadow -profile">
+        <div class="border border-primary col-12 col-md-3 mt-5 vh-25 mb-lg-3 shadow -profile">
           <img src="<?= isset($_SESSION['foto_usuario'])?"profilePics/".$_SESSION['foto_usuario']:(isset($_COOKIE['foto_usuario'])?"profilePics/".$_COOKIE['foto_usuario']:"profilePics/generic.jpg") ;?>" alt="fotoperfil" class="-profilePic">
           <h2 class="text-center font-weight-bold -nombre "><?=isset($_SESSION['nombres'])?$_SESSION['nombres']:$_COOKIE['nombres']?></h2>
           <hr>
@@ -61,24 +63,50 @@ if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se
            <br>
            <h5 class="text-center font-weight-bold">Tus ultimos posts</h5>
            <hr>
-           <?php $losPosts=$consulta->read("posts.titulo, posts.like, posts.contenido, usuarios.nombres","posts, usuarios",$db,"user_id = usuarios.id order by posts.id desc"); ?>
-           <?php if ($losPosts==null): ?>
+           <?php $listaPosts=$consulta->read("posts.id, posts.titulo, posts.like, posts.contenido, user_id","posts",$db,"user_id = '".$_SESSION['id']."' order by posts.id desc");?>
+           <?php if ($listaPosts==null): ?>
            <section class="w-100 bg-light p-3 border-bottom border-secondary">
              <p class="text-center">Todavia nadie publico nada! Se el primero.</p>
            </section>
            <?php else: ?>
-           <?php foreach ($losPosts as $post):?>
+           <?php foreach ($listaPosts as $post):?>
            <section class="w-100 bg-light p-3 border-bottom border-secondary">
-             <h6><strong><?=$post['nombres']?></strong></h6>
+             <h6><strong><?=$_SESSION['nombres']?></strong></h6>
              <em><?=$post['titulo'];?></em>
              <article class=""><p class="text-break"><?= $post['contenido'];?></p></article>
              <hr>
-             <form class="" action="" method="post">
-               <button type="button" class="bg-light" name="meGusta">Me Gusta!</button>
-             </form>
-             <form class="" action="" method="post">
-               <button type="button" class="bg-light" name="Editar"></button>
-             </form>
+             <article class="mb-1"><small>
+               <?php if ($post['like']== "0"){
+                       echo "A nadie le gusta esto";
+                     } elseif ($post['like']== "1"){
+                       echo "A ".$post['like']." persona le gusta esto";
+                     } else{
+                       echo "A ".$post['like']." personas le gusta esto";
+                     }
+               ?>
+             </small></article>
+             <div class="row no-gutters">
+               <div class="col-sm-3">
+                 <form class="" action="meGusta.php" method="post">
+                   <input type="hidden" id="meGusta" name="meGusta" value="<?=$post['id']?>">
+                   <button type="submit" class="btn btn-outline-primary" name="">Me Gusta!</button>
+                 </form>
+               </div>
+               <?php if ($post['user_id']==$_SESSION['id']): ?>
+                 <div class="col-sm-2">
+                   <form class="" action="editarPost.php" method="post">
+                     <input type="hidden" id="id" name="id" value="<?=$post['id']?>">
+                     <button type="submit" class="btn btn-outline-warning" name="editar=<?=$post['id']?>"><i class="fas fa-pen"></i></button>
+                   </form>
+                 </div>
+                 <div class="col-sm-2">
+                   <form class="" action="eliminarPost.php" method="post">
+                     <input type="hidden" id="id" name="id" value="<?=$post['id']?>">
+                     <button type="submit" class="btn btn-outline-danger" name="borrar=<?=$post['id']?>"><i class="fas fa-trash-alt"></i></button>
+                   </form>
+                 </div>
+               <?php endif; ?>
+             </div>
            </section>
            <?php endforeach; ?>
            <?php endif; ?>
@@ -86,63 +114,41 @@ if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se
         </div>
         <div class="-notificaciones border border-success col-12 col-md-4 mt-5 mb-lg-3 shadow rounded">
           <br>
-          <h5 class="text-center font-weight-bold">¿Que cuentan los demás?</h5>
+          <h5 class="text-center font-weight-bold">Lo que cuentan los demas</h5>
           <hr>
-          <article class="">
-            <div class="-notificacion">
-             <div class="-datosNotifPic">
-               <span title="Vancho Pilla | 17/09/19, 4:03 pm"><img src="img/profilepic2.jpg" alt="fotoperfil" class="-profilePicSmall"></span>
-             </div>
-             <div class="-notifContenido">
-              <p>Me gusta mucho programar, si, si, me gusta mucho programar.</p>
-             </div>
+          <?php $listaPosts=$consulta->read("posts.id, posts.titulo, posts.like, posts.contenido, user_id, usuarios.nombres","posts, usuarios",$db,"user_id = usuarios.id and user_id !='".$_SESSION['id']."' group by usuarios.nombres");?>
+          <?php if ($listaPosts==null): ?>
+          <section class="w-100 bg-light p-3 border-bottom border-secondary">
+            <p class="text-center">Todavia nadie publico nada! Se el primero.</p>
+          </section>
+          <?php else: ?>
+          <?php foreach ($listaPosts as $post):?>
+          <section class="w-100 bg-light p-3 border-bottom border-secondary">
+            <h6><strong><?=$post['nombres']?></strong></h6>
+            <em><?=$post['titulo'];?></em>
+            <article class=""><p class="text-break"><?= $post['contenido'];?></p></article>
+            <hr>
+            <article class="mb-1"><small>
+              <?php if ($post['like']<= "0"){
+                      echo "A nadie le gusta esto";
+                    } elseif ($post['like']== "1"){
+                      echo "A ".$post['like']." persona le gusta esto";
+                    } else{
+                      echo "A ".$post['like']." personas le gusta esto";
+                    }
+              ?>
+            </small></article>
+            <div class="row no-gutters">
+              <div class="col-sm-3">
+                <form class="" action="meGusta.php" method="post">
+                  <input type="hidden" id="meGusta" name="meGusta" value="<?=$post['id']?>">
+                  <button type="submit" class="btn btn-outline-primary" name="">Me Gusta!</button>
+                </form>
+              </div>
             </div>
-            <div>
-             <p class="-reacciones"> <a href="#">2 comentarios</a>  <a href="#">1 like</a></p>
-            </div>
-          </article>
-          <hr>
-          <article class="">
-            <div class="-notificacion">
-             <div class="-datosNotifPic">
-               <span title="Vancho Pilla | 17/09/19, 4:03 pm"><img src="img/profilepic2.jpg" alt="fotoperfil" class="-profilePicSmall"></span>
-             </div>
-             <div class="-notifContenido">
-              <p>Hay 10 tipos de personas en el mundo... los que saben binario, los que no, los que no se esperaban un chiste en base 4, y los que quieren alargar este parrafo para ver como queda comparado con el otro que tiene menos texto hola mama </p>
-             </div>
-            </div>
-            <div>
-             <p class="-reacciones"> <a href="#">2 comentarios</a>  <a href="#">1 like</a></p>
-            </div>
-          </article>
-          <hr>
-          <article class="-notifPrivada">
-            <div class="-notificacion">
-             <div class="-datosNotifPic">
-               <span title="Angel Daniel Fuentes | 24/06/19, 7:50 pm"><img src="img/profilepic3.jpg" alt="fotoperfil" class="-profilePicSmall"></span>
-             </div>
-             <div class="-notifContenido">
-              <h6 class="-newProject">Inscripción a curso aceptada</h6>
-              <i class="fas fa-chalkboard fa-3x -projectIcon"></i>
-              <br>
-              <h6 class="-newProjectName">Curso Fullstack</h6>
-             </div>
-            </div>
-          </article>
-          <hr>
-          <article class="">
-            <div class="-notificacion">
-             <div class="-datosNotifPic">
-               <span title="Vancho Pilla | 17/09/19, 4:03 pm"><img src="img/profilepic2.jpg" alt="fotoperfil" class="-profilePicSmall"></span>
-             </div>
-             <div class="-notifContenido">
-              <p>Me gusta mucho programar, si, si, me gusta mucho programar.</p>
-             </div>
-            </div>
-            <div>
-             <p class="-reacciones"> <a href="#">2 comentarios</a>  <a href="#">1 like</a></p>
-            </div>
-          </article>
+          </section>
+          <?php endforeach; ?>
+          <?php endif; ?>
         </div>
         <br>
         </div>

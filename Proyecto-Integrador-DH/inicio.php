@@ -4,15 +4,16 @@ $sesion->verifSesion();
 if (isset($_POST['crearPost'])) { //Creacion de post in-page
   $id = $consulta->read("id","usuarios",$db,"email = '".$_SESSION["email"]."'");
   $newPost=Usuario::postear($id[0]['id'],$_POST["titulo"],$_POST["post"]);
-  $datosPost = "'".$newPost->getTitulo()."','".$newPost->getContenido()."','". $newPost->getUserId()."'";
-  $datosTabla = "titulo,contenido,user_id";
+  $datosPost = "'".$newPost->getTitulo()."','".$newPost->getContenido()."','". $newPost->getUserId()."','"."0"."'";
+  $datosTabla = "titulo,contenido,user_id,posts.like";
   $consulta->create($db,"posts",$datosPost, $datosTabla);
   $sesion->guardarSesionManual('crearPost',true); //Marcado en $_SESSION para que figure notificacion de creación exitosa al volver a cargar inicio.php
   $_POST['crearPost']=[]; //Limpieza de $_POST
   //limpia el array $_POST ya que sino al recargar la pagina para mostrar el post en inicio se vuelve a crear el posteo
-  //header("location:inicio.php");
+  header("location:inicio.php");
   //RUDIMENTARIO PERO FUNCIONAL
   }
+
 ?>
 
 <html lang="en" dir="ltr">
@@ -68,7 +69,7 @@ if (isset($_POST['crearPost'])) { //Creacion de post in-page
           <?php $_SESSION["borrarPost"]=false; //Flag borrado post uncheckeada?>
           <?php endif; ?>
 
-          <?php $listaPosts=$consulta->read("posts.id, posts.titulo, posts.like, posts.contenido, usuarios.nombres","posts, usuarios",$db,"user_id = usuarios.id order by posts.id desc");?>
+          <?php $listaPosts=$consulta->read("posts.id, posts.titulo, posts.like, posts.contenido, user_id, usuarios.nombres","posts, usuarios",$db,"user_id = usuarios.id order by posts.id desc");?>
           <?php if ($listaPosts==null): ?>
           <section class="w-100 bg-light p-3 border-bottom border-secondary">
             <p class="text-center">Todavia nadie publico nada! Se el primero.</p>
@@ -80,24 +81,37 @@ if (isset($_POST['crearPost'])) { //Creacion de post in-page
             <em><?=$post['titulo'];?></em>
             <article class=""><p class="text-break"><?= $post['contenido'];?></p></article>
             <hr>
+            <article class="mb-1"><small>
+              <?php if ($post['like']== "0"){
+                      echo "A nadie le gusta esto";
+                    } elseif ($post['like']== "1"){
+                      echo "A ".$post['like']." persona le gusta esto";
+                    } else{
+                      echo "A ".$post['like']." personas le gusta esto";
+                    }
+              ?>
+            </small></article>
             <div class="row no-gutters">
               <div class="col-sm-3">
-                <form class="" action="" method="get">
-                  <button type="button" class="btn btn-outline-primary" name="meGusta">Me Gusta!</button>
+                <form class="" action="meGusta.php" method="post">
+                  <input type="hidden" id="meGusta" name="meGusta" value="<?=$post['id']?>">
+                  <button type="submit" class="btn btn-outline-primary" name="">Me Gusta!</button>
                 </form>
               </div>
-              <div class="col-sm-2">
-                <form class="" action="editarPost.php" method="post">
-                  <input type="hidden" id="id" name="id" value="<?=$post['id']?>">
-                  <button type="submit" class="btn btn-outline-warning" name="editar=<?=$post['id']?>"><i class="fas fa-pen"></i></button>
-                </form>
-              </div>
-              <div class="col-sm-2">
-                <form class="" action="eliminarPost.php" method="post">
-                  <input type="hidden" id="id" name="id" value="<?=$post['id']?>">
-                  <button type="submit" class="btn btn-outline-danger" name="borrar=<?=$post['id']?>"><i class="fas fa-trash-alt"></i></button>
-                </form>
-              </div>
+              <?php if ($post['user_id']==$_SESSION['id']): ?>
+                <div class="col-sm-2">
+                  <form class="" action="editarPost.php" method="post">
+                    <input type="hidden" id="id" name="id" value="<?=$post['id']?>">
+                    <button type="submit" class="btn btn-outline-warning" name="editar=<?=$post['id']?>"><i class="fas fa-pen"></i></button>
+                  </form>
+                </div>
+                <div class="col-sm-2">
+                  <form class="" action="eliminarPost.php" method="post">
+                    <input type="hidden" id="id" name="id" value="<?=$post['id']?>">
+                    <button type="submit" class="btn btn-outline-danger" name="borrar=<?=$post['id']?>"><i class="fas fa-trash-alt"></i></button>
+                  </form>
+                </div>
+              <?php endif; ?>
             </div>
           </section>
           <?php endforeach; ?>
