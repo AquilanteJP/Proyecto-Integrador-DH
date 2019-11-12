@@ -1,18 +1,11 @@
 <?php
 require_once('loader.php');
 $sesion->verifSesion();
+if (isset($_POST["idPost"])) {
+  Usuario::darMg($_POST["idPost"],$db);
+  header("location:profile.php");
+}
 
-
-/*
-require_once("helpers.php");
-if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se es redirigido a registro.php
-  if(!isset($_COOKIE['firstName'])){//si no hay $_SESSION verifica que no exista una cookie para cargar el perfil
-
-  }
-} /*else {
-  dd($_SESSION); //Para checkear errores
-}*/
-//$_SESSION['email'] = "juangrum@gmail.com";
 ?>
 
 <html lang="en" dir="ltr">
@@ -87,8 +80,8 @@ if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se
              </small></article>
              <div class="row no-gutters">
                <div class="col-sm-3">
-                 <form class="" action="meGusta.php" method="post">
-                   <input type="hidden" id="meGusta" name="meGusta" value="<?=$post['id']?>">
+                 <form class="" action="" method="post">
+                   <input type="hidden" name="idPost" value="<?=$post['id']?>">
                    <button type="submit" class="btn btn-outline-primary" name="">Me Gusta!</button>
                  </form>
                </div>
@@ -116,7 +109,7 @@ if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se
           <br>
           <h5 class="text-center font-weight-bold">Lo que cuentan los demas</h5>
           <hr>
-          <?php $listaPosts=$consulta->read("posts.id, posts.titulo, posts.like, posts.contenido, user_id, usuarios.nombres","posts, usuarios",$db,"user_id = usuarios.id and user_id !='".$_SESSION['id']."' group by usuarios.nombres");?>
+          <?php $listaPosts=$consulta->read("posts.id, posts.titulo, posts.like, posts.contenido, user_id, usuarios.nombres","posts, usuarios",$db,"user_id = usuarios.id and user_id !='".$_SESSION['id']."'");?>
           <?php if ($listaPosts==null): ?>
           <section class="w-100 bg-light p-3 border-bottom border-secondary">
             <p class="text-center">Todavia nadie publico nada! Se el primero.</p>
@@ -129,7 +122,7 @@ if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se
             <article class=""><p class="text-break"><?= $post['contenido'];?></p></article>
             <hr>
             <article class="mb-1"><small>
-              <?php if ($post['like']<= "0"){
+              <?php if ($post['like']== "0"){
                       echo "A nadie le gusta esto";
                     } elseif ($post['like']== "1"){
                       echo "A ".$post['like']." persona le gusta esto";
@@ -140,8 +133,8 @@ if(empty($_SESSION)){ //Si no se inicio una sesión mediante guardarSesion(), se
             </small></article>
             <div class="row no-gutters">
               <div class="col-sm-3">
-                <form class="" action="meGusta.php" method="post">
-                  <input type="hidden" id="meGusta" name="meGusta" value="<?=$post['id']?>">
+                <form class="" action="" method="post">
+                  <input type="hidden"  name="idPost" value="<?=$post['id']?>">
                   <button type="submit" class="btn btn-outline-primary" name="">Me Gusta!</button>
                 </form>
               </div>

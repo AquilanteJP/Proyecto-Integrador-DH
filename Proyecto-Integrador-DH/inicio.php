@@ -13,6 +13,10 @@ if (isset($_POST['crearPost'])) { //Creacion de post in-page
   header("location:inicio.php");
   //RUDIMENTARIO PERO FUNCIONAL
   }
+if (isset($_POST["idPost"])) {
+  Usuario::darMg($_POST["idPost"],$db);
+  header("location:inicio.php");
+}
 
 ?>
 
@@ -93,8 +97,8 @@ if (isset($_POST['crearPost'])) { //Creacion de post in-page
             </small></article>
             <div class="row no-gutters">
               <div class="col-sm-3">
-                <form class="" action="meGusta.php" method="post">
-                  <input type="hidden" id="meGusta" name="meGusta" value="<?=$post['id']?>">
+                <form class="" action="" method="post">
+                  <input type="hidden" name="idPost" value="<?=$post['id']?>">
                   <button type="submit" class="btn btn-outline-primary" name="">Me Gusta!</button>
                 </form>
               </div>

@@ -14,10 +14,7 @@ class Post {
     $this->contenido = $contenido;
     $this->like = 0;
   }
-  public function meGusta(){
-    $this->like++;
-  }
-
+  
   public function getTitulo(){
     return $this->titulo;
   }

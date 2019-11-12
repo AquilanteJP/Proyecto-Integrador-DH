@@ -38,7 +38,12 @@ abstract class Usuario{
     $post = new Post($id, $titulo, $contenido);
     return $post;
   }
-
+  static public function darMg($idPost,$db){
+    $losmg = Consulta::read("posts.like","posts",$db,"posts.id ='".$idPost."'");
+    $nuevoMg = $losmg[0]['like'] +1;
+     Consulta::update("posts","posts.like",$nuevoMg,$idPost,$db);
+     return;
+  }
   public function eliminarse(){
     return;
   }
