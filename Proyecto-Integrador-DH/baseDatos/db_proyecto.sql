@@ -31,7 +31,7 @@ CREATE TABLE `amigos` (
   KEY `amigo2_usuario_id_foreign_idx` (`usuario2_id`) /*!80000 INVISIBLE */,
   CONSTRAINT `amigo1_usuario_id_foreign` FOREIGN KEY (`usuario1_id`) REFERENCES `usuarios` (`id`),
   CONSTRAINT `amigo2_usuario_id_foreign` FOREIGN KEY (`usuario2_id`) REFERENCES `usuarios` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_520_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
